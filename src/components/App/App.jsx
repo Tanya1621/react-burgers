@@ -2,6 +2,8 @@ import AppHeader from "../AppHeader/appHeader";
 import BurgerIngredients from "../BurgerIngredients/BurgerIngredients";
 import BurgerConstructor from "../BurgerConstructor/BurgerConstructor";
 import style from './App.module.css'
+import {ingredientsList} from "../../utils/ingredientsList";
+import {data} from "../../utils/data";
 
 
 const App = () => {
@@ -9,8 +11,8 @@ const App = () => {
         <>
         <AppHeader />
     <main className={style.main}>
-        <BurgerIngredients />
-        <BurgerConstructor></BurgerConstructor>
+        <BurgerIngredients data={data}></BurgerIngredients>
+        <BurgerConstructor props = {ingredientsList}></BurgerConstructor>
     </main>
         </>
     )

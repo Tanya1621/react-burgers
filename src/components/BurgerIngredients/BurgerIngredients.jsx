@@ -5,15 +5,15 @@ import React from "react";
 
 import style from './BurgerIngredients.module.css'
 import CardOfTheIngredient from "../CardOfTheIngredient/CardOfTheIngredient";
-import {data} from "../../utils/data";
-
-const buns = data.filter((element) => (element.type === 'bun'));
-const sauce = data.filter((element) => (element.type === 'sauce'));
-const main = data.filter((element) => (element.type === 'main'));
+import PropTypes from "prop-types";
+import {checkingPropTypes} from "../../utils/checkproptype";
 
 
-const BurgerIngredients = () => {
+const BurgerIngredients = ({data}) => {
     const [current, setCurrent] = React.useState('one');
+    const buns = data.filter((element) => (element.type === 'bun'));
+    const sauce = data.filter((element) => (element.type === 'sauce'));
+    const main = data.filter((element) => (element.type === 'main'));
     return (
         <section className={style.section}>
             <h1 className={`text text_type_main-large ${style.heading}`}>Соберите бургер</h1>
@@ -55,5 +55,7 @@ const BurgerIngredients = () => {
         </section>
     )
 }
-
+BurgerIngredients.propTypes = {
+    data: PropTypes.arrayOf(checkingPropTypes).isRequired,
+}
 export default BurgerIngredients;
