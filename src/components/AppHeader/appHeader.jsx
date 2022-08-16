@@ -5,30 +5,28 @@ import {
     BurgerIcon,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 
-//Style
 import style from './appHeader.module.css'
-
 
 
 function AppHeader() {
 
     return (
         <header className={style.header}>
-            <nav className={style.navigation}>
-                <div className={style.wrapper}>
-                <BurgerIcon type={"primary"} />
-                    <p className={style.paragraph}>Конструктор</p>
-            </div>
-                <div className={style.wrapper_order}>
-                    <ListIcon />
-                    <p className={style.paragraph}>Лента заказов</p>
-                </div>
+            <nav className={style.header__navigation}>
+                <a className={style.header__wrapper} href={'#'}>
+                    <BurgerIcon type={"primary"}/>
+                    <p className={`${style.header__paragraph} text text_type_main-default`}>Конструктор</p>
+                </a>
+                <a className={style.header__wrapper_order} href={'#'}>
+                    <ListIcon type={"secondary"}/>
+                    <p className={`${style.header__paragraph} text text_type_main-default`}>Лента заказов</p>
+                </a>
             </nav>
-            <Logo className={style.logo} />
-            <div className={style.wrapper_profile}>
-            <ProfileIcon type={"secondary"} />
-                <p className={style.paragraph}>Личный кабинет</p>
-        </div>
+            <Logo className={style.header__logo}/>
+            <a className={style.header__wrapper_profile} href={'#'}>
+                <ProfileIcon type={"secondary"}/>
+                <p className={`${style.header__paragraph} text text_type_main-default`}>Личный кабинет</p>
+            </a>
         </header>
     )
 }

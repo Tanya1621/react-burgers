@@ -15,8 +15,8 @@ const BurgerIngredients = ({data}) => {
     const sauce = data.filter((element) => (element.type === 'sauce'));
     const main = data.filter((element) => (element.type === 'main'));
     return (
-        <section className={style.section}>
-            <h1 className={`text text_type_main-large ${style.heading}`}>Соберите бургер</h1>
+        <section className={style.ingredients}>
+            <h1 className={`text text_type_main-large ${style.ingredients__heading}`}>Соберите бургер</h1>
             <div style={{display: 'flex'}}>
                 <Tab value="one" active={current === 'one'} onClick={setCurrent}
                      className="text text_type_main-default">
@@ -31,22 +31,22 @@ const BurgerIngredients = ({data}) => {
                     Начинки
                 </Tab>
             </div>
-            <ul className={style.ingredients_list}>
+            <ul className={style.ingredients__list}>
                 <h2 className='text text_type_main-default'>Булки</h2>
-                <div className={style.card__container}>
+                <div className={style.ingredients__container}>
                     {buns.map((element) => (
                         <CardOfTheIngredient key={element._id}>{element}</CardOfTheIngredient>
                     ))}
                     <h2 className='text text_type_main-default'>Соусы</h2>
                 </div>
-                <div className={style.card__container}>
+                <div className={style.ingredients__container}>
                     {sauce.map((element) => (
                         <CardOfTheIngredient key={element._id}>{element}</CardOfTheIngredient>
                     ))}
                 </div>
 
                 <h2 className='text text_type_main-default'>Основное</h2>
-                <div className={style.card__container}>
+                <div className={style.ingredients__container}>
                     {main.map((element) => (
                         <CardOfTheIngredient key={element._id}>{element}</CardOfTheIngredient>
                     ))}

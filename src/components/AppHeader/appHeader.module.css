@@ -8,46 +8,46 @@
     justify-content: space-evenly;
     align-items: center;
 }
-.navigation {
+
+.header__navigation {
     display: flex;
     width: 383px;
     gap: 8px;
 }
-.paragraph{
-    margin: 0;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
-    font-family: "Jet Brains Mono";
+
+.header__paragraph {
     margin-left: 9px;
 }
 
-.wrapper {
+.header__wrapper {
     display: flex;
     padding: 16px 20px;
-    border: solid red 1px;
-    border-radius: 40px;
     justify-content: center;
     align-items: center;
     height: 56px;
     box-sizing: border-box;
     width: 178px;
     white-space: nowrap;
-
+    text-decoration: none;
+    transition: color 1s ease;
+    color: white;
 }
 
-.wrapper_order {
-    composes: wrapper;
+
+.header__wrapper_order {
+    composes: header__wrapper;
     width: 197px;
+    color: #8585AD;
 }
 
-.wrapper_profile {
-    composes: wrapper;
+.header__wrapper_profile {
+    composes: header__wrapper;
     width: 207px;
+    color: #8585AD;
 }
 
 
-.logo {
-    width: 289.15px;
+.header__logo {
+    width: 289px;
     height: 40px;
 }

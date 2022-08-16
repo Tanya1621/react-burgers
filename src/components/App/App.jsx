@@ -9,11 +9,11 @@ import {data} from "../../utils/data";
 const App = () => {
     return (
         <>
-        <AppHeader />
-    <main className={style.main}>
-        <BurgerIngredients data={data}></BurgerIngredients>
-        <BurgerConstructor props = {ingredientsList}></BurgerConstructor>
-    </main>
+            <AppHeader/>
+            <main className={style.main}>
+                <BurgerIngredients data={data}></BurgerIngredients>
+                <BurgerConstructor props={ingredientsList}></BurgerConstructor>
+            </main>
         </>
     )
 }
