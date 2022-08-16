@@ -1,0 +1,41 @@
+.constructor {
+    margin-top: 100px;
+    margin-left: 56px;
+    width: 600px;
+}
+
+.constructor__list {
+    height: 464px;
+    overflow: auto;
+    padding-right: 8px;
+}
+
+.constructor__element {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    justify-content: flex-end;
+}
+
+.constructor__element_last {
+    composes: constructor__element;
+    justify-content: flex-end;
+    margin-right: 16px;
+}
+
+.constructor__total {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    align-items: center;
+    padding-right: 16px;
+}
+
+.constructor__price {
+    margin-right: 10px;
+}
+
+.constructor__sign {
+    margin-right: 41px;
+}

@@ -1,0 +1,53 @@
+.header {
+    display: flex;
+    width: calc(100% - 80px);
+    height: 88px;
+    background-color: #1C1C21;
+    margin: 40px;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.navigation {
+    display: flex;
+    width: 383px;
+    gap: 8px;
+}
+.paragraph{
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: "Jet Brains Mono";
+    margin-left: 9px;
+}
+
+.wrapper {
+    display: flex;
+    padding: 16px 20px;
+    border: solid red 1px;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+    box-sizing: border-box;
+    width: 178px;
+    white-space: nowrap;
+
+}
+
+.wrapper_order {
+    composes: wrapper;
+    width: 197px;
+}
+
+.wrapper_profile {
+    composes: wrapper;
+    width: 207px;
+}
+
+
+.logo {
+    width: 289.15px;
+    height: 40px;
+}

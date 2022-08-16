@@ -1,0 +1,20 @@
+.section {
+    width: 600px;
+}
+
+.ingredients_list{
+    width: 600px;
+    height: 100vh;
+    overflow: auto;
+
+}
+
+.card__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+    grid-template-rows: repeat(auto-fill, 208px);
+}
+
+.heading {
+    margin: 40px 0 20px;
+}
