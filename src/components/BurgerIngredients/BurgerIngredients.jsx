@@ -6,7 +6,7 @@ import React from "react";
 import style from './BurgerIngredients.module.css'
 import CardOfTheIngredient from "../CardOfTheIngredient/CardOfTheIngredient";
 import PropTypes from "prop-types";
-import {checkingPropTypes} from "../../utils/checkproptype";
+import {ingredientType} from "../../utils/ingredientType";
 
 
 const BurgerIngredients = ({data}) => {
@@ -17,7 +17,7 @@ const BurgerIngredients = ({data}) => {
     return (
         <section className={style.ingredients}>
             <h1 className={`text text_type_main-large ${style.ingredients__heading}`}>Соберите бургер</h1>
-            <div style={{display: 'flex'}}>
+            <div className={style.switcher}>
                 <Tab value="one" active={current === 'one'} onClick={setCurrent}
                      className="text text_type_main-default">
                     Булки
@@ -35,20 +35,20 @@ const BurgerIngredients = ({data}) => {
                 <h2 className='text text_type_main-default'>Булки</h2>
                 <div className={style.ingredients__container}>
                     {buns.map((element) => (
-                        <CardOfTheIngredient key={element._id}>{element}</CardOfTheIngredient>
+                        <CardOfTheIngredient key={element._id} data={element}/>
                     ))}
                     <h2 className='text text_type_main-default'>Соусы</h2>
                 </div>
                 <div className={style.ingredients__container}>
                     {sauce.map((element) => (
-                        <CardOfTheIngredient key={element._id}>{element}</CardOfTheIngredient>
+                        <CardOfTheIngredient key={element._id} data={element}/>
                     ))}
                 </div>
 
                 <h2 className='text text_type_main-default'>Основное</h2>
                 <div className={style.ingredients__container}>
                     {main.map((element) => (
-                        <CardOfTheIngredient key={element._id}>{element}</CardOfTheIngredient>
+                        <CardOfTheIngredient key={element._id} data={element}/>
                     ))}
                 </div>
             </ul>
@@ -56,6 +56,6 @@ const BurgerIngredients = ({data}) => {
     )
 }
 BurgerIngredients.propTypes = {
-    data: PropTypes.arrayOf(checkingPropTypes).isRequired,
+    data: PropTypes.arrayOf(ingredientType).isRequired,
 }
 export default BurgerIngredients;

@@ -5,14 +5,17 @@ import style from './App.module.css'
 import {ingredientsList} from "../../utils/ingredientsList";
 import {data} from "../../utils/data";
 
+const api = 'https://norma.nomoreparties.space/api/ingredients';
+let dataFromServ;
+
 
 const App = () => {
     return (
         <>
             <AppHeader/>
             <main className={style.main}>
-                <BurgerIngredients data={data}></BurgerIngredients>
-                <BurgerConstructor props={ingredientsList}></BurgerConstructor>
+                <BurgerIngredients data={data}/>
+                <BurgerConstructor ingredients={ingredientsList}></BurgerConstructor>
             </main>
         </>
     )
