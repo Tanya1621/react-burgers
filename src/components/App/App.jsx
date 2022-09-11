@@ -32,7 +32,7 @@ const App = () => {
         getInfo();
     }, [])
     const [isVisible, setVisibility] = useState(false);
-    const [modalType, setType] = useState(null);
+    const [modalType, setType] = useState('');
     const [ingredientInfo, setIngredientInfo] = useState(null);
     return (<>
         <AppHeader/>

@@ -5,6 +5,7 @@ import style from './BurgerConstructor.module.css'
 import PropTypes from 'prop-types';
 import {ingredientType} from "../../utils/ingredientType";
 
+
 const BurgerConstructor = ({ingredients, setVisibility, setType}) => {
     const bun = ingredients.filter((element) => element.type === 'bun');
     const openPopup = () => {

@@ -6,7 +6,6 @@ import ModalOverlay from "../ModalOverlay/ModalOverlay";
 import IngredientDetails from "../IngredientDetails/IngredientDetails";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import PropTypes from "prop-types";
-import {ingredientType} from "../../utils/ingredientType";
 
 
 const Modal = ({isOpen, setVisibilty, type, ingredientInfo}) => {
@@ -32,6 +31,15 @@ const Modal = ({isOpen, setVisibilty, type, ingredientInfo}) => {
 }
 
 Modal.propTypes = {
-    isOpen: PropTypes.bool.isRequired
+    isOpen: PropTypes.bool.isRequired,
+    type: PropTypes.string.isRequired,
+    ingredientInfo: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        proteins: PropTypes.number.isRequired,
+        fat: PropTypes.number.isRequired,
+        carbohydrates: PropTypes.number.isRequired,
+        calories: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+    })
 }
 export default Modal;
