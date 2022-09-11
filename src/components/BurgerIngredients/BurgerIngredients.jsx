@@ -9,11 +9,29 @@ import PropTypes from "prop-types";
 import {ingredientType} from "../../utils/ingredientType";
 
 
-const BurgerIngredients = ({data}) => {
+const BurgerIngredients = ({data, setVisibility, setType, setIngredientInfo}) => {
     const [current, setCurrent] = React.useState('one');
     const buns = data.filter((element) => (element.type === 'bun'));
     const sauce = data.filter((element) => (element.type === 'sauce'));
     const main = data.filter((element) => (element.type === 'main'));
+    //open popup with an ingredient
+
+
+    const openIngredientPopup = (info) => {
+        setVisibility(true);
+        setType('ingredient');
+        setIngredientInfo({
+                name: info.name,
+                image: info.image,
+                calories: info.calories,
+                carbohydrates: info.carbohydrates,
+                proteins: info.proteins,
+                fat: info.fat
+            }
+        )
+
+    }
+
     return (
         <section className={style.ingredients}>
             <h1 className={`text text_type_main-large ${style.ingredients__heading}`}>Соберите бургер</h1>
@@ -32,23 +50,26 @@ const BurgerIngredients = ({data}) => {
                 </Tab>
             </div>
             <ul className={style.ingredients__list}>
-                <h2 className='text text_type_main-default'>Булки</h2>
+                <h2 className={`text text_type_main-medium ${style.ingredients_type}`}>Булки</h2>
                 <div className={style.ingredients__container}>
                     {buns.map((element) => (
-                        <CardOfTheIngredient key={element._id} data={element}/>
+                        <CardOfTheIngredient key={element._id} data={element}
+                                             onClick={() => openIngredientPopup(element)}/>
                     ))}
-                    <h2 className='text text_type_main-default'>Соусы</h2>
+                    <h2 className={`text text_type_main-medium ${style.ingredients_type}`}>Соусы</h2>
                 </div>
                 <div className={style.ingredients__container}>
                     {sauce.map((element) => (
-                        <CardOfTheIngredient key={element._id} data={element}/>
+                        <CardOfTheIngredient key={element._id} data={element}
+                                             onClick={() => openIngredientPopup(element)}/>
                     ))}
                 </div>
 
-                <h2 className='text text_type_main-default'>Основное</h2>
+                <h2 className={`text text_type_main-medium ${style.ingredients_type}`}>Основное</h2>
                 <div className={style.ingredients__container}>
                     {main.map((element) => (
-                        <CardOfTheIngredient key={element._id} data={element}/>
+                        <CardOfTheIngredient key={element._id} data={element}
+                                             onClick={() => openIngredientPopup(element)}/>
                     ))}
                 </div>
             </ul>

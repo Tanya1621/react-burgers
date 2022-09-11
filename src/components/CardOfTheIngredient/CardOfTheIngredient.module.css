@@ -5,6 +5,7 @@
     height: 208px;
     width: 272px;
     position: relative;
+    cursor: pointer;
 }
 
 .card_price {

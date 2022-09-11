@@ -7,9 +7,9 @@ import style from './CardOfTheIngredient.module.css';
 import {ingredientType} from "../../utils/ingredientType";
 
 
-const CardOfTheIngredient = ({data}) => {
+const CardOfTheIngredient = ({data, onClick}) => {
     return (
-        <div className={style.card}>
+        <div className={style.card} onClick={onClick}>
             <Counter count={1} size="default"/>
             <img alt={data.name} src={data.image} className={style.card_image}/>
             <div className={style.card_price}>
