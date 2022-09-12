@@ -78,5 +78,8 @@ const BurgerIngredients = ({data, setVisibility, setType, setIngredientInfo}) =>
 }
 BurgerIngredients.propTypes = {
     data: PropTypes.arrayOf(ingredientType).isRequired,
+    setVisibility: PropTypes.func.isRequired,
+    setType: PropTypes.func.isRequired,
+    setIngredientInfo: PropTypes.func.isRequired,
 }
 export default BurgerIngredients;

@@ -5,6 +5,9 @@ import style from './App.module.css'
 import {ingredientsList} from "../../utils/ingredientsList";
 import {useEffect, useState} from 'react';
 import Modal from "../Modal/Modal";
+import OrderDetails from "../OrderDetails/OrderDetails";
+import IngredientDetails from "../IngredientDetails/IngredientDetails";
+import React from 'react';
 
 
 const App = () => {
@@ -41,8 +44,15 @@ const App = () => {
                                setIngredientInfo={setIngredientInfo}/>
             <BurgerConstructor ingredients={ingredientsList} setVisibility={setVisibility}
                                setType={setType}></BurgerConstructor>
-            <Modal isOpen={isVisible} setVisibilty={setVisibility} type={modalType}
-                   ingredientInfo={ingredientInfo}></Modal>
+            <Modal isOpen={isVisible} setVisibilty={setVisibility}
+                   ingredientInfo={ingredientInfo}>
+                {modalType === 'order' &&
+                    <OrderDetails></OrderDetails>
+                }
+                {modalType=== 'ingredient' &&
+                    <IngredientDetails ingredientInfo={ingredientInfo}></IngredientDetails>
+                }
+            </Modal>
         </main>
     </>)
 }

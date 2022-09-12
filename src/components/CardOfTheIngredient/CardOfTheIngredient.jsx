@@ -5,6 +5,7 @@ import {
 
 import style from './CardOfTheIngredient.module.css';
 import {ingredientType} from "../../utils/ingredientType";
+import PropTypes from "prop-types";
 
 
 const CardOfTheIngredient = ({data, onClick}) => {
@@ -22,6 +23,7 @@ const CardOfTheIngredient = ({data, onClick}) => {
 }
 CardOfTheIngredient.propTypes = {
     data: ingredientType.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
 
 export default CardOfTheIngredient;

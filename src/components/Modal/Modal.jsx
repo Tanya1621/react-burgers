@@ -6,40 +6,27 @@ import ModalOverlay from "../ModalOverlay/ModalOverlay";
 import IngredientDetails from "../IngredientDetails/IngredientDetails";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import PropTypes from "prop-types";
+import {ingredientInfoShort} from "../../utils/ingredientsInfoShort";
 
 
-const Modal = ({isOpen, setVisibilty, type, ingredientInfo}) => {
-    const closePopup = () => {
+const Modal = ({isOpen, setVisibilty, children}) => {
+    function closePopup () {
         setVisibilty(false);
     }
 
     return createPortal((
-        <>
             <ModalOverlay isOpen={isOpen} closePopup={closePopup}>
-                <div className={isOpen ? styles.popup : styles.popup_inactive}>
+                <div className={isOpen ? styles.popup : styles.popup_inactive} onClick={(e)=> {e.stopPropagation()}}>
                     <div className={styles.popupButton}>
                         <CloseIcon type={"primary"} onClick={closePopup}/></div>
-                    {type === 'order' &&
-                        <OrderDetails></OrderDetails>
-                    }
-                    {type === 'ingredient' &&
-                        <IngredientDetails ingredientInfo={ingredientInfo}></IngredientDetails>
-                    }
+                    {children}
                 </div>
             </ModalOverlay>
-        </>), document.getElementById("react-modals"))
+        ), document.getElementById("react-modals"))
 }
 
 Modal.propTypes = {
     isOpen: PropTypes.bool.isRequired,
-    type: PropTypes.string.isRequired,
-    ingredientInfo: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        proteins: PropTypes.number.isRequired,
-        fat: PropTypes.number.isRequired,
-        carbohydrates: PropTypes.number.isRequired,
-        calories: PropTypes.number.isRequired,
-        image: PropTypes.string.isRequired,
-    })
+    ingredientInfo: ingredientInfoShort,
 }
 export default Modal;

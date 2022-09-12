@@ -6,7 +6,6 @@ import styles from './ModalOverlay.module.css';
 const ModalOverlay = ({closePopup, isOpen, children}) => {
     const handleClose = React.useCallback((e) => {
         if (e.key === 'Escape') {
-            e.preventDefault();
             closePopup();
         }
     }, [])
@@ -18,12 +17,13 @@ const ModalOverlay = ({closePopup, isOpen, children}) => {
 
 
     return (
-        <>
-            {isOpen &&
-                <div onClick={(e) => {e.stopPropagation(); closePopup() }} className={styles.modalOverlay}>
-                    {children}
-                </div>}
-        </>)
+        isOpen && (
+            <div onClick={(evt) => {
+                closePopup(evt)
+            }} className={styles.modalOverlay}>
+                {children}
+            </div>)
+    )
 };
 
 ModalOverlay.propTypes = {
