@@ -1,0 +1,21 @@
+.popup_heading {
+    margin: 0 0 32px;
+}
+
+.popup_done {
+    width: 120px;
+    height: 120px;
+    margin: 60px 0;
+}
+
+.popup_paragraph {
+    margin: 0 0 8px 0;
+}
+
+.popup_paragraph:last-of-type {
+    margin: 0;
+}
+
+.popup_container {
+    padding: 120px 100px;
+}

@@ -1,0 +1,24 @@
+.popup {
+    width: min-content;
+    background-color: #1C1C21;
+    color: #F2F2F3;
+    box-shadow: 0 24px 32px rgba(0, 0, 0, 0.04), 0 16px 24px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(76, 76, 255, 0.2);
+    border-radius: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 10;
+    visibility: visible;
+    position: relative;
+    opacity: 100%;
+    transition: opacity 1s, visibility 1s ease-in-out;
+}
+
+
+.popup_inactive {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s, visibility 1s ease-in-out;
+}
+
+

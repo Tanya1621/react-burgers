@@ -1,0 +1,30 @@
+.ingredients {
+    width: 600px;
+}
+
+.switcher {
+    display: flex;
+}
+
+.ingredients__list {
+    width: 600px;
+    overflow: auto;
+    height: 686px;
+    margin: 0;
+
+}
+
+.ingredients__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+    grid-template-rows: repeat(auto-fill, 208px);
+    margin-top: 24px;
+}
+
+.ingredients__heading {
+    margin-bottom: 20px;
+}
+
+.ingredients_type {
+    margin: 40px 0 24px;
+}
