@@ -43,7 +43,9 @@ const BurgerConstructor = ({ingredients, setVisibility, setType}) => {
 }
 
 BurgerConstructor.propTypes = {
-    ingredients: PropTypes.arrayOf(ingredientType).isRequired
+    ingredients: PropTypes.arrayOf(ingredientType).isRequired,
+    setVisibility: PropTypes.func.isRequired,
+    setType: PropTypes.func.isRequired,
 }
 
 

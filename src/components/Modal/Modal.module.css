@@ -11,22 +11,14 @@
     visibility: visible;
     position: relative;
     opacity: 100%;
-    transition: opacity .5s, visibility .5s ease-in-out;
+    transition: opacity 1s, visibility 1s ease-in-out;
 }
 
 
 .popup_inactive {
     visibility: hidden;
     opacity: 0;
-    transition: opacity .5s, visibility .5s ease-in-out;
+    transition: opacity 1s, visibility 1s ease-in-out;
 }
 
 
-.popupButton {
-    position: absolute;
-    top: 60px;
-    right: 40px;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-}
