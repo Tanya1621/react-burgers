@@ -1,4 +1,5 @@
 # React-burgers
-## Описание: Сайт бургерной, на котором можно собрать межгалактический бургер на любой вкус
+## Description: The webpage of a burger shop where you can order any interstallar burger
+### Technologies: React.js, JS, HTMl, CSS, BEM
 
-###  Технологии: JS, HTMl, CSS, React.js, BEM
+Link: https://tanya1621.github.io/react-burgers/
