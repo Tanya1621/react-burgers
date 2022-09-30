@@ -1,12 +1,14 @@
 import styles from "./OrderDetails.module.css";
 import image from "../../images/done.png";
 import React from "react";
+import PropTypes from 'prop-types';
+import BurgerConstructor from "../BurgerConstructor/BurgerConstructor";
 
 
-const orderDetails = () => {
+const orderDetails = ({order}) => {
     return (
         <div className={styles.popup_container}>
-            <h2 className={`${styles.popup_heading} text text_type_digits-large`}>12345</h2>
+            <h2 className={`${styles.popup_heading} text text_type_digits-large`}>{order}</h2>
             <p className='text text_type_main-medium'>идентификатор заказа</p>
             <img src={image} className={styles.popup_done} alt={'галочка'}/>
             <p className={`${styles.popup_paragraph} text text_type_main-default`}>Ваш заказ начали готовить</p>
@@ -15,5 +17,7 @@ const orderDetails = () => {
         </div>
     )
 }
-
+orderDetails.propTypes = {
+    order: PropTypes.number.isRequired,
+}
 export default orderDetails;

@@ -5,13 +5,11 @@ import styles from './ModalOverlay.module.css';
 
 const ModalOverlay = ({closePopup, isOpen, children}) => {
     return (
-        isOpen && (
             <div onClick={() => {
                 closePopup()
-            }} className={styles.modalOverlay}>
+            }} className={isOpen ? `${styles.modalOverlay} ${styles.modalOverlay_active}` : styles.modalOverlay}>
                 {children}
             </div>)
-    )
 };
 
 ModalOverlay.propTypes = {

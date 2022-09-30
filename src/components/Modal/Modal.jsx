@@ -29,7 +29,7 @@ const Modal = ({isOpen, setVisibilty, children}) => {
 
     return createPortal((
         <ModalOverlay isOpen={isOpen} closePopup={closePopup}>
-            <div className={isOpen ? styles.popup : styles.popup_inactive} onClick={(e) => {
+            <div className={styles.popup} onClick={(e) => {
                 e.stopPropagation()
             }}>
                 <ModalCloseButton closePopup={closePopup}></ModalCloseButton>
