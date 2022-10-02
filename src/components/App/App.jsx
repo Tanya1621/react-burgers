@@ -10,15 +10,16 @@ import IngredientDetails from "../IngredientDetails/IngredientDetails";
 import React from 'react';
 import {BurgerConstructorContext} from "../services/BurgerConstructorContext";
 import burgerIngredients from "../BurgerIngredients/BurgerIngredients";
+import {INGREDIENTS_URL} from "../../utils/api";
+
 
 
 const App = () => {
-    const api = 'https://norma.nomoreparties.space/api/ingredients';
     const [order, setOrder] = useState(null);
     const [data, setData] = useState([])
     useEffect(() => {
         async function getInfo() {
-            fetch(api, {
+            fetch(INGREDIENTS_URL, {
                 method: 'GET',
             })
                 .then((res) => {
@@ -28,7 +29,8 @@ const App = () => {
                     return res.json();
                 })
                 .then((info) => {
-                    setData(info.data);
+                    if(info){
+                    setData(info.data);}
                 })
                 .catch((error) => {
                     console.log(error);
@@ -43,15 +45,14 @@ const App = () => {
     return (<>
         <AppHeader/>
         <main className={style.main}>
-            <BurgerConstructorContext.Provider value={data}>
+
             <BurgerIngredients data={data} setVisibility={setVisibility} setType={setType}
                                setIngredientInfo={setIngredientInfo}/>
-
+                <BurgerConstructorContext.Provider value={data}>
             <BurgerConstructor /*ingredients={ingredientsList}*/  setVisibility={setVisibility}
                                setType={setType} setOrder={setOrder}></BurgerConstructor>
-
-            <Modal isOpen={isVisible} setVisibilty={setVisibility}
-                   ingredientInfo={ingredientInfo}>
+                </BurgerConstructorContext.Provider>
+            <Modal isOpen={isVisible} setVisibility={setVisibility}>
                 {modalType === 'order' &&
                     <OrderDetails order={order}></OrderDetails>
                 }
@@ -59,7 +60,7 @@ const App = () => {
                     <IngredientDetails ingredientInfo={ingredientInfo}></IngredientDetails>
                 }
             </Modal>
-            </BurgerConstructorContext.Provider>
+
         </main>
     </>)
 }

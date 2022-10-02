@@ -6,22 +6,41 @@ import PropTypes from 'prop-types';
 import {useContext} from "react";
 import {BurgerConstructorContext} from "../services/BurgerConstructorContext";
 import React from "react";
+import {ORDER_URL} from "../../utils/api";
 
 
-const BurgerConstructor = ({/*ingredients,*/ setVisibility, setType, setOrder}) => {
+const BurgerConstructor = ({setVisibility, setType, setOrder}) => {
     const ingredients = useContext(BurgerConstructorContext);
-    const idArray = [];
-    ingredients.map((element) => {
-        idArray.push(element._id);
-    })
-    const openPopup = () => {
-        fetch('https://norma.nomoreparties.space/api/orders', {
+    let price;
+    let bun;
+    let usedIngredients = [];
+    if (ingredients.length !== 0) {
+        bun = ingredients.find((element) => element.type === 'bun');
+        usedIngredients = ingredients.filter((element) => element.type !== 'bun');
+        usedIngredients.push(bun);
+        usedIngredients.unshift(bun);
+
+        console.log(usedIngredients);
+        const otherIngredients = usedIngredients.filter((element) => element.type !== 'bun')
+        if (bun) {
+            price = otherIngredients.reduce((prevValue, current) => {
+                return prevValue + current.price;
+            }, bun.price * 2)
+        }}
+
+    const makeOrder = () => {
+        const idArray = [];
+        usedIngredients.map((element) => {
+            idArray.push(element._id);
+        });
+        fetch(ORDER_URL, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-        body: JSON.stringify({'ingredients': idArray})})
+            body: JSON.stringify({'ingredients': idArray})
+        })
             .then((res) => {
                 if (!res.ok) {
                     return Promise.reject(`Ошибка ${res.status}`);
@@ -29,36 +48,33 @@ const BurgerConstructor = ({/*ingredients,*/ setVisibility, setType, setOrder}) 
                 return res.json();
             })
             .then((info) => {
-                console.log(info);
-               setOrder(info.order.number);
+                if (info.order.number) {
+                    setOrder(info.order.number);
+                }
+                if (info.success) {
+                    setVisibility(true);
+                    setType('order');
+                }
             })
             .catch((error) => {
                 console.log(error);
             });
-        setVisibility(true);
-        setType('order');
+
     }
 
-    let price;
-    const bun = ingredients.filter((element) => element.type === 'bun');
-    const otherIngredients = ingredients.filter((element) => element.type !== 'bun')
-    if (bun[0]) {
-     price = otherIngredients.reduce((prevValue, current) => {
-        return prevValue + current.price;
-    }, bun[0].price * 2)}
-return (
+    return (
         <section className={style.constructor} area-label='Выбранные ингредиенты'>
             <div className={style.constructor__element_last}>
 
-                {bun[0] &&
-                    <ConstructorElement text={`${bun[0].name} (верх)`} thumbnail={bun[0].image} price={bun[0].price}
-                                        isLocked={true} type={"top"} key={'1'}/>}
+                {bun &&
+                    <ConstructorElement text={`${bun.name} (верх)`} thumbnail={bun.image} price={bun.price}
+                                        isLocked={true} type="top"/>}
             </div>
             <div className={style.constructor__list}>
-                {ingredients.map((element, index) => {
+                {usedIngredients.map((element, index) => {
                     if (element.type !== 'bun') {
                         return (<div className={style.constructor__element} key={element._id}>
-                            <DragIcon type={'primary'}/>
+                            <DragIcon type='primary'/>
                             <ConstructorElement
                                 text={element.name}
                                 thumbnail={element.image}
@@ -67,14 +83,14 @@ return (
                     }
                 })}  </div>
             <div className={style.constructor__element_last}>
-                {bun[0] &&
-                    <ConstructorElement text={`${bun[0].name} (верх)`} thumbnail={bun[0].image} price={bun[0].price}
-                                        isLocked={true} type={'bottom'} key={'2'}/>}
+                {bun &&
+                    <ConstructorElement text={`${bun.name} (верх)`} thumbnail={bun.image} price={bun.price}
+                                        isLocked={true} type='bottom'/>}
             </div>
             <div className={style.constructor__total}>
                 <p className={`text text_type_digits-medium ${style.constructor__price}`}>{price}</p>
-                <div className={style.constructor__sign}><CurrencyIcon type={"primary"}></CurrencyIcon></div>
-                <Button className={style.constructor__price} onClick={openPopup}>Оформить заказ</Button>
+                <div className={style.constructor__sign}><CurrencyIcon type="primary"></CurrencyIcon></div>
+                <Button className={style.constructor__price} onClick={makeOrder}>Оформить заказ</Button>
 
             </div>
         </section>)
@@ -83,7 +99,7 @@ return (
 BurgerConstructor.propTypes = {
     setVisibility: PropTypes.func.isRequired,
     setType: PropTypes.func.isRequired,
-    setOrder:  PropTypes.func.isRequired,
+    setOrder: PropTypes.func.isRequired,
 }
 
 

@@ -7,9 +7,9 @@ import {ingredientInfoShort} from "../../utils/ingredientsInfoShort";
 import ModalCloseButton from "../ModalHeader/ModalCloseButton";
 
 
-const Modal = ({isOpen, setVisibilty, children}) => {
+const Modal = ({isOpen, setVisibility, children}) => {
     function closePopup() {
-        setVisibilty(false);
+        setVisibility(false);
     }
 
     React.useEffect(() => {
@@ -43,5 +43,6 @@ Modal.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     ingredientInfo: ingredientInfoShort,
     children: PropTypes.node.isRequired,
+    setVisibility: PropTypes.func.isRequired,
 }
 export default Modal;
