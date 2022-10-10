@@ -2,10 +2,11 @@ import styles from "./OrderDetails.module.css";
 import image from "../../images/done.png";
 import React from "react";
 import PropTypes from 'prop-types';
-import BurgerConstructor from "../BurgerConstructor/BurgerConstructor";
+import {useSelector} from "react-redux";
 
 
-const orderDetails = ({order}) => {
+const OrderDetails = () => {
+    const {order} = useSelector(store => store.popupReducer);
     return (
         <div className={styles.popup_container}>
             <h2 className={`${styles.popup_heading} text text_type_digits-large`}>{order}</h2>
@@ -17,7 +18,5 @@ const orderDetails = ({order}) => {
         </div>
     )
 }
-orderDetails.propTypes = {
-    order: PropTypes.number.isRequired,
-}
-export default orderDetails;
+
+export default OrderDetails;

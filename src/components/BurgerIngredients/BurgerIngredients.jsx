@@ -7,9 +7,14 @@ import style from './BurgerIngredients.module.css'
 import CardOfTheIngredient from "../CardOfTheIngredient/CardOfTheIngredient";
 import PropTypes from "prop-types";
 import {ingredientType} from "../../utils/ingredientType";
+import {useDispatch, useSelector} from "react-redux";
+import {OPEN_POPUP_INGREDIENT, OPEN_POPUP_ORDER} from "../../services/actions";
+import {store} from "../../index";
+import {useRef} from "react";
 
-
-const BurgerIngredients = ({data, setVisibility, setType, setIngredientInfo}) => {
+const BurgerIngredients = () => {
+    const data = useSelector(store => store.constructorReducer.items);
+    const dispatch = useDispatch();
     const [current, setCurrent] = React.useState('bun');
     const buns = data.filter((element) => (element.type === 'bun'));
     const sauce = data.filter((element) => (element.type === 'sauce'));
@@ -17,30 +22,41 @@ const BurgerIngredients = ({data, setVisibility, setType, setIngredientInfo}) =>
 
     //open popup with an ingredient
 
+    const refBun = useRef(null);
+    const refSauce = useRef(null);
+    const refMain = useRef(null);
+
+
     function onClickTab(tab) {
         setCurrent(tab);
         const type = document.getElementById(tab);
-        if (type) type.scrollIntoView({behavior: "smooth"});
+        if (type) type.scrollIntoView({block: 'start', behavior: "smooth"});
+    }
+
+    const scroll = () => {
+        let bun = refBun.current.getBoundingClientRect().top;
+        let sauce = refSauce.current.getBoundingClientRect().top;
+        let main = refMain.current.getBoundingClientRect().top;
+
+        if (bun <= 250) {
+            setCurrent('bun')
+        }
+        if (sauce <= 250) {
+            setCurrent('sauce')
+        }
+        if (main <= 250) {
+            setCurrent('main')
+        }
+
     }
 
 
     const openIngredientPopup = (info) => {
-        setVisibility(true);
-        setType('ingredient');
-        setIngredientInfo({
-                name: info.name,
-                image: info.image,
-                calories: info.calories,
-                carbohydrates: info.carbohydrates,
-                proteins: info.proteins,
-                fat: info.fat
-            }
-        )
-
+        dispatch({type: OPEN_POPUP_INGREDIENT, ingredient: info});
     }
 
-    return (
-        <section className={style.ingredients}>
+
+    return (<section className={style.ingredients}>
             <h1 className={`text text_type_main-large ${style.ingredients__heading}`}>Соберите бургер</h1>
             <div className={style.switcher}>
                 <Tab value="bun" active={current === 'bun'} onClick={() => {
@@ -62,37 +78,33 @@ const BurgerIngredients = ({data, setVisibility, setType, setIngredientInfo}) =>
                     Начинки
                 </Tab>
             </div>
-            <div className={style.ingredients__list}>
-                <h2 id='bun' className={`text text_type_main-medium ${style.ingredients_type}`}>Булки</h2>
-                <div className={style.ingredients__container}>
-                    {buns.map((element) => (
-                        <CardOfTheIngredient key={element._id} data={element}
-                                             onClick={() => openIngredientPopup(element)}/>
-                    ))}
-                    <h2 id='sauce' className={`text text_type_main-medium ${style.ingredients_type}`}>Соусы</h2>
-                </div>
-                <div className={style.ingredients__container}>
-                    {sauce.map((element) => (
-                        <CardOfTheIngredient key={element._id} data={element}
-                                             onClick={() => openIngredientPopup(element)}/>
-                    ))}
-                </div>
+            <ul className={style.ingredients__list} onScroll={scroll}>
+                <li ref={refBun} id='bun'>
+                    <h2
+                        className={`text text_type_main-medium ${style.ingredients_type}`}>Булки</h2>
+                    <div className={style.ingredients__container}>
+                        {buns.map((element) => (<CardOfTheIngredient key={element._id} data={element}
+                                                                     onClick={() => openIngredientPopup(element)}/>))} </div>
+                </li>
+                <li ref={refSauce} id='sauce'>
+                    <h2
+                        className={`text text_type_main-medium ${style.ingredients_type}`}>Соусы</h2>
 
-                <h2 id='main' className={`text text_type_main-medium ${style.ingredients_type}`}>Основное</h2>
-                <div className={style.ingredients__container}>
-                    {main.map((element) => (
-                        <CardOfTheIngredient key={element._id} data={element}
-                                             onClick={() => openIngredientPopup(element)}/>
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
+                    <div className={style.ingredients__container}>
+                        {sauce.map((element) => (<CardOfTheIngredient key={element._id} data={element}
+                                                                      onClick={() => openIngredientPopup(element)}/>))}
+                    </div>
+                </li>
+                <li ref={refMain} id='main'>
+                    <h2
+                        className={`text text_type_main-medium ${style.ingredients_type}`}>Основное</h2>
+                    <div className={style.ingredients__container}>
+                        {main.map((element) => (<CardOfTheIngredient key={element._id} data={element}
+                                                                     onClick={() => openIngredientPopup(element)}/>))}
+                    </div>
+                </li>
+            </ul>
+        </section>)
 }
-BurgerIngredients.propTypes = {
-    data: PropTypes.arrayOf(ingredientType).isRequired,
-    setVisibility: PropTypes.func.isRequired,
-    setType: PropTypes.func.isRequired,
-    setIngredientInfo: PropTypes.func.isRequired,
-}
+
 export default BurgerIngredients;

@@ -5,11 +5,15 @@ import ModalOverlay from "../ModalOverlay/ModalOverlay";
 import PropTypes from "prop-types";
 import {ingredientInfoShort} from "../../utils/ingredientsInfoShort";
 import ModalCloseButton from "../ModalHeader/ModalCloseButton";
+import {useDispatch, useSelector} from "react-redux";
+import {CLOSE_POPUP} from "../../services/actions";
+import {store} from "../../index";
 
 
-const Modal = ({isOpen, setVisibility, children}) => {
+const Modal = ({ children}) => {
+    const dispatch = useDispatch();
     function closePopup() {
-        setVisibility(false);
+        dispatch({type: CLOSE_POPUP})
     }
 
     React.useEffect(() => {
@@ -18,17 +22,15 @@ const Modal = ({isOpen, setVisibility, children}) => {
                 closePopup();
             }
         }
-
-        if (isOpen) {
             document.addEventListener('keydown', closeByEscape);
             return () => {
                 document.removeEventListener('keydown', closeByEscape);
-            }
+
         }
-    }, [isOpen])
+    }, [])
 
     return createPortal((
-        <ModalOverlay isOpen={isOpen} closePopup={closePopup}>
+        <ModalOverlay closePopup={closePopup}>
             <div className={styles.popup} onClick={(e) => {
                 e.stopPropagation()
             }}>

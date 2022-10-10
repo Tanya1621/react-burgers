@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import {
     ADD_ITEM,
-    CLOSE_POPUP_INGREDIENT, CLOSE_POPUP_ORDER,
+    CLOSE_POPUP,
     GET_ITEMS_FAILED,
     GET_ITEMS_REQUEST,
-    GET_ITEMS_SUCCESS,
+    GET_ITEMS_SUCCESS, GET_ORDER_FAILED, GET_ORDER_REQUEST, GET_ORDER_SUCCESS,
     OPEN_POPUP_INGREDIENT, OPEN_POPUP_ORDER, REMOVE_ITEM
 } from "../actions";
 
@@ -12,7 +12,6 @@ const initialState = {
     items: [],
     addedItems: [],
     currentItem: {},
-    order: {},
     itemsRequest: false,
     itemsFailed: false,
 }
@@ -22,6 +21,8 @@ const popupState = {
     type: '',
     ingredient: {},
     order: null,
+    isFailed: false,
+    isRequested: false,
 }
 
 const cartState = {
@@ -42,16 +43,27 @@ const constructorReducer = (state = initialState, action) => {
    }
 }
 
+
 const popupReducer = (state = popupState, action) => {
     switch (action.type) {
         case OPEN_POPUP_INGREDIENT:
-            return {...state, isOpened: true, ingredient: action.item, type: 'ingredient' };
+            return {...state, isOpened: true, ingredient: {
+                name: action.ingredient.name,
+                    image: action.ingredient.image,
+                    calories: action.ingredient.calories,
+                    carbohydrates: action.ingredient.carbohydrates,
+                    proteins: action.ingredient.proteins,
+                    fat: action.ingredient.fat}, type: 'ingredient' };
         case OPEN_POPUP_ORDER:
-            return {...state, isOpened: true, type: 'order', order: action.order };
-        case CLOSE_POPUP_INGREDIENT:
-            return {...state, isOpened: false, ingredient: {}, type: ''};
-        case CLOSE_POPUP_ORDER:
-            return {...state, isOpened: false, order: null, type: '' }
+            return {...state, isOpened: true, type: 'order'};
+        case GET_ORDER_REQUEST:
+            return {...state, isRequested: true};
+        case GET_ORDER_SUCCESS:
+            return {...state, order: action.order, isRequested: false, isOpened: true, type: 'order'};
+        case GET_ORDER_FAILED:
+            return {...state, isRequested: false, isFailed: true}
+        case CLOSE_POPUP:
+            return {...state, isOpened: false, ingredient: {}, order: null, type: ''};
         default: return state;
     }
 }

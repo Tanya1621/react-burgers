@@ -17,7 +17,7 @@ const CardOfTheIngredient = ({data, onClick}) => {
                 <CurrencyIcon type="primary"/>
                 <p className='text text_type_digits-default'>{data.price}</p>
             </div>
-            <p className='text text_type_main-default'>{data.name}</p>
+            <p className={`${style.card_text} text text_type_main-default`}>{data.name}</p>
         </div>
     )
 }

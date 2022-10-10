@@ -1,9 +1,11 @@
 import styles from './IngredientDetails.module.css'
 import React from "react";
 import {ingredientInfoShort} from "../../utils/ingredientsInfoShort";
+import {useSelector} from "react-redux";
 
 
-const IngredientDetails = ({ingredientInfo}) => {
+const IngredientDetails = () => {
+    const ingredientInfo = useSelector(store => store.popupReducer.ingredient);
     return (
         <>
             <h2 className={`${styles.popupIngredients_header} text text_type_main-large`}>Детали ингредиента</h2>
@@ -34,10 +36,6 @@ const IngredientDetails = ({ingredientInfo}) => {
         </>
     )
 }
-
-IngredientDetails.propTypes = {
-    ingredientInfo: ingredientInfoShort,
-};
 
 
 export default IngredientDetails;

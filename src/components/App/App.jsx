@@ -8,60 +8,34 @@ import Modal from "../Modal/Modal";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import IngredientDetails from "../IngredientDetails/IngredientDetails";
 import React from 'react';
-import {BurgerConstructorContext} from "../services/BurgerConstructorContext";
-import burgerIngredients from "../BurgerIngredients/BurgerIngredients";
-import {INGREDIENTS_URL} from "../../utils/api";
-
+import {getItems} from "../../services/actions";
+import {store} from "../../index";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const App = () => {
-    const [order, setOrder] = useState(null);
-    const [data, setData] = useState([])
+    const dispatch = useDispatch();
     useEffect(() => {
-        async function getInfo() {
-            fetch(INGREDIENTS_URL, {
-                method: 'GET',
-            })
-                .then((res) => {
-                    if (!res.ok) {
-                        return Promise.reject(`Ошибка ${res.status}`);
-                    }
-                    return res.json();
-                })
-                .then((info) => {
-                    if(info){
-                    setData(info.data);}
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
-        getInfo();
-    }, [])
-    const [isVisible, setVisibility] = useState(false);
-    const [modalType, setType] = useState('');
-    const [ingredientInfo, setIngredientInfo] = useState(null);
+        dispatch(getItems());
+    }, [dispatch])
+
+    const isVisible = useSelector(store => store.popupReducer.isOpened);
+    const modalType = useSelector(store  => store.popupReducer.type);
 
 
     return (<>
         <AppHeader/>
         <main className={style.main}>
-
-            <BurgerIngredients data={data} setVisibility={setVisibility} setType={setType}
-                               setIngredientInfo={setIngredientInfo}/>
-                <BurgerConstructorContext.Provider value={data}>
-            <BurgerConstructor /*ingredients={ingredientsList}*/  setVisibility={setVisibility}
-                               setType={setType} setOrder={setOrder}></BurgerConstructor>
-                </BurgerConstructorContext.Provider>
-            <Modal isOpen={isVisible} setVisibility={setVisibility}>
+            <BurgerIngredients/>
+            <BurgerConstructor />
+            {isVisible && <Modal >
                 {modalType === 'order' &&
-                    <OrderDetails order={order}></OrderDetails>
+                    <OrderDetails></OrderDetails>
                 }
-                {modalType=== 'ingredient' &&
-                    <IngredientDetails ingredientInfo={ingredientInfo}></IngredientDetails>
+                {modalType === 'ingredient' &&
+                    <IngredientDetails />
                 }
-            </Modal>
-
+            </Modal>}
         </main>
     </>)
 }

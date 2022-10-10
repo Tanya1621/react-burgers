@@ -8,16 +8,18 @@
 
 .ingredients__list {
     width: 600px;
-    overflow: auto;
+    overflow-y: scroll;
     height: 686px;
     margin: 0;
+    padding: 0;
+    list-style: none;
 
 }
 
 .ingredients__container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
-    grid-template-rows: repeat(auto-fill, 208px);
+    grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+    grid-template-rows: repeat(auto-fit, 208px);
     margin-top: 24px;
 }
 

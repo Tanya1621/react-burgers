@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 import styles from './ModalOverlay.module.css';
+import {useSelector} from "react-redux";
 
-const ModalOverlay = ({closePopup, isOpen, children}) => {
+const ModalOverlay = ({closePopup, children}) => {
+    const isOpen = useSelector(store => store.popupReducer.isOpened);
     return (
             <div onClick={() => {
                 closePopup()
@@ -14,7 +16,6 @@ const ModalOverlay = ({closePopup, isOpen, children}) => {
 
 ModalOverlay.propTypes = {
     closePopup: PropTypes.func.isRequired,
-    isOpen: PropTypes.bool.isRequired,
     children: PropTypes.node.isRequired,
 }
 
