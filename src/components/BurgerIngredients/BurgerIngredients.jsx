@@ -10,11 +10,18 @@ import {ingredientType} from "../../utils/ingredientType";
 
 
 const BurgerIngredients = ({data, setVisibility, setType, setIngredientInfo}) => {
-    const [current, setCurrent] = React.useState('one');
+    const [current, setCurrent] = React.useState('bun');
     const buns = data.filter((element) => (element.type === 'bun'));
     const sauce = data.filter((element) => (element.type === 'sauce'));
     const main = data.filter((element) => (element.type === 'main'));
+
     //open popup with an ingredient
+
+    function onClickTab(tab) {
+        setCurrent(tab);
+        const type = document.getElementById(tab);
+        if (type) type.scrollIntoView({behavior: "smooth"});
+    }
 
 
     const openIngredientPopup = (info) => {
@@ -36,27 +43,33 @@ const BurgerIngredients = ({data, setVisibility, setType, setIngredientInfo}) =>
         <section className={style.ingredients}>
             <h1 className={`text text_type_main-large ${style.ingredients__heading}`}>Соберите бургер</h1>
             <div className={style.switcher}>
-                <Tab value="one" active={current === 'one'} onClick={setCurrent}
+                <Tab value="bun" active={current === 'bun'} onClick={() => {
+                    onClickTab('bun')
+                }}
                      className="text text_type_main-default">
                     Булки
                 </Tab>
-                <Tab value="two" active={current === 'two'} onClick={setCurrent}
+                <Tab value="sauce" active={current === 'sauce'} onClick={() => {
+                    onClickTab('sauce')
+                }}
                      className="text text_type_main-default">
                     Соусы
                 </Tab>
-                <Tab value="three" active={current === 'three'} onClick={setCurrent}
+                <Tab value="main" active={current === 'main'} onClick={() => {
+                    onClickTab('main')
+                }}
                      className="text text_type_main-default">
                     Начинки
                 </Tab>
             </div>
-            <ul className={style.ingredients__list}>
-                <h2 className={`text text_type_main-medium ${style.ingredients_type}`}>Булки</h2>
+            <div className={style.ingredients__list}>
+                <h2 id='bun' className={`text text_type_main-medium ${style.ingredients_type}`}>Булки</h2>
                 <div className={style.ingredients__container}>
                     {buns.map((element) => (
                         <CardOfTheIngredient key={element._id} data={element}
                                              onClick={() => openIngredientPopup(element)}/>
                     ))}
-                    <h2 className={`text text_type_main-medium ${style.ingredients_type}`}>Соусы</h2>
+                    <h2 id='sauce' className={`text text_type_main-medium ${style.ingredients_type}`}>Соусы</h2>
                 </div>
                 <div className={style.ingredients__container}>
                     {sauce.map((element) => (
@@ -65,14 +78,14 @@ const BurgerIngredients = ({data, setVisibility, setType, setIngredientInfo}) =>
                     ))}
                 </div>
 
-                <h2 className={`text text_type_main-medium ${style.ingredients_type}`}>Основное</h2>
+                <h2 id='main' className={`text text_type_main-medium ${style.ingredients_type}`}>Основное</h2>
                 <div className={style.ingredients__container}>
                     {main.map((element) => (
                         <CardOfTheIngredient key={element._id} data={element}
                                              onClick={() => openIngredientPopup(element)}/>
                     ))}
                 </div>
-            </ul>
+            </div>
         </section>
     )
 }

@@ -42,6 +42,7 @@ const App = () => {
     const [modalType, setType] = useState('');
     const [ingredientInfo, setIngredientInfo] = useState(null);
 
+
     return (<>
         <AppHeader/>
         <main className={style.main}>
