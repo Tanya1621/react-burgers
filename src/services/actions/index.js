@@ -46,12 +46,10 @@ export function makeNewOrder(ingredients) {
         });
         getOrderRequest(ingredients).then(res => {
             if (res && res.success) {
-                console.log(res.order.number);
                 dispatch({
                     type: GET_ORDER_SUCCESS,
                     order: res.order.number,
                 })
-                console.log(store.getState())
 
             } else {
                 dispatch({type: GET_ORDER_FAILED})

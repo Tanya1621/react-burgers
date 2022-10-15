@@ -5,6 +5,7 @@ import {REMOVE_ITEM, SORT_ITEMS} from "../../services/actions";
 import {useDispatch} from "react-redux";
 import {useDrag, useDrop} from "react-dnd";
 import {useRef} from "react";
+import PropTypes from "prop-types";
 
 export const AddedIngredient = ({ingredient, index}) => {
     const id = ingredient._id;
@@ -43,4 +44,9 @@ export const AddedIngredient = ({ingredient, index}) => {
                 thumbnail={ingredient.image}
                 price={ingredient.price} handleClose={() => onHandleClose()}/>
         </div>)
+}
+
+AddedIngredient.propTypes = {
+    index: PropTypes.number.isRequired,
+    ingredient: PropTypes.object.isRequired,
 }

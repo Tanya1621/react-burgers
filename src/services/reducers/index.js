@@ -84,7 +84,6 @@ const cartReducer = (state = initialState, action) => {
             }
         case REMOVE_ITEM:
             action.ingredient.counter -= 1;
-            console.log('deleted' + action.ingredient.counter);
             state.addedItems.splice(action.index, 1);
             return{...state, addedItems: [...state.addedItems]};
         case SORT_ITEMS:

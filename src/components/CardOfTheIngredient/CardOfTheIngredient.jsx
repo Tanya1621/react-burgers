@@ -15,7 +15,6 @@ const CardOfTheIngredient = ({data, onClick}) => {
     const itemsFromStore = useSelector(store => store.cartReducer.addedItems);
     const count = (itemsFromStore.find(item => item._id === id));
     const counter = count ? count.counter : 0;
-    console.log('this is counter' + counter);
     const [, dragRef] = useDrag({
         type: 'ingredient',
         item: {id}
