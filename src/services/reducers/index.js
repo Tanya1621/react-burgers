@@ -15,6 +15,16 @@ const initialState = {
     itemsRequest: false,
     itemsFailed: false,
     counter: {},
+    //popup
+    isOpened: false,
+    type: '',
+    ingredient: {},
+    order: null,
+    isFailed: false,
+    isRequested: false,
+    //cart
+    addedItems: [],
+
 }
 
 const popupState = {
@@ -27,20 +37,7 @@ const popupState = {
 }
 
 const cartState = {
-    addedItems: [{
-        "_id": "60666c42cc7b410027a1a9b1",
-        "name": "Краторная булка N-200i",
-        "type": "bun",
-        "proteins": 80,
-        "fat": 24,
-        "carbohydrates": 53,
-        "calories": 420,
-        "price": 1255,
-        "image": "https://code.s3.yandex.net/react/code/bun-02.png",
-        "image_mobile": "https://code.s3.yandex.net/react/code/bun-02-mobile.png",
-        "image_large": "https://code.s3.yandex.net/react/code/bun-02-large.png",
-        "__v": 0
-    }],
+    addedItems: [],
 }
 
 
@@ -50,7 +47,7 @@ const constructorReducer = (state = initialState, action) => {
        case GET_ITEMS_REQUEST:
            return {...state, itemsRequest: true};
        case GET_ITEMS_SUCCESS:
-           action.items.forEach(element => element.counter = 1);
+           action.items.forEach(element => element.counter = 0);
        return {...state, itemsRequest: false, items: action.items, counter: {}};
        case GET_ITEMS_FAILED:
            return {...state, itemsRequest: false, itemsFailed: true};
@@ -59,7 +56,7 @@ const constructorReducer = (state = initialState, action) => {
 }
 
 
-const popupReducer = (state = popupState, action) => {
+const popupReducer = (state = initialState, action) => {
     switch (action.type) {
         case OPEN_POPUP_INGREDIENT:
             return {...state, isOpened: true, ingredient: {
@@ -84,15 +81,21 @@ const popupReducer = (state = popupState, action) => {
 }
 
 
-const cartReducer = (state = cartState, action) => {
+const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM:
             if (action.item.type === 'bun') {
-               const newarr = state.addedItems.filter(item => item.type !== 'bun');
-               newarr.unshift(action.item);
-                return {...state, addedItems: [...newarr]}
-            } else return {...state, addedItems: [...state.addedItems, action.item]};
+                action.item.counter = 2;
+               const newArr = state.addedItems.filter(item => item.type !== 'bun');
+               newArr.unshift(action.item);
+                return {...state, addedItems: [...newArr]}
+            } else {
+                action.item.counter += 1;
+                return {...state, addedItems: [...state.addedItems, action.item]};
+            }
         case REMOVE_ITEM:
+            action.ingredient.counter -= 1;
+            console.log('deleted' + action.ingredient.counter);
             state.addedItems.splice(action.index, 1);
             return{...state, addedItems: [...state.addedItems]};
         case SORT_ITEMS:

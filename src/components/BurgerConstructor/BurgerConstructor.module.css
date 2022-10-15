@@ -40,3 +40,21 @@
 .constructor__sign {
     margin-right: 41px;
 }
+
+.constructor__empty {
+    width: 526px;
+    background-color: #2f2f37;
+    height: 80px;
+    text-align: center;
+    border-radius: 88px 88px 40px 40px;
+    border: dashed 2px #8585AD;
+    display: flex;
+}
+
+.constructor__text {
+    margin: auto;
+}
+
+.constructor__empty_bottom {
+    border-radius:  40px 40px 88px 88px;
+}
