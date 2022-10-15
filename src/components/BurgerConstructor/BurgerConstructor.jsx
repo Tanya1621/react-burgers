@@ -1,5 +1,5 @@
 import {
-    ConstructorElement, Button, CurrencyIcon, DragIcon
+    ConstructorElement, Button, CurrencyIcon
 } from '@ya.praktikum/react-developer-burger-ui-components'
 import style from './BurgerConstructor.module.css'
 import PropTypes from 'prop-types';
@@ -8,21 +8,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {makeNewOrder} from "../../services/actions";
 import {useDrop} from "react-dnd";
 import {ADD_ITEM} from "../../services/actions";
-import {store} from "../../index";
 import {AddedIngredient} from "../AddedIngredient/AddedIngredient";
 
 
 const BurgerConstructor = ({usedIngredients}) => {
     const dispatch = useDispatch();
     const {items} = useSelector(store => store.constructorReducer);
-    console.log(store.getState())
 
     function onDropHandler(itemId) {
-        const date = new Date();
-        const uniqueId = date.getTime();
         const item = items.find((element) => element._id === itemId.id);
         dispatch({type: ADD_ITEM, item});
-        console.log(store.getState());
     }
 
     const [, dropTarget] = useDrop({
@@ -35,6 +30,7 @@ const BurgerConstructor = ({usedIngredients}) => {
 
     let price = 0;
     let bun;
+
     if (usedIngredients.length !== 0) {
         let otherIngredients = [];
         bun = usedIngredients.find((element) => element.type === 'bun');
@@ -91,6 +87,9 @@ const BurgerConstructor = ({usedIngredients}) => {
         </section>)
 }
 
+BurgerConstructor.propTypes = {
+    usedIngredients: PropTypes.array.isRequired,
+}
 
 export default BurgerConstructor;
 

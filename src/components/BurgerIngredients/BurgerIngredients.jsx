@@ -5,11 +5,8 @@ import React from "react";
 
 import style from './BurgerIngredients.module.css'
 import CardOfTheIngredient from "../CardOfTheIngredient/CardOfTheIngredient";
-import PropTypes from "prop-types";
-import {ingredientType} from "../../utils/ingredientType";
 import {useDispatch, useSelector} from "react-redux";
-import {OPEN_POPUP_INGREDIENT, OPEN_POPUP_ORDER} from "../../services/actions";
-import {store} from "../../index";
+import {OPEN_POPUP_INGREDIENT} from "../../services/actions";
 import {useRef} from "react";
 
 const BurgerIngredients = () => {
@@ -19,18 +16,14 @@ const BurgerIngredients = () => {
     const buns = data.filter((element) => (element.type === 'bun'));
     const sauce = data.filter((element) => (element.type === 'sauce'));
     const main = data.filter((element) => (element.type === 'main'));
-    console.log(store.getState());
 
-    ///DND
-
-
-    //open popup with an ingredient
+    //create refs
 
     const refBun = useRef(null);
     const refSauce = useRef(null);
     const refMain = useRef(null);
 
-
+//scroll
     function onClickTab(tab) {
         setCurrent(tab);
         const type = document.getElementById(tab);

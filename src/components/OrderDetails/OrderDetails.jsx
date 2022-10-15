@@ -1,7 +1,6 @@
 import styles from "./OrderDetails.module.css";
 import image from "../../images/done.png";
 import React from "react";
-import PropTypes from 'prop-types';
 import {useSelector} from "react-redux";
 
 

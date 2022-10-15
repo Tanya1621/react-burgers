@@ -1,15 +1,13 @@
 import AppHeader from "../AppHeader/appHeader";
 import BurgerIngredients from "../BurgerIngredients/BurgerIngredients";
 import BurgerConstructor from "../BurgerConstructor/BurgerConstructor";
-import style from './App.module.css'
-import {ingredientsList} from "../../utils/ingredientsList";
-import {useEffect, useState} from 'react';
+import style from './App.module.css';
+import {useEffect} from 'react';
 import Modal from "../Modal/Modal";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import IngredientDetails from "../IngredientDetails/IngredientDetails";
 import React from 'react';
 import {getItems} from "../../services/actions";
-import {store} from "../../index";
 import {useDispatch, useSelector} from "react-redux";
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";

@@ -1,12 +1,5 @@
 import {INGREDIENTS_URL, ORDER_URL} from "../utils/api";
 
-// export const getItemsRequest = async () =>
-// {
-//  await fetch(INGREDIENTS_URL, {
-//             method: 'GET',
-//         }).then(res => console.log(res));
-// }
-//
 const checkResponse = (res) => {
     if (res.ok) {
         return res.json();

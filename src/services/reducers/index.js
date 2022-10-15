@@ -7,7 +7,6 @@ import {
     GET_ITEMS_SUCCESS, GET_ORDER_FAILED, GET_ORDER_REQUEST, GET_ORDER_SUCCESS,
     OPEN_POPUP_INGREDIENT, OPEN_POPUP_ORDER, REMOVE_ITEM, SORT_ITEMS
 } from "../actions";
-import {store} from "../../index";
 
 const initialState = {
     items: [],
@@ -27,18 +26,6 @@ const initialState = {
 
 }
 
-const popupState = {
-    isOpened: false,
-    type: '',
-    ingredient: {},
-    order: null,
-    isFailed: false,
-    isRequested: false,
-}
-
-const cartState = {
-    addedItems: [],
-}
 
 
 
@@ -81,6 +68,8 @@ const popupReducer = (state = initialState, action) => {
 }
 
 
+
+
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM:
@@ -101,7 +90,6 @@ const cartReducer = (state = initialState, action) => {
         case SORT_ITEMS:
             state.addedItems.splice(action.dragged, 1);
            state.addedItems.splice(action.dropped, 0, action.item);
-            console.log(action.lol)
             return {...state, addedItems: [...state.addedItems]}
         default: return state;
     }

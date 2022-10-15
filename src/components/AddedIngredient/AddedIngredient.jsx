@@ -3,7 +3,6 @@ import {ConstructorElement, DragIcon} from "@ya.praktikum/react-developer-burger
 import React from "react";
 import {REMOVE_ITEM, SORT_ITEMS} from "../../services/actions";
 import {useDispatch} from "react-redux";
-import {store} from "../../index";
 import {useDrag, useDrop} from "react-dnd";
 import {useRef} from "react";
 

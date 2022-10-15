@@ -42,9 +42,6 @@ const Modal = ({ children}) => {
 }
 
 Modal.propTypes = {
-    isOpen: PropTypes.bool.isRequired,
-    ingredientInfo: ingredientInfoShort,
     children: PropTypes.node.isRequired,
-    setVisibility: PropTypes.func.isRequired,
 }
 export default Modal;

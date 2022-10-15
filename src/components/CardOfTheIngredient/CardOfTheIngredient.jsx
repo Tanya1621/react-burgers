@@ -20,7 +20,6 @@ const CardOfTheIngredient = ({data, onClick}) => {
         type: 'ingredient',
         item: {id}
     })
-    // console.log(id);
     return (
         <div className={style.card} onClick={onClick} ref={dragRef}>
             <Counter count={counter} size="default"/>
