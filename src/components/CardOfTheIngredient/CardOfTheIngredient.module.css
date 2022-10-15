@@ -6,6 +6,7 @@
     width: 272px;
     position: relative;
     cursor: pointer;
+    background-color: #131316;
 }
 
 .card_price {

@@ -19,6 +19,10 @@ const BurgerIngredients = () => {
     const buns = data.filter((element) => (element.type === 'bun'));
     const sauce = data.filter((element) => (element.type === 'sauce'));
     const main = data.filter((element) => (element.type === 'main'));
+    console.log(store.getState());
+
+    ///DND
+
 
     //open popup with an ingredient
 
@@ -55,6 +59,9 @@ const BurgerIngredients = () => {
         dispatch({type: OPEN_POPUP_INGREDIENT, ingredient: info});
     }
 
+    const onDragHandler = (e) => {
+        e.preventDefault();
+    }
 
     return (<section className={style.ingredients}>
             <h1 className={`text text_type_main-large ${style.ingredients__heading}`}>Соберите бургер</h1>
@@ -83,8 +90,8 @@ const BurgerIngredients = () => {
                     <h2
                         className={`text text_type_main-medium ${style.ingredients_type}`}>Булки</h2>
                     <div className={style.ingredients__container}>
-                        {buns.map((element) => (<CardOfTheIngredient key={element._id} data={element}
-                                                                     onClick={() => openIngredientPopup(element)}/>))} </div>
+                        {buns.map((element) => (<CardOfTheIngredient onDragHandler={onDragHandler} key={element._id} data={element}
+                                                                     onClick={() => openIngredientPopup(element)}/>) )} </div>
                 </li>
                 <li ref={refSauce} id='sauce'>
                     <h2

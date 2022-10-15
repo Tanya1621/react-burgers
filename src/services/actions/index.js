@@ -15,7 +15,8 @@ export const OPEN_POPUP_ORDER = 'OPEN_POPUP_ORDER';
 export const CLOSE_POPUP = 'CLOSE_POPUP';
 
 export const ADD_ITEM = 'ADD_ITEM';
-export const REMOVE_ITEM = 'REMOVE_ITEM'
+export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const SORT_ITEMS = 'SORT_ITEMS';
 
 
 

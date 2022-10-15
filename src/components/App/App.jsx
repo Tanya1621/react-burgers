@@ -11,29 +11,34 @@ import React from 'react';
 import {getItems} from "../../services/actions";
 import {store} from "../../index";
 import {useDispatch, useSelector} from "react-redux";
+import {DndProvider} from "react-dnd";
+import {HTML5Backend} from "react-dnd-html5-backend";
 
 
 const App = () => {
     const dispatch = useDispatch();
+    const {addedItems} = useSelector(store => store.cartReducer);
     useEffect(() => {
         dispatch(getItems());
     }, [dispatch])
 
     const isVisible = useSelector(store => store.popupReducer.isOpened);
-    const modalType = useSelector(store  => store.popupReducer.type);
+    const modalType = useSelector(store => store.popupReducer.type);
 
 
     return (<>
         <AppHeader/>
         <main className={style.main}>
-            <BurgerIngredients/>
-            <BurgerConstructor />
-            {isVisible && <Modal >
+            <DndProvider backend={HTML5Backend}>
+                <BurgerIngredients/>
+                <BurgerConstructor usedIngredients={addedItems}/>
+            </DndProvider>
+            {isVisible && <Modal>
                 {modalType === 'order' &&
                     <OrderDetails></OrderDetails>
                 }
                 {modalType === 'ingredient' &&
-                    <IngredientDetails />
+                    <IngredientDetails/>
                 }
             </Modal>}
         </main>
