@@ -7,7 +7,7 @@ export const GET_ITEMS_SUCCESS = 'GET_ITEMS_SUCCESS';
 export const GET_ITEMS_FAILED = 'GET_ITEMS_FAILED';
 
 export const GET_ORDER_REQUEST = 'GET_ORDER_REQUEST';
-export const GET_ORDER_SUCCESS ='GET_ORDER_SUCCESS';
+export const GET_ORDER_SUCCESS = 'GET_ORDER_SUCCESS';
 export const GET_ORDER_FAILED = 'GET_ORDER_FAILED';
 
 export const OPEN_POPUP_INGREDIENT = 'OPEN_POPUP_INGREDIENT';
@@ -19,7 +19,6 @@ export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const SORT_ITEMS = 'SORT_ITEMS';
 
 
-
 export function getItems() {
     return function (dispatch) {
         dispatch({
@@ -29,13 +28,12 @@ export function getItems() {
         getItemsRequest().then(res => {
             if (res && res.success) {
                 dispatch({
-                    type: GET_ITEMS_SUCCESS,
-                    items: res.data
+                    type: GET_ITEMS_SUCCESS, items: res.data
                 })
             } else {
                 dispatch({type: GET_ITEMS_FAILED})
             }
-        })
+        }).catch(dispatch({type: GET_ITEMS_FAILED}))
     }
 }
 
@@ -47,13 +45,12 @@ export function makeNewOrder(ingredients) {
         getOrderRequest(ingredients).then(res => {
             if (res && res.success) {
                 dispatch({
-                    type: GET_ORDER_SUCCESS,
-                    order: res.order.number,
+                    type: GET_ORDER_SUCCESS, order: res.order.number,
                 })
 
             } else {
                 dispatch({type: GET_ORDER_FAILED})
             }
-        })
+        }).catch(dispatch({type: GET_ORDER_FAILED}))
     }
 }

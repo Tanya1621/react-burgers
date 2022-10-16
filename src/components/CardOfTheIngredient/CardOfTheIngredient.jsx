@@ -6,7 +6,7 @@ import {
 import style from './CardOfTheIngredient.module.css';
 import {ingredientType} from "../../utils/ingredientType";
 import PropTypes from "prop-types";
-import { useDrag } from "react-dnd";
+import {useDrag} from "react-dnd";
 import {useSelector} from "react-redux";
 
 

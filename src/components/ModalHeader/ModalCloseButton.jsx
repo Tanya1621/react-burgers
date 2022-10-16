@@ -5,8 +5,9 @@ import PropTypes from "prop-types";
 
 const ModalHeaderCloseButton = ({closePopup}) => {
     return (
-<div className={styles.popupButton}>
-    <CloseIcon type={"primary"} onClick={closePopup}/></div>)}
+        <div className={styles.popupButton}>
+            <CloseIcon type={"primary"} onClick={closePopup}/></div>)
+}
 
 
 ModalHeaderCloseButton.propTypes = {

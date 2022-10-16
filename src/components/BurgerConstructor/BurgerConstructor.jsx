@@ -1,22 +1,28 @@
 import {
     ConstructorElement, Button, CurrencyIcon
 } from '@ya.praktikum/react-developer-burger-ui-components'
-import style from './BurgerConstructor.module.css'
-import PropTypes from 'prop-types';
+import style from './BurgerConstructor.module.css';
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {makeNewOrder} from "../../services/actions";
 import {useDrop} from "react-dnd";
 import {ADD_ITEM} from "../../services/actions";
 import {AddedIngredient} from "../AddedIngredient/AddedIngredient";
+import {bun} from "../../utils/constants";
+import Modal from "../Modal/Modal";
+import OrderDetails from "../OrderDetails/OrderDetails";
 
 
-const BurgerConstructor = ({usedIngredients}) => {
+const BurgerConstructor = () => {
     const dispatch = useDispatch();
-    const {items} = useSelector(store => store.constructorReducer);
+    const usedIngredients = useSelector(store => store.cartReducer.addedItems);
+    const {items} = useSelector(store => store.ingredientsReducer);
 
     function onDropHandler(itemId) {
         const item = items.find((element) => element._id === itemId.id);
+        if (item.type === bun) {
+            item.counter = 2;
+        } else item.counter += 1;
         dispatch({type: ADD_ITEM, item});
     }
 
@@ -29,17 +35,18 @@ const BurgerConstructor = ({usedIngredients}) => {
     });
 
     let price = 0;
-    let bun;
+    let bunElement;
+
+    const isVisible = useSelector(store => store.popupOrderReducer.isOpened);
 
     if (usedIngredients.length !== 0) {
         let otherIngredients = [];
-        bun = usedIngredients.find((element) => element.type === 'bun');
-        otherIngredients = usedIngredients.filter((element) => element.type !== 'bun')
-        if (bun) {
-            price = otherIngredients.reduce((prevValue, current) => {
-                return prevValue + current.price;
-            }, bun.price * 2)
-        }
+        bunElement = usedIngredients.find((element) => element.type === bun);
+        otherIngredients = usedIngredients.filter((element) => element.type !== bun)
+        price = otherIngredients.reduce((prevValue, current) => {
+            return prevValue + current.price;
+        }, bunElement ? bunElement.price * 2 : 0)
+
     }
     const idArray = [];
     usedIngredients.map((element) => {
@@ -47,24 +54,25 @@ const BurgerConstructor = ({usedIngredients}) => {
     });
 
     const makeOrder = () => {
-        if (!idArray.isEmpty) {
+        if (!idArray.isEmpty && bunElement) {
             dispatch(makeNewOrder(idArray));
         }
     }
-    return (
-        <section className={style.constructor} area-label='Выбранные ингредиенты'>
+    return (<>
+        <section className={style.constructor} area-label='Выбранные ингредиенты' ref={dropTarget}>
             <div className={style.constructor__element_last}>
 
-                {bun ?
-                    (<ConstructorElement text={`${bun.name} (верх)`} thumbnail={bun.image} price={bun.price}
+                {bunElement ?
+                    (<ConstructorElement text={`${bunElement.name} (верх)`} thumbnail={bunElement.image}
+                                         price={bunElement.price}
                                          isLocked={true} type="top"/>)
                     : (<div className={` text text_type_main-medium ${style.constructor__empty}`}><p
                         className={style.constructor__text}>Добавьте булку </p></div>)
                 }
             </div>
-            <div className={style.constructor__list} ref={dropTarget}>
+            <div className={style.constructor__list}>
                 {usedIngredients.map((element, index) => {
-                    if (element.type !== 'bun') {
+                    if (element.type !== bun) {
                         return (
 
                             <AddedIngredient ingredient={element} index={index} key={element._id + index}/>
@@ -72,24 +80,28 @@ const BurgerConstructor = ({usedIngredients}) => {
                     }
                 })}  </div>
             <div className={style.constructor__element_last}>
-                {bun ? (
-                        <ConstructorElement text={`${bun.name} (низ)`} thumbnail={bun.image} price={bun.price}
+                {bunElement ? (
+                        <ConstructorElement text={`${bunElement.name} (низ)`} thumbnail={bunElement.image}
+                                            price={bunElement.price}
                                             isLocked={true} type='bottom'/>)
-                    : (<div className={` text text_type_main-medium ${style.constructor__empty} ${style.constructor__empty_bottom}`}><p
-                        className={style.constructor__text}>Добавьте булку</p></div>)}
+                    : (<div
+                        className={` text text_type_main-medium ${style.constructor__empty} ${style.constructor__empty_bottom}`}>
+                        <p
+                            className={style.constructor__text}>Добавьте булку</p></div>)}
             </div>
             <div className={style.constructor__total}>
                 <p className={`text text_type_digits-medium ${style.constructor__price}`}>{price}</p>
                 <div className={style.constructor__sign}><CurrencyIcon type="primary"></CurrencyIcon></div>
-                <Button className={style.constructor__price} onClick={makeOrder}>Оформить заказ</Button>
+                <Button onClick={makeOrder}>Оформить заказ</Button>
 
             </div>
-        </section>)
+        </section>
+        {isVisible && <Modal>
+            <OrderDetails></OrderDetails>
+        </Modal>}
+    </>)
 }
 
-BurgerConstructor.propTypes = {
-    usedIngredients: PropTypes.array.isRequired,
-}
 
 export default BurgerConstructor;
 

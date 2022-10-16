@@ -32,6 +32,7 @@ export const AddedIngredient = ({ingredient, index}) => {
     const dragNDropIngredient = dropIngredient(dragIngredient(ref));
 
     const onHandleClose = () => {
+        ingredient.counter -= 1;
         dispatch({type: REMOVE_ITEM, index, ingredient});
     }
 

@@ -1,5 +1,6 @@
 .ingredients {
     width: 600px;
+    position: relative;
 }
 
 .switcher {
@@ -8,7 +9,10 @@
 
 .ingredients__list {
     width: 600px;
+    overflow-x: hidden;
     overflow-y: scroll;
+    scroll-behavior: smooth;
+    position: relative;
     height: 686px;
     margin: 0;
     padding: 0;
