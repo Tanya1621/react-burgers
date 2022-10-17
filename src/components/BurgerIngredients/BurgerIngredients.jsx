@@ -40,13 +40,13 @@ const BurgerIngredients = () => {
         let sauceList = refSauce.current.getBoundingClientRect().top;
         let mainList = refMain.current.getBoundingClientRect().top;
 
-        if (bunList <= 250) {
+        if (bunList <= 220) {
             setCurrent(bun)
         }
-        if (sauceList <= 250) {
+        if (sauceList <= 220) {
             setCurrent(sauce)
         }
-        if (mainList <= 250) {
+        if (mainList <= 220) {
             setCurrent(main)
         }
 

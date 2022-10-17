@@ -1,14 +1,13 @@
 import style from "../BurgerConstructor/BurgerConstructor.module.css";
 import {ConstructorElement, DragIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 import React from "react";
-import {REMOVE_ITEM, SORT_ITEMS} from "../../services/actions";
+import {DECREASE_COUNTER, REMOVE_ITEM, SORT_ITEMS} from "../../services/actions";
 import {useDispatch} from "react-redux";
 import {useDrag, useDrop} from "react-dnd";
 import {useRef} from "react";
 import PropTypes from "prop-types";
 
 export const AddedIngredient = ({ingredient, index}) => {
-    const id = ingredient._id;
     ingredient.index = index;
     const dispatch = useDispatch();
 
@@ -32,8 +31,8 @@ export const AddedIngredient = ({ingredient, index}) => {
     const dragNDropIngredient = dropIngredient(dragIngredient(ref));
 
     const onHandleClose = () => {
-        ingredient.counter -= 1;
         dispatch({type: REMOVE_ITEM, index, ingredient});
+        dispatch({type: DECREASE_COUNTER, ingredient})
     }
 
 

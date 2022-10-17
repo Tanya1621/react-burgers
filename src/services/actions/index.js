@@ -18,6 +18,9 @@ export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const SORT_ITEMS = 'SORT_ITEMS';
 
+export const INCREASE_COUNTER = 'INCREASE_COUNTER';
+export const DECREASE_COUNTER = 'DECREASE_COUNTER';
+
 
 export function getItems() {
     return function (dispatch) {

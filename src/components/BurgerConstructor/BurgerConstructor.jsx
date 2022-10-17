@@ -4,7 +4,7 @@ import {
 import style from './BurgerConstructor.module.css';
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {makeNewOrder} from "../../services/actions";
+import {DECREASE_COUNTER, INCREASE_COUNTER, makeNewOrder} from "../../services/actions";
 import {useDrop} from "react-dnd";
 import {ADD_ITEM} from "../../services/actions";
 import {AddedIngredient} from "../AddedIngredient/AddedIngredient";
@@ -19,11 +19,14 @@ const BurgerConstructor = () => {
     const {items} = useSelector(store => store.ingredientsReducer);
 
     function onDropHandler(itemId) {
-        const item = items.find((element) => element._id === itemId.id);
-        if (item.type === bun) {
-            item.counter = 2;
-        } else item.counter += 1;
-        dispatch({type: ADD_ITEM, item});
+        const ingredient = items.find((element) => element._id === itemId.id);
+        if (ingredient.type === bun) {
+            const prevBun = usedIngredients.find((element) => element.type === bun);
+            if (prevBun) {
+            dispatch({type: DECREASE_COUNTER, ingredient: prevBun});}
+        }
+        dispatch({type: ADD_ITEM, item: ingredient});
+        dispatch({type: INCREASE_COUNTER, ingredient});
     }
 
     const [, dropTarget] = useDrop({

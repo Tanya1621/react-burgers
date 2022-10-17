@@ -12,7 +12,7 @@ import {useSelector} from "react-redux";
 
 const CardOfTheIngredient = ({data, onClick}) => {
     const id = data._id;
-    const itemsFromStore = useSelector(store => store.cartReducer.addedItems);
+    const itemsFromStore = useSelector(store => store.ingredientsReducer.items);
     const count = (itemsFromStore.find(item => item._id === id));
     const counter = count ? count.counter : 0;
     const [, dragRef] = useDrag({
@@ -21,7 +21,9 @@ const CardOfTheIngredient = ({data, onClick}) => {
     })
     return (
         <div className={style.card} onClick={onClick} ref={dragRef}>
+            {counter > 0 &&
             <Counter count={counter} size="default"/>
+            }
             <img alt={data.name} src={data.image} className={style.card_image}/>
             <div className={style.card_price}>
                 <CurrencyIcon type="primary"/>
