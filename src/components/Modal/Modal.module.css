@@ -8,17 +8,11 @@
     box-sizing: border-box;
     text-align: center;
     z-index: 10;
-    visibility: visible;
     position: relative;
-    opacity: 100%;
-    transition: opacity 1s, visibility 1s ease-in-out;
+
 }
 
 
-.popup_inactive {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 1s, visibility 1s ease-in-out;
-}
+
 
 

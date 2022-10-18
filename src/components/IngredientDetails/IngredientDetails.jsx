@@ -1,11 +1,11 @@
 import styles from './IngredientDetails.module.css'
 import React from "react";
-import {ingredientInfoShort} from "../../utils/ingredientsInfoShort";
+import {useSelector} from "react-redux";
 
 
-const IngredientDetails = ({ingredientInfo}) => {
-    return (
-        <>
+const IngredientDetails = () => {
+    const ingredientInfo = useSelector(store => store.popupIngredientReducer.ingredient);
+    return (<>
             <h2 className={`${styles.popupIngredients_header} text text_type_main-large`}>Детали ингредиента</h2>
             <img src={ingredientInfo.image} className={styles.popupIngredients_pic}
                  alt={`Изображение ингредиента ${ingredientInfo.name}`}/>
@@ -31,13 +31,8 @@ const IngredientDetails = ({ingredientInfo}) => {
                     <p className='text_color_inactive text text_type_digits-default'>{ingredientInfo.carbohydrates}</p>
                 </div>
             </div>
-        </>
-    )
+        </>)
 }
-
-IngredientDetails.propTypes = {
-    ingredientInfo: ingredientInfoShort,
-};
 
 
 export default IngredientDetails;
