@@ -1,0 +1,27 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 208px;
+    width: 272px;
+    position: relative;
+    cursor: pointer;
+    background-color: #131316;
+}
+
+.card_price {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin: 9px 0;
+}
+
+.card_image {
+    width: 240px;
+    height: 120px;
+}
+
+.card_text {
+    text-align: center;
+}
+
