@@ -1,0 +1,44 @@
+.profile {
+    margin-top: 120px;
+    margin-left: 380px;
+}
+
+.profile__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.profile__links {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+
+
+}
+
+.profile__inputs {
+    display: flex;
+    height: 350px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.link {
+    margin: 17px 0;
+    text-decoration: none;
+    color: #8585AD;
+}
+
+.profile__paragraph {
+    opacity: 0.4;
+    margin-top: 80px;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    color: #8585AD;
+    text-align: left;
+    margin: 17px 0;
+}

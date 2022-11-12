@@ -5,7 +5,7 @@
     background-color: #1C1C21;
     margin: 40px;
     box-sizing: border-box;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -22,15 +22,19 @@
 .header__wrapper {
     display: flex;
     padding: 16px 20px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 56px;
     box-sizing: border-box;
     width: 178px;
     white-space: nowrap;
     text-decoration: none;
-    transition: color 1s ease;
+    transition: opacity 1s ease;
     color: white;
+}
+
+.header__wrapper:hover {
+    opacity: .7;
 }
 
 
@@ -42,12 +46,9 @@
 
 .header__wrapper_profile {
     composes: header__wrapper;
-    width: 207px;
+    justify-content: center;
+    width: 383px;
     color: #8585AD;
 }
 
 
-.header__logo {
-    width: 289px;
-    height: 40px;
-}

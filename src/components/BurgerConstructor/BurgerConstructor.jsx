@@ -2,7 +2,7 @@ import {
     ConstructorElement, Button, CurrencyIcon
 } from '@ya.praktikum/react-developer-burger-ui-components'
 import style from './BurgerConstructor.module.css';
-import React from "react";
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {DECREASE_COUNTER, INCREASE_COUNTER, makeNewOrder} from "../../services/actions";
 import {useDrop} from "react-dnd";
@@ -11,13 +11,17 @@ import {AddedIngredient} from "../AddedIngredient/AddedIngredient";
 import {bun} from "../../utils/constants";
 import Modal from "../Modal/Modal";
 import OrderDetails from "../OrderDetails/OrderDetails";
+import redirect from "react-router-dom/es/Redirect";
+import {Redirect, useHistory} from "react-router-dom";
 
 
 const BurgerConstructor = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const usedIngredients = useSelector(store => store.cartReducer.addedItems);
     const {items} = useSelector(store => store.ingredientsReducer);
-
+    let redirection = false;
+    const {isAuth} = useSelector(store => store.authReducer);
     function onDropHandler(itemId) {
         const ingredient = items.find((element) => element._id === itemId.id);
         if (ingredient.type === bun) {
@@ -61,7 +65,12 @@ const BurgerConstructor = () => {
             dispatch(makeNewOrder(idArray));
         }
     }
+    const redirect = () => {
+        history.replace('/login');
+    }
+
     return (<>
+        {redirection && <Redirect to='/login' />}
         <section className={style.constructor} area-label='Выбранные ингредиенты' ref={dropTarget}>
             <div className={style.constructor__element_last}>
 
@@ -95,8 +104,7 @@ const BurgerConstructor = () => {
             <div className={style.constructor__total}>
                 <p className={`text text_type_digits-medium ${style.constructor__price}`}>{price}</p>
                 <div className={style.constructor__sign}><CurrencyIcon type="primary"></CurrencyIcon></div>
-                <Button onClick={makeOrder}>Оформить заказ</Button>
-
+                <Button onClick={isAuth ? makeOrder : redirect}>Оформить заказ</Button>
             </div>
         </section>
         {isVisible && <Modal>

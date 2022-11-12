@@ -2,6 +2,7 @@ import {
     Tab,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import React from "react";
+import {Link, Redirect, useLocation} from "react-router-dom";
 
 import style from './BurgerIngredients.module.css'
 import CardOfTheIngredient from "../CardOfTheIngredient/CardOfTheIngredient";
@@ -11,6 +12,7 @@ import {useRef} from "react";
 import {bun, main, sauce} from "../../utils/constants";
 import Modal from "../Modal/Modal";
 import IngredientDetails from "../IngredientDetails/IngredientDetails";
+import redirect from "react-router-dom/es/Redirect";
 
 const BurgerIngredients = () => {
     const data = useSelector(store => store.ingredientsReducer.items);
@@ -20,13 +22,14 @@ const BurgerIngredients = () => {
     const allSauce = data.filter((element) => (element.type === 'sauce'));
     const allMain = data.filter((element) => (element.type === 'main'));
 
-    const isVisible = useSelector(store => store.popupIngredientReducer.isOpened)
 
     //create refs
 
     const refBun = useRef(null);
     const refSauce = useRef(null);
     const refMain = useRef(null);
+
+    let location = useLocation();
 
 //scroll
     function onClickTab(tab) {
@@ -90,31 +93,40 @@ const BurgerIngredients = () => {
                             className={`text text_type_main-medium ${style.ingredients_type}`}>Булки</h2>
                         <div className={style.ingredients__container}>
                             {allBuns.map((element) => (
-                                <CardOfTheIngredient onDragHandler={onDragHandler} key={element._id} data={element}
-                                                     onClick={() => openIngredientPopup(element)}/>))} </div>
+                                <Link  key={element._id} to={{
+                                    pathname: '/ingredients/' + element._id,
+                                    state: {background: location}
+                                }} style={{textDecoration: 'none', color: 'white'}}><CardOfTheIngredient
+                                    onDragHandler={onDragHandler} data={element}
+                                    onClick={() => openIngredientPopup(element)}/></Link>))} </div>
                     </li>
                     <li ref={refSauce} id={sauce}>
                         <h2
                             className={`text text_type_main-medium ${style.ingredients_type}`}>Соусы</h2>
 
                         <div className={style.ingredients__container}>
-                            {allSauce.map((element) => (<CardOfTheIngredient key={element._id} data={element}
-                                                                             onClick={() => openIngredientPopup(element)}/>))}
+                            {allSauce.map((element) => (
+                                <Link  key={element._id} to={{
+                                    pathname: '/ingredients/' + element._id,
+                                    state: {background: location}
+                                }} style={{textDecoration: 'none', color: 'white'}}><CardOfTheIngredient
+                                    data={element}
+                                    onClick={() => openIngredientPopup(element)}/></Link>))}
                         </div>
                     </li>
                     <li ref={refMain} id={main}>
                         <h2
                             className={`text text_type_main-medium ${style.ingredients_type}`}>Основное</h2>
                         <div className={style.ingredients__container}>
-                            {allMain.map((element) => (<CardOfTheIngredient key={element._id} data={element}
-                                                                            onClick={() => openIngredientPopup(element)}/>))}
+                            {allMain.map((element) => (<Link  key={element._id} to={{
+                                pathname: '/ingredients/' + element._id,
+                                state: {background: location}
+                            }} style={{textDecoration: 'none', color: 'white'}}><CardOfTheIngredient key={element._id}
+                                                                                                     data={element} onClick={() => openIngredientPopup(element)}/></Link>))}
                         </div>
                     </li>
                 </ul>
             </section>
-            {isVisible && <Modal>
-                <IngredientDetails/>
-            </Modal>}
         </>
     )
 }

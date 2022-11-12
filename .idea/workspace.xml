@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="fixed scroll" />
+    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="fixed scroll">
+      <change afterPath="$PROJECT_DIR$/src/components/pages/ForgotPassword/ForgotPassword.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/ForgotPassword/ForgotPassword.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/IngredientPage/IngredientPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/IngredientPopup/IngredientPopup.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/LoginPage/LoginPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/LoginPage/LoginPage.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/MainPage/MainPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/ProfilePage/ProfilePage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/ProfilePage/ProfilePage.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/Registration/RegistartionPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/Registration/RegistrationPage.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/ResetPasswordPage/ResetPasswordPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/ResetPasswordPage/ResetPasswordPage.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/reducers/authReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/cookie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppHeader/appHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppHeader/appHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppHeader/appHeader.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppHeader/appHeader.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BurgerIngredients/BurgerIngredients.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerIngredients/BurgerIngredients.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/IngredientDetails/IngredientDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IngredientDetails/IngredientDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/IngredientDetails/IngredientDetails.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IngredientDetails/IngredientDetails.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderDetails/OrderDetails.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderDetails/OrderDetails.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,13 +45,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="month-8/step-2" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,6 +123,12 @@
       <workItem from="1665323488285" duration="14023000" />
       <workItem from="1666006063734" duration="2635000" />
       <workItem from="1667385946559" duration="50000" />
+      <workItem from="1667386018927" duration="3316000" />
+      <workItem from="1667396060602" duration="7150000" />
+      <workItem from="1667410749360" duration="48412000" />
+      <workItem from="1667755534196" duration="4675000" />
+      <workItem from="1667814709086" duration="218000" />
+      <workItem from="1668089058365" duration="23286000" />
     </task>
     <task id="LOCAL-00001" summary="First step">
       <created>1660661133491</created>
@@ -173,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666006340446</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed scroll">
+      <created>1667386133211</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1667386133211</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
