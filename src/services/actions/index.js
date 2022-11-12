@@ -83,7 +83,6 @@ export function makeNewOrder(ingredients) {
 //to register
 
 export function register (email, password, name) {
-    console.log(email, password, name)
     return function (dispatch) {
         dispatch({
             type: REGISTRATION_REQUEST
@@ -135,7 +134,6 @@ export function authorization (email, password) {
         authRequest(email, password).then(res => {
 
             if (res && res.success) {
-                console.log(res)
                 dispatch({
                     type: AUTHORIZATION_SUCCESS, user: {email: res.user.email, name: res.user.name}, token: res.accessToken, refreshToken: res.refreshToken
                 })

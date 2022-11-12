@@ -27,7 +27,8 @@ export const RegistrationPage = () => {
     }
 
 
-    const registrationHandler = () => {
+    const registrationHandler = (e) => {
+        e.preventDefault();
         dispatch(register(emailValue,passwordValue,nameValue));
     }
 
@@ -36,12 +37,12 @@ export const RegistrationPage = () => {
         <>
         {isAuth && <Redirect to='/profile' />}
         <section className={style.reg_page}>
-            <div className={style.reg_page__inputs}>
+            <form className={style.reg_page__inputs} onSubmit={registrationHandler}>
                 <h2 className='text text_type_main-medium'>Регистрация</h2>
                 <Input type='text' placeholder='Имя' value={nameValue} name={'name'} onChange={onNameChange}/>
                 <Input type='email' placeholder='E-mail' value={emailValue} name={'email'} onChange={onEmailChange}/>
                 <PasswordInput value={passwordValue} name={'password'} onChange={onPasswordChange}/>
-                <Button type='primary' size='medium' onClick={registrationHandler}>Зарегистрироваться</Button></div>
+                <Button type='primary' size='medium' htmlType={'submit'}>Зарегистрироваться</Button></form>
             <div>
                 <p className={`text text_type_main-small mb-4 ${style.paragraph}`}>Уже зарегистрированы? <NavLink to='/login' className={style.link}>Войти</NavLink></p>
             </div>

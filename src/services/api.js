@@ -44,15 +44,7 @@ export const restorePassword = async (email) => {
         body: JSON.stringify({'email': email})
     })
         .then((res) => checkResponse(res))
-        // .then((res) => {
-        //     if(res && res.success) {
-        //         console.log(res);
-        //     //    dispatch пароль rested и переход
-        //     }
-        //     else {
-        //         //try again dispatch filed
-        //     }
-        // })
+
 }
 
 export const resetPassword = async (password, token) => {

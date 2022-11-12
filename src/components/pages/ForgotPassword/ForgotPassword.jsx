@@ -16,7 +16,8 @@ export const ForgotPassword = () => {
         setEmailValue(e.target.value)
     }
 
-    const restoreHandler = () => {
+    const restoreHandler = (e) => {
+        e.preventDefault();
         setRequest(true);
         restorePassword(emailValue)
             .then((res) => {
@@ -38,12 +39,13 @@ export const ForgotPassword = () => {
             <section className={style.password_page}>
                 <div className={style.password__input}>
                     <h2 className='text text_type_main-medium'>Восстановление пароля</h2>
+                    <form onSubmit={restoreHandler}>
                     <Input type='email' placeholder='E-mail' value={emailValue} name={'email'}
                            onChange={onEmailChange}/>
                     {error && <p className='text text_type_main-small'>Произошла ошибка, попробуйте снова</p>}
                     <Button type='primary' size='medium'
-                            onClick={restoreHandler}>{isRequested ? 'Восстановление...' : "Восстановить"}</Button>
-                </div>
+                            htmlType={"submit"}>{isRequested ? 'Восстановление...' : "Восстановить"}</Button>
+                </form></div>
                 <p className={`text text_type_main-small mb-4 ${style.paragraph}`}>Уже зарегистрированы? <NavLink
                     to='/login' className={style.link}>Войти</NavLink></p>
             </section>

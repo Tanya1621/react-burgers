@@ -20,18 +20,19 @@ export const LoginPage = () => {
         setPasswordValue(e.target.value)
     }
 
-    const loginHandler = () => {
+    const loginHandler = (e) => {
+        e.preventDefault();
         dispatch(authorization(emailValue, passwordValue));
     }
     return (
         <>
         {isAuth && <Redirect to='/profile' />}
         <section className={style.login_page}>
-            <div className={style.login_page__inputs}>
+            <form className={style.login_page__inputs} onSubmit={loginHandler}>
                 <h2 className='text text_type_main-medium'>Войти</h2>
                 <Input type='email' placeholder='E-mail' value={emailValue} name={'email'} onChange={onEmailChange} />
                 <PasswordInput value={passwordValue} name={'password'} onChange={onPasswordChange} extraClass={style.input} />
-                <Button type='primary' size='medium' onClick={loginHandler}>Войти</Button></div>
+                <Button type='primary' size='medium' htmlType={'submit'}>Войти</Button></form>
             <div>
                 <p className={`text text_type_main-small mb-4 ${style.paragraph}`}>Вы новый пользователь? <NavLink to='/register' className={style.link}>Зарегистрироваться</NavLink></p>
                 <p className={`text text_type_main-small ${style.paragraph}`}>Забыли пароль? <NavLink to='/forgot-password' className={style.link}>Восстановить пароль</NavLink></p>

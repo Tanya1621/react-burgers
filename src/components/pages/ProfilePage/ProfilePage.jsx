@@ -48,7 +48,8 @@ export const ProfilePage = () => {
         setPasswordValue('');
     }
 
-    const updateHandler = () => {
+    const updateHandler = (e) => {
+        e.preventDefault();
         dispatch(updateUserInfo(emailValue, passwordValue, nameValue));
     }
 
@@ -64,13 +65,13 @@ export const ProfilePage = () => {
                 <p className={`${style.profile__paragraph} text text_type_main-default text_color_inactive`}>В этом разделе вы можете
                     изменить свои персональные данные</p>
             </div>
-        <div className={style.profile__inputs}>
+        <form className={style.profile__inputs} onSubmit={updateHandler}>
             <EmailInput name='email' onChange={onEmailChange} value={emailValue}/>
             <Input type='text' value={nameValue} placeholder='Имя'  onChange={onNameChange} icon="EditIcon"/>
             <Input type='password' value={passwordValue} placeholder='Пароль' onChange={onPasswordChange} icon="EditIcon"/>
-            <Button onClick={updateHandler}>Сохранить</Button>
+            <Button htmlType={'submit'}>Сохранить</Button>
             <Button onClick={cancelHandler}>Отмена</Button>
-        </div></div>
+        </form></div>
         </section></>
     )
 }

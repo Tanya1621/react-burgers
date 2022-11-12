@@ -13,6 +13,7 @@ import Modal from "../Modal/Modal";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import redirect from "react-router-dom/es/Redirect";
 import {Redirect, useHistory} from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
 
 const BurgerConstructor = () => {
@@ -22,14 +23,14 @@ const BurgerConstructor = () => {
     const {items} = useSelector(store => store.ingredientsReducer);
     let redirection = false;
     const {isAuth} = useSelector(store => store.authReducer);
-    function onDropHandler(itemId) {
+    function onDropHandler(itemId, uuid) {
         const ingredient = items.find((element) => element._id === itemId.id);
         if (ingredient.type === bun) {
             const prevBun = usedIngredients.find((element) => element.type === bun);
             if (prevBun) {
             dispatch({type: DECREASE_COUNTER, ingredient: prevBun});}
         }
-        dispatch({type: ADD_ITEM, item: ingredient});
+        dispatch({type: ADD_ITEM, item: ingredient, uuid: uuidv4()});
         dispatch({type: INCREASE_COUNTER, ingredient});
     }
 
@@ -87,7 +88,7 @@ const BurgerConstructor = () => {
                     if (element.type !== bun) {
                         return (
 
-                            <AddedIngredient ingredient={element} index={index} key={element._id + index}/>
+                            <AddedIngredient ingredient={element} index={index} key={element.uuid}/>
                         )
                     }
                 })}  </div>
