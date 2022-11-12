@@ -1,5 +1,5 @@
-import Modal from "../../Modal/Modal";
-import IngredientDetails from "../../IngredientDetails/IngredientDetails";
+import Modal from "../../components/Modal/Modal";
+import IngredientDetails from "../../components/IngredientDetails/IngredientDetails";
 import {useHistory} from "react-router-dom";
 
 export const IngredientPopup = () => {

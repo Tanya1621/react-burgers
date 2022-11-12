@@ -44,6 +44,8 @@ export const LOGOUT_FAILED = 'LOGOUT_FAILED';
 
 export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 
+export const UPDATE_AUTH = 'UPDATE_AUTH';
+
 export function getItems() {
     return function (dispatch) {
         dispatch({
@@ -64,6 +66,7 @@ export function getItems() {
 
 export function makeNewOrder(ingredients) {
     return function (dispatch) {
+        console.log('requested')
         dispatch({
             type: GET_ORDER_REQUEST
         });

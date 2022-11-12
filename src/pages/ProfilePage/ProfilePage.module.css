@@ -42,3 +42,10 @@
     text-align: left;
     margin: 17px 0;
 }
+
+.profile__button_area {
+   display: flex;
+    height: 80px;
+    padding-bottom: 25px;
+    align-items: center;
+}

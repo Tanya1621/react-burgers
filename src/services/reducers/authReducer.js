@@ -4,7 +4,7 @@ import {
     AUTHORIZATION_SUCCESS, LOGOUT_FAILED,
     LOGOUT_REQUEST,
     LOGOUT_SUCCESS,
-    REGISTRATION_SUCCESS, REGISTRATION_FAILED, REGISTRATION_REQUEST, UPDATE_USER_INFO
+    REGISTRATION_SUCCESS, REGISTRATION_FAILED, REGISTRATION_REQUEST, UPDATE_USER_INFO, UPDATE_AUTH
 } from "../actions";
 
 const initialState = {
@@ -27,6 +27,9 @@ export const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_USER_INFO: {
             return {...state, name: action.user.name, email: action.user.email}
+        }
+        case UPDATE_AUTH: {
+            return {...state, isAuth: true, name: action.user.name, email: action.user.emai }
         }
         case REGISTRATION_REQUEST:
             return {...state, regRequest: true};
