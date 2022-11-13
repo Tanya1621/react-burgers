@@ -11,21 +11,27 @@ import {AddedIngredient} from "../AddedIngredient/AddedIngredient";
 import {bun} from "../../utils/constants";
 import Modal from "../Modal/Modal";
 import OrderDetails from "../OrderDetails/OrderDetails";
+import { useHistory} from "react-router-dom";
+import {v4 as uuidv4} from 'uuid';
 
 
 const BurgerConstructor = () => {
+    const {isRequested} = useSelector(store => store.popupOrderReducer);
+    const history = useHistory();
     const dispatch = useDispatch();
     const usedIngredients = useSelector(store => store.cartReducer.addedItems);
     const {items} = useSelector(store => store.ingredientsReducer);
+    const {isAuth} = useSelector(store => store.authReducer);
 
-    function onDropHandler(itemId) {
+    function onDropHandler(itemId, uuid) {
         const ingredient = items.find((element) => element._id === itemId.id);
         if (ingredient.type === bun) {
             const prevBun = usedIngredients.find((element) => element.type === bun);
             if (prevBun) {
-            dispatch({type: DECREASE_COUNTER, ingredient: prevBun});}
+                dispatch({type: DECREASE_COUNTER, ingredient: prevBun});
+            }
         }
-        dispatch({type: ADD_ITEM, item: ingredient});
+        dispatch({type: ADD_ITEM, item: ingredient, uuid: uuidv4()});
         dispatch({type: INCREASE_COUNTER, ingredient});
     }
 
@@ -61,6 +67,10 @@ const BurgerConstructor = () => {
             dispatch(makeNewOrder(idArray));
         }
     }
+    const redirect = () => {
+        history.replace('/login');
+    }
+
     return (<>
         <section className={style.constructor} area-label='Выбранные ингредиенты' ref={dropTarget}>
             <div className={style.constructor__element_last}>
@@ -78,7 +88,7 @@ const BurgerConstructor = () => {
                     if (element.type !== bun) {
                         return (
 
-                            <AddedIngredient ingredient={element} index={index} key={element._id + index}/>
+                            <AddedIngredient ingredient={element} index={index} key={element.uuid}/>
                         )
                     }
                 })}  </div>
@@ -95,8 +105,9 @@ const BurgerConstructor = () => {
             <div className={style.constructor__total}>
                 <p className={`text text_type_digits-medium ${style.constructor__price}`}>{price}</p>
                 <div className={style.constructor__sign}><CurrencyIcon type="primary"></CurrencyIcon></div>
-                <Button onClick={makeOrder}>Оформить заказ</Button>
-
+                <Button
+                    onClick={isAuth ? makeOrder : redirect}>{isRequested ? 'Оформление...' : 'Оформить заказ'}</Button>
+                {isRequested && <p>Requested</p>}
             </div>
         </section>
         {isVisible && <Modal>

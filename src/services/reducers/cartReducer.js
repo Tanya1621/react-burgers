@@ -13,6 +13,7 @@ export const cartReducer = (state = initialState, action) => {
                 newArr.unshift(action.item);
                 return {...state, addedItems: [...newArr]}
             } else {
+                action.item.uuid = action.uuid;
                 return {...state, addedItems: [...state.addedItems, action.item]};
             }
         case REMOVE_ITEM:

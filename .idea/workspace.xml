@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="fixed forms, added uuid">
+      <change afterPath="$PROJECT_DIR$/src/components/AuthProtectedRoute/AuthProtectedRoute.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ProtectedRoute/ProtectedRoute.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppHeader/appHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppHeader/appHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/ForgotPassword/ForgotPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ForgotPassword/ForgotPassword.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/ForgotPassword/ForgotPassword.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ForgotPassword/ForgotPassword.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/IngredientPage/IngredientPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/IngredientPage/IngredientPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/IngredientPopup/IngredientPopup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/IngredientPopup/IngredientPopup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/LoginPage/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/LoginPage/LoginPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/MainPage/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/ProfilePage/ProfilePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/ProfilePage/ProfilePage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/Registration/RegistartionPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/RegistartionPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/Registration/RegistrationPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/RegistrationPage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/ResetPasswordPage/ResetPasswordPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResetPasswordPage/ResetPasswordPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/ResetPasswordPage/ResetPasswordPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResetPasswordPage/ResetPasswordPage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/authReducer.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2DLihbvG47YNY3nwQj9bcXlvqfb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/tanya/Desktop/react-burger/src/components/AuthProtectedRoute",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/tanya/Desktop/react-burger/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/AuthProtectedRoute" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/" />
+      <recent name="$PROJECT_DIR$/src/" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="" />
+      <created>1660484886090</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1660484886090</updated>
+      <workItem from="1660484889948" duration="46663000" />
+      <workItem from="1660886617309" duration="5796000" />
+      <workItem from="1662100993903" duration="7970000" />
+      <workItem from="1662403650842" duration="1207000" />
+      <workItem from="1662530896987" duration="24143000" />
+      <workItem from="1662876121456" duration="15946000" />
+      <workItem from="1662931555506" duration="1482000" />
+      <workItem from="1662990042218" duration="9272000" />
+      <workItem from="1663018118221" duration="963000" />
+      <workItem from="1663049125081" duration="169000" />
+      <workItem from="1663049355293" duration="3403000" />
+      <workItem from="1663136374120" duration="2878000" />
+      <workItem from="1663158354849" duration="53000" />
+      <workItem from="1663676186293" duration="8505000" />
+      <workItem from="1664346593930" duration="16046000" />
+      <workItem from="1664520763893" duration="2235000" />
+      <workItem from="1664624664656" duration="2577000" />
+      <workItem from="1665046290561" duration="129000" />
+      <workItem from="1665214518707" duration="3648000" />
+      <workItem from="1665221533080" duration="4811000" />
+      <workItem from="1665246686937" duration="123000" />
+      <workItem from="1665323488285" duration="14023000" />
+      <workItem from="1666006063734" duration="2635000" />
+      <workItem from="1667385946559" duration="50000" />
+      <workItem from="1667386018927" duration="3316000" />
+      <workItem from="1667396060602" duration="7150000" />
+      <workItem from="1667410749360" duration="48412000" />
+      <workItem from="1667755534196" duration="4675000" />
+      <workItem from="1667814709086" duration="218000" />
+      <workItem from="1668089058365" duration="34312000" />
+    </task>
+    <task id="LOCAL-00001" summary="First step">
+      <created>1660661133491</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660661133492</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fixed propTypes">
+      <created>1660663620955</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660663620955</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fixed">
+      <created>1660682612557</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1660682612557</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fixed margins">
+      <created>1660683683635</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660683683635</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixed after the review">
+      <created>1660766843822</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1660766843823</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added functionality">
+      <created>1662927754050</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1662927754050</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added functionality">
+      <created>1662933035829</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1662933035829</updated>
+    </task>
+    <task id="LOCAL-00008" summary="intermediate result">
+      <created>1663008705832</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1663008705833</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed after the first review">
+      <created>1663009939535</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1663009939536</updated>
+    </task>
+    <task id="LOCAL-00010" summary="month-8/step-1">
+      <created>1664521246950</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1664521246950</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fixed counter">
+      <created>1666005799621</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1666005799622</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fixed scroll">
+      <created>1666006340446</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1666006340446</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fixed scroll">
+      <created>1667386133211</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1667386133211</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added routing, authorization and registration">
+      <created>1668256646227</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668256646227</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fixed forms, added uuid">
+      <created>1668260193871</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668260193881</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="First step" />
+    <MESSAGE value="fixed propTypes" />
+    <MESSAGE value="fixed" />
+    <MESSAGE value="fixed margins" />
+    <MESSAGE value="fixed after the review" />
+    <MESSAGE value="added functionality" />
+    <MESSAGE value="intermediate result" />
+    <MESSAGE value="Fixed after the first review" />
+    <MESSAGE value="month-8/step-1" />
+    <MESSAGE value="fixed counter" />
+    <MESSAGE value="fixed scroll" />
+    <MESSAGE value="added routing, authorization and registration" />
+    <MESSAGE value="fixed forms, added uuid" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed forms, added uuid" />
+  </component>
+</project>

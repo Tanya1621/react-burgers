@@ -8,10 +8,11 @@ import {useDispatch} from "react-redux";
 import {CLOSE_POPUP} from "../../services/actions";
 
 
-const Modal = ({children}) => {
+const Modal = ({children, close}) => {
     const dispatch = useDispatch();
 
     function closePopup() {
+        if (close) close();
         dispatch({type: CLOSE_POPUP})
     }
 
