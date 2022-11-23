@@ -1,0 +1,57 @@
+.card {
+    width: 100%;
+    min-height: 214px;
+    background-color: #1C1C21;
+    border-radius: 40px;
+    box-sizing: border-box;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.card__my {
+    composes: card;
+    height: 246px;
+}
+
+.card__top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.card__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+}
+
+.card__ingredients {
+    display: flex;
+    margin-left: 10px;
+
+}
+
+.card__icon {
+    width: 56px;
+    height: 56px;
+    border: solid 3px #7c28b6;
+    border-radius: 50%;
+    margin: -10px;
+    background-color: #1C1C21;
+    object-fit: cover;
+}
+
+.card__price {
+    display: flex;
+    gap: 9px;
+}

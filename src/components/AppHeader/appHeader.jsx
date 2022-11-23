@@ -18,10 +18,10 @@ function AppHeader() {
                     <BurgerIcon type={"primary"}/>
                     <p className={`${style.header__paragraph} text text_type_main-default`}>Конструктор</p>
                 </NavLink>
-                <a className={style.header__wrapper_order} href={'#'}>
+                <NavLink to='/feed' className={style.header__wrapper_order} >
                     <ListIcon type={"secondary"}/>
                     <p className={`${style.header__paragraph} text text_type_main-default`}>Лента заказов</p>
-                </a>
+                </NavLink>
             </nav>
             <Logo/>
             <NavLink to='/profile' className={style.header__wrapper_profile}>

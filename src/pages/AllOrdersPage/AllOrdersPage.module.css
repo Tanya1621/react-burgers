@@ -1,0 +1,52 @@
+.orders {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.orders__heading {
+    margin-bottom: 20px;
+}
+
+.orders__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+}
+
+.orders__firstColumn {
+    height: 852px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.orders__secondColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.orders__list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 36px;
+}
+
+.orders__status{
+
+}
+
+.order__numbers {
+    margin-top: 24px;
+    height: 152px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    overflow: auto;
+}
+
+.orders__cooking{
+
+}

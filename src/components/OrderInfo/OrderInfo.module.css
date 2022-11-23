@@ -1,0 +1,38 @@
+.wrapper {
+    width: 640px;
+}
+
+.order__name {
+    margin: 40px 0 12px;
+    text-align: left;
+}
+
+.order__status {
+    text-align: left;
+}
+
+.order__components {
+    margin: 60px 0 24px;
+    text-align: left;
+}
+
+.scroll_area {
+    height: 366px;
+    margin-bottom: 40px;
+    overflow-y: auto;
+
+}
+
+.order__number {
+    margin-right: 9px;
+}
+
+.order__bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order__total {
+    display: flex;
+    align-items: center;
+}

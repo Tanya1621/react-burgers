@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="fixed forms, added uuid">
-      <change afterPath="$PROJECT_DIR$/src/components/AuthProtectedRoute/AuthProtectedRoute.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ProtectedRoute/ProtectedRoute.jsx" afterDir="false" />
+    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="fixed authorization, buttons, protected routes">
+      <change afterPath="$PROJECT_DIR$/src/components/OrderCard/OrderCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/OrderCard/OrderCard.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/OrderedIngredient/OrderedElement.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/OrderedIngredient/OrderedIngredient.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/AllOrdersPage/AllOrdersPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/AllOrdersPage/AllOrdersPage.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/OrderPage/OrderPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/OrderPage/OrderPage.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/OrdersPopup/OrdersPopup.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ProfileInfo/ProfileInfo.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ProfileOrders/ProfileOrders.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ProfileOrders/ProfileOrders.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/actions/wsActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/middleware/socketMiddleware.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/reducers/ordersReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/reducers/wsReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/ConvertDate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AppHeader/appHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppHeader/appHeader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/ForgotPassword/ForgotPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ForgotPassword/ForgotPassword.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/ForgotPassword/ForgotPassword.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ForgotPassword/ForgotPassword.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/IngredientPage/IngredientPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/IngredientPage/IngredientPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/IngredientPopup/IngredientPopup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/IngredientPopup/IngredientPopup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/LoginPage/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/LoginPage/LoginPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/MainPage/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/ProfilePage/ProfilePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/ProfilePage/ProfilePage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/Registration/RegistartionPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/RegistartionPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/Registration/RegistrationPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/RegistrationPage.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/ResetPasswordPage/ResetPasswordPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResetPasswordPage/ResetPasswordPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/ResetPasswordPage/ResetPasswordPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResetPasswordPage/ResetPasswordPage.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,32 +61,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/tanya/Desktop/react-burger/src/components/AuthProtectedRoute",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/tanya/Desktop/react-burger/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tanya/Desktop/react-burger&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/tanya/Desktop/react-burger/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/AuthProtectedRoute" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/pages/" />
       <recent name="$PROJECT_DIR$/src/components/" />
       <recent name="$PROJECT_DIR$/src/" />
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -122,7 +127,12 @@
       <workItem from="1667410749360" duration="48412000" />
       <workItem from="1667755534196" duration="4675000" />
       <workItem from="1667814709086" duration="218000" />
-      <workItem from="1668089058365" duration="34312000" />
+      <workItem from="1668089058365" duration="35589000" />
+      <workItem from="1668525608822" duration="2670000" />
+      <workItem from="1668535886054" duration="13593000" />
+      <workItem from="1668605584485" duration="8326000" />
+      <workItem from="1668885259624" duration="9480000" />
+      <workItem from="1669138864053" duration="11368000" />
     </task>
     <task id="LOCAL-00001" summary="First step">
       <created>1660661133491</created>
@@ -229,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668260193881</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixed authorization, buttons, protected routes">
+      <created>1668276450442</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668276450442</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +278,7 @@
     <MESSAGE value="fixed scroll" />
     <MESSAGE value="added routing, authorization and registration" />
     <MESSAGE value="fixed forms, added uuid" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed forms, added uuid" />
+    <MESSAGE value="fixed authorization, buttons, protected routes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed authorization, buttons, protected routes" />
   </component>
 </project>
