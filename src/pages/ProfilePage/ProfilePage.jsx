@@ -1,13 +1,8 @@
-import {Button, EmailInput, Input} from "@ya.praktikum/react-developer-burger-ui-components";
-import {NavLink, Redirect, Route} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import style from './ProfilePage.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {logout, register, UPDATE_USER_INFO, updateUserInfo} from "../../services/actions";
-import {store} from "../../index";
+import {logout} from "../../services/actions";
 import React, {useEffect} from "react";
-import {getUserData} from "../../services/api";
-import {ProfileInfo} from "../ProfileInfo/ProfileInfo";
-import {HashRouter as Router} from "react-router-dom";
 
 export const ProfilePage = ({children}) => {
     const dispatch = useDispatch();
@@ -15,12 +10,18 @@ export const ProfilePage = ({children}) => {
     const logoutHandler = () => {
         dispatch(logout(token));
     }
+
+    const activeStyle = {
+        color: 'white'
+    }
     return (<>
         <section className={style.profile}>
             <div className={style.profile__wrapper}>
                 <div className={style.profile__links}>
-                    <NavLink to='/profile' className={`${style.link} text text_type_main-medium`}>Профиль</NavLink>
-                    <NavLink to='/profile/orders' className={`${style.link} text text_type_main-medium`}>История
+                    <NavLink to='/profile/' activeStyle={activeStyle}
+                             className={`${style.link} text text_type_main-medium`}>Профиль</NavLink>
+                    <NavLink to='/profile/order' activeStyle={activeStyle}
+                             className={`${style.link} text text_type_main-medium`}>История
                         заказов</NavLink>
                     <button onClick={logoutHandler} className={`${style.button} text text_type_main-medium`}>Выход
                     </button>

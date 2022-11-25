@@ -1,20 +1,26 @@
 import React from 'react';
 import {OrderInfo} from "../../components/OrderInfo/OrderInfo";
 import style from './OrderPage.module.css'
+import {WS_CONNECTION_CLOSED, WS_CONNECTION_START} from "../../services/actions/wsActions";
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {useLocation} from "react-router-dom";
 
 function OrderPage() {
-    const testObject = {
-        createdAt: "2022-11-16T11:44:17.370Z",
-        ingredients: ['60d3b41abdacab0026a733c7', '60d3b41abdacab0026a733cc', '60d3b41abdacab0026a733c7'],
-        name: "Spicy флюоресцентный бургер",
-        number: 30302,
-        status: "done",
-        updatedAt: "2022-11-16T11:44:17.767Z",
-        _id: "6374cd119b518a001bb845cd",
-    }
+    const location = useLocation();
+    const isPrivate = location.pathname.includes('feed')? false : true;
+    //unexpected behavior of variable isPrivate; it doesn't work without ternary operator. ?
+    const dispatch = useDispatch();
+    const ingredients = useSelector(store => store.ingredientsReducer.items);
+    useEffect(() => {
+        dispatch({type: WS_CONNECTION_START, isPrivate: isPrivate})
+        return () => {
+            dispatch({type: WS_CONNECTION_CLOSED})
+        }
+    }, [])
     return (
         <section className={style.order_info}>
-            <OrderInfo order={testObject}/>
+            <OrderInfo/>
         </section>
     );
 }

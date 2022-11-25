@@ -1,28 +1,24 @@
 import style from './AllOrdersPage.module.css';
-import {CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 import {OrderCard} from "../../components/OrderCard/OrderCard";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 import {Link} from "react-router-dom";
+import {WS_CONNECTION_CLOSED, WS_CONNECTION_START} from "../../services/actions/wsActions";
 
 
 export const AllOrdersPage = () => {
     const location = useLocation();
     const dispatch = useDispatch();
-    const [data, setData] = useState({});
-    const orders = useSelector(store => store.ordersReducer.lastOrders);
+    const today = useSelector(store => store.wsReducer.today);
+    const total = useSelector(store => store.wsReducer.total)
+    const orders = useSelector(store => store.wsReducer.orders);
     useEffect(() => {
-        const ws = new WebSocket('wss://norma.nomoreparties.space/orders/all');
-        ws.onmessage = (event) => {
-            if(event.data) {
-                console.log(JSON.parse(event.data));
-           setData(JSON.parse(event.data));
-                dispatch({type: 'GET_LAST_ORDERS', orders: JSON.parse(event.data).orders})
+        dispatch({type: WS_CONNECTION_START, isPrivate: false})
+        return () => {
+            dispatch({type: WS_CONNECTION_CLOSED})
         }
-        };
     }, [])
-
 
 
     return (
@@ -31,10 +27,10 @@ export const AllOrdersPage = () => {
             <div className={style.orders__content}>
                 <div className={style.orders__firstColumn}>
                     {orders && orders.map((el) => {
-                       return <Link  key={el._id} to={{
-                           pathname: '/feed/' + el._id,
-                           state: {background: location}
-                       }} style={{textDecoration: 'none', color: 'white'}}><OrderCard order={el} /></Link>
+                        return <Link key={el._id} to={{
+                            pathname: '/feed/' + el._id,
+                            state: {background: location}
+                        }} style={{textDecoration: 'none', color: 'white'}}><OrderCard order={el}/></Link>
                     })
                     }
                 </div>
@@ -62,11 +58,11 @@ export const AllOrdersPage = () => {
                     </div>
                     <div>
                         <h3 className='text text_type_main-medium'>Выполнено за все время:</h3>
-                        <p className='text text_type_digits-large'>{data.total ? data.total : ''}</p>
+                        <p className='text text_type_digits-large'>{total ? total : ''}</p>
                     </div>
                     <div>
                         <h3 className='text text_type_main-medium'>Выполнено за сегодня:</h3>
-                        <p className='text text_type_digits-large'>{data.totalToday ? data.totalToday : ''}</p>
+                        <p className='text text_type_digits-large'>{today ? today : ''}</p>
                     </div>
                 </div>
 

@@ -10,35 +10,41 @@ import {
 export const socketMiddleware = (wsUrl) => {
     return store => {
         let socket = null;
-        const token = wsUrl.includes('/all') ? false : getCookie('accessToken');
+        const isCommon = wsUrl.includes('/all');
+        const currentToken = getCookie('accessToken');
+        const token = !isCommon ? currentToken ? currentToken.substr(7) : false : false;
         return next => action => {
-            const { dispatch} = store;
-            const { type, payload } = action;
+            const {dispatch} = store;
+            const {type, isPrivate} = action;
             if (type === WS_CONNECTION_START) {
-                socket = token? new WebSocket(`${wsUrl}?token=${token}`) : new WebSocket(wsUrl);
+                socket = isPrivate ? new WebSocket(`${wsUrl}?token=${token}`) : new WebSocket(`${wsUrl}/all`);
             }
             if (socket) {
                 socket.onopen = event => {
-                    dispatch({ type: WS_CONNECTION_SUCCESS, payload: event });
+                    dispatch({type: WS_CONNECTION_SUCCESS, payload: event});
                 };
 
                 socket.onerror = event => {
-                    dispatch({ type: WS_CONNECTION_ERROR, payload: event });
+                    dispatch({type: WS_CONNECTION_ERROR, payload: event});
                 };
 
                 socket.onmessage = event => {
-                    const { data } = event;
+                    const {data} = event;
                     const parsedData = JSON.parse(data);
-
-                    dispatch({ type: WS_GET_ORDERS, orders: parsedData.orders });
+                    dispatch({
+                        type: WS_GET_ORDERS,
+                        orders: parsedData.orders,
+                        total: parsedData.total,
+                        today: parsedData.totalToday
+                    });
                 };
 
                 if (type === WS_CONNECTION_CLOSED) {
                     socket.close();
                 }
 
-                    socket.onclose = event => {
-                    dispatch({ type: WS_CONNECTION_CLOSED, payload: event });
+                socket.onclose = event => {
+                    dispatch({type: WS_CONNECTION_CLOSED, payload: event});
                 };
 
             }

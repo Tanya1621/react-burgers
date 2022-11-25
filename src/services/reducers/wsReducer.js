@@ -9,6 +9,8 @@ const initialState = {
     isConnected: false,
     orders: [],
     isFailed: false,
+    total: null,
+    today: null
 }
 
 export const wsReducer = (state = initialState, action) => {
@@ -20,6 +22,8 @@ export const wsReducer = (state = initialState, action) => {
         case WS_CONNECTION_CLOSED:
             return {...state, isConnected: false, isFailed: false, orders: []};
         case WS_GET_ORDERS:
-            return {...state, orders: action.orders};
+            return {...state, orders: action.orders, total: action.total, today: action.today};
+        default:
+            return state;
     }
 }

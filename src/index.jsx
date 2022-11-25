@@ -17,7 +17,7 @@ const composeEnhancers =
         ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
         : compose;
 
-const enhancer = composeEnhancers(applyMiddleware(thunk, socketMiddleware(wsAllOrdersUrl)));
+const enhancer = composeEnhancers(applyMiddleware(thunk, socketMiddleware(wsUserOrders), socketMiddleware(wsAllOrdersUrl)));
 
 export const store = createStore(rootReducer, enhancer);
 
