@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 import {Link} from "react-router-dom";
 import {WS_CONNECTION_CLOSED, WS_CONNECTION_START} from "../../services/actions/wsActions";
+import {v4 as uuidv4} from 'uuid';
 
 
 export const AllOrdersPage = () => {
@@ -13,6 +14,8 @@ export const AllOrdersPage = () => {
     const today = useSelector(store => store.wsReducer.today);
     const total = useSelector(store => store.wsReducer.total)
     const orders = useSelector(store => store.wsReducer.orders);
+    const done = orders.filter(el => el.status === 'done');
+    const created = orders.filter(el => el.status === 'created' || el.status === 'pending' )
     useEffect(() => {
         dispatch({type: WS_CONNECTION_START, isPrivate: false})
         return () => {
@@ -30,7 +33,7 @@ export const AllOrdersPage = () => {
                         return <Link key={el._id} to={{
                             pathname: '/feed/' + el._id,
                             state: {background: location}
-                        }} style={{textDecoration: 'none', color: 'white'}}><OrderCard order={el}/></Link>
+                        }} style={{textDecoration: 'none', color: 'white'}}><OrderCard order={el} key={el._id}/></Link>
                     })
                     }
                 </div>
@@ -39,20 +42,15 @@ export const AllOrdersPage = () => {
                         <div className={style.orders__status}>
                             <h3 className='text text_type_main-medium'>Готовы</h3>
                             <div className={style.order__numbers}>
-                                <p className='text text_type_digits-default'>1999</p>
-                                <p className='text text_type_digits-default'>1999</p>
-                                <p className='text text_type_digits-default'>1999</p>
-                                <p className='text text_type_digits-default'>1999</p>
-                                <p className='text text_type_digits-default'>1999</p>
+                                {done.map(el => {
+                                return <p className='text text_type_digits-default' style={{color: '#00CCCC'}} key={el._id}>{el.number}</p>})}
                             </div>
                         </div>
                         <div className={style.orders__status}>
                             <h3 className='text text_type_main-medium'>В работе:</h3>
                             <div className={style.order__numbers}>
-                                <p className='text text_type_digits-default'>1999</p>
-                                <p className='text text_type_digits-default'>1999</p>
-                                <p className='text text_type_digits-default'>1999</p>
-                                <p className='text text_type_digits-default'>1999</p>
+                                {created.map(el => {
+                                    return <p className='text text_type_digits-default' key={el._id}>{el.number}</p>})}
                             </div>
                         </div>
                     </div>

@@ -11,7 +11,6 @@ function OrderPage() {
     const isPrivate = location.pathname.includes('feed')? false : true;
     //unexpected behavior of variable isPrivate; it doesn't work without ternary operator. ?
     const dispatch = useDispatch();
-    const ingredients = useSelector(store => store.ingredientsReducer.items);
     useEffect(() => {
         dispatch({type: WS_CONNECTION_START, isPrivate: isPrivate})
         return () => {
@@ -20,7 +19,7 @@ function OrderPage() {
     }, [])
     return (
         <section className={style.order_info}>
-            <OrderInfo/>
+            <OrderInfo isPopup={false}/>
         </section>
     );
 }

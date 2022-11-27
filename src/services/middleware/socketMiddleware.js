@@ -17,7 +17,7 @@ export const socketMiddleware = (wsUrl) => {
             const {dispatch} = store;
             const {type, isPrivate} = action;
             if (type === WS_CONNECTION_START) {
-                socket = isPrivate ? new WebSocket(`${wsUrl}?token=${token}`) : new WebSocket(`${wsUrl}/all`);
+                socket = isPrivate && token ? new WebSocket(`${wsUrl}?token=${token}`) : new WebSocket(`${wsUrl}/all`);
             }
             if (socket) {
                 socket.onopen = event => {

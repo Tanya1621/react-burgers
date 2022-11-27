@@ -12,7 +12,9 @@ export const OrdersPopup = () => {
     }
 
     return (<Modal close={close}>
-            <OrderInfo/>
+            <div style={{padding: '40px', boxSizing: "border-box"}}>
+            <OrderInfo isPopup={true}/>
+            </div>
         </Modal>
     )
 }

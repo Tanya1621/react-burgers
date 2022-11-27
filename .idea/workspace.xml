@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="prepared environment for websocket connection">
+    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="added websocket middleware and wsReducer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderCard/OrderCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderCard/OrderCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProtectedRoute/ProtectedRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProtectedRoute/ProtectedRoute.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AllOrdersPage/AllOrdersPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AllOrdersPage/AllOrdersPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/IngredientPage/IngredientPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/IngredientPage/IngredientPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/OrderPage/OrderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/OrderPage/OrderPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/OrdersPopup/OrdersPopup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/OrdersPopup/OrdersPopup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ProfileOrders/ProfileOrders.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfileOrders/ProfileOrders.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/middleware/socketMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middleware/socketMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/ordersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/ordersReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/reducers/wsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/wsReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +122,8 @@
       <workItem from="1669138864053" duration="25218000" />
       <workItem from="1669287648334" duration="1489000" />
       <workItem from="1669315286952" duration="4546000" />
-      <workItem from="1669372900206" duration="1875000" />
+      <workItem from="1669372900206" duration="3442000" />
+      <workItem from="1669465812999" duration="12923000" />
     </task>
     <task id="LOCAL-00001" summary="First step">
       <created>1660661133491</created>
@@ -245,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669209796484</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added websocket middleware and wsReducer">
+      <created>1669377956717</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669377956718</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +285,7 @@
     <MESSAGE value="fixed forms, added uuid" />
     <MESSAGE value="fixed authorization, buttons, protected routes" />
     <MESSAGE value="prepared environment for websocket connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="prepared environment for websocket connection" />
+    <MESSAGE value="added websocket middleware and wsReducer" />
+    <option name="LAST_COMMIT_MESSAGE" value="added websocket middleware and wsReducer" />
   </component>
 </project>

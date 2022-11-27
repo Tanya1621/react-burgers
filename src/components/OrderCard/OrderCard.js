@@ -6,6 +6,7 @@ import {statusOfOrder} from "../../utils/constants";
 import {ingredientType} from "../../utils/ingredientType";
 import PropTypes from "prop-types";
 import CardOfTheIngredient from "../CardOfTheIngredient/CardOfTheIngredient";
+import {v4 as uuidv4} from 'uuid';
 
 
 export const OrderCard = ({order, isOwner}) => {
@@ -33,7 +34,7 @@ export const OrderCard = ({order, isOwner}) => {
                         const ingredient = items.find((element) => element._id === elem);
                         counter += ingredient.price;
                         if (index < 9) {
-                            return <img className={style.card__icon} src={ingredient.image}/>
+                            return <img className={style.card__icon} src={ingredient.image} key={uuidv4()}/>
                         }
                     })}
                 </div>

@@ -6,9 +6,10 @@ import {CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 import {convertDate} from "../../utils/ConvertDate";
 import {useParams} from "react-router-dom";
 import {statusOfOrder} from "../../utils/constants";
+import {v4 as uuidv4} from 'uuid';
 
 
-export const OrderInfo = () => {
+export const OrderInfo = ({isPopup}) => {
     const params = useParams();
     const orders = useSelector(store => store.wsReducer.orders);
     const order = orders.find(el => el._id === params.id);
@@ -21,8 +22,7 @@ export const OrderInfo = () => {
 
     return (<>
             {order && <div className={styles.wrapper}>
-
-                <h2 className={` text text text_type_digits-default`}>#{order.number}</h2>
+                <h2 className={`text text text_type_digits-default ${isPopup ? styles.order__number_left : styles.order__number_center}`}>#{order.number}</h2>
                 <p className={`${styles.order__name} text text_type_main-medium`}>{order.name}</p>
                 <p className={`${styles.order__status} text text_type_main-default`}>{statusOfOrder[order.status]}</p>
                 <div>
@@ -31,7 +31,7 @@ export const OrderInfo = () => {
                         {ordered.length > 0 && ordered.map(element => {
                             if (element) {
                                 counter += element.price;
-                                return <OrderedElement item={element}/>
+                                return <OrderedElement item={element} key={uuidv4()}/>
                             }
                         })}
                     </div>

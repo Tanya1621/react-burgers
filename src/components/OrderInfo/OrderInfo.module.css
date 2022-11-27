@@ -9,6 +9,7 @@
 
 .order__status {
     text-align: left;
+    color: #00CCCC;
 }
 
 .order__components {
@@ -17,7 +18,7 @@
 }
 
 .scroll_area {
-    height: 366px;
+    height: 312px;
     margin-bottom: 40px;
     overflow-y: auto;
 
@@ -35,4 +36,13 @@
 .order__total {
     display: flex;
     align-items: center;
+}
+
+.order__number_left {
+    text-align: left;
+}
+
+
+.order__number_center {
+    text-align: center;
 }
