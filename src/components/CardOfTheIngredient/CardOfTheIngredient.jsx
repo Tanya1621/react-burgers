@@ -22,7 +22,7 @@ const CardOfTheIngredient = ({data, onClick}) => {
     return (
         <div className={style.card} onClick={onClick} ref={dragRef}>
             {counter > 0 &&
-            <Counter count={counter} size="default"/>
+                <Counter count={counter} size="default"/>
             }
             <img alt={data.name} src={data.image} className={style.card_image}/>
             <div className={style.card_price}>

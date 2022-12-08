@@ -15,6 +15,11 @@ import {IngredientPopup} from "../../pages/IngredientPopup/IngredientPopup";
 import {ProtectedRoute} from "../ProtectedRoute/ProtectedRoute";
 import {AuthProtectedRoute} from "../AuthProtectedRoute/AuthProtectedRoute";
 import {getUserData} from "../../services/api";
+import {AllOrdersPage} from "../../pages/AllOrdersPage/AllOrdersPage";
+import {ProfileOrdersPage} from "../../pages/ProfileOrders/ProfileOrders";
+import {OrdersPopup} from "../../pages/OrdersPopup/OrdersPopup";
+import OrderPage from "../../pages/OrderPage/OrderPage";
+import {ProfileInfo} from "../../pages/ProfileInfo/ProfileInfo";
 
 
 const App = () => {
@@ -35,6 +40,7 @@ const App = () => {
             <AppHeader/>
             <Switch location={background || location}>
                 <Route exact path='/' component={MainPage}/>
+                <Route exact path='/feed' component={AllOrdersPage}/>
                 <AuthProtectedRoute path='/register'>
                     <RegistrationPage/>
                 </AuthProtectedRoute>
@@ -48,11 +54,18 @@ const App = () => {
                     <ResetPasswordPage/>
                 </AuthProtectedRoute>
                 <ProtectedRoute path='/profile'>
-                    <ProfilePage/>
+                    <ProfilePage>
+                        <Route exact path='/profile/' component={ProfileInfo}/>
+                        <Route exact path='/profile/order' component={ProfileOrdersPage}/>
+                    </ProfilePage>
                 </ProtectedRoute>
                 <Route exact path='/ingredients/:id' component={IngredientPage}/>
+                <Route exact path='/feed/:id' component={OrderPage}/>
+                <Route exact path='/orders/:id' component={OrderPage}/>
             </Switch>
             {background && <Route exact path='/ingredients/:id' component={IngredientPopup}/>}
+            {background && <Route exact path='/feed/:id' component={OrdersPopup}/>}
+            {background && <Route exact path='/orders/:id' component={OrdersPopup}/>}
         </>
     )
 }

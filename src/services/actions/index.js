@@ -46,6 +46,10 @@ export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 
 export const UPDATE_AUTH = 'UPDATE_AUTH';
 
+
+
+
+
 export function getItems() {
     return function (dispatch) {
         dispatch({
@@ -167,3 +171,5 @@ export function updateUserInfo (email, password, name) {
         })
     }
 }
+
+

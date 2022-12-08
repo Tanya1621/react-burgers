@@ -3,4 +3,10 @@ const sauce = 'sauce';
 const main = 'main';
 const ingredient = 'ingredient';
 
-export {bun, sauce,main, ingredient}
+const statusOfOrder = {
+    done: 'Готов',
+    pending: 'Приготовление',
+    сreated: 'Создан'
+}
+
+export {bun, sauce,main, ingredient, statusOfOrder}
