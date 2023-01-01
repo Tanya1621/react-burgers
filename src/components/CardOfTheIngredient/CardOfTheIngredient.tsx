@@ -8,12 +8,18 @@ import {ingredientType} from "../../utils/ingredientType";
 import PropTypes from "prop-types";
 import {useDrag} from "react-dnd";
 import {useSelector} from "react-redux";
+import {TIngredient} from "../../pages/types";
+import {MouseEventHandler} from "react";
 
+type propTypes = {
+    data: TIngredient,
+    onClick: MouseEventHandler<HTMLDivElement>
+}
 
-const CardOfTheIngredient = ({data, onClick}) => {
+const CardOfTheIngredient = ({data, onClick}: propTypes) => {
     const id = data._id;
     const itemsFromStore = useSelector(store => store.ingredientsReducer.items);
-    const count = (itemsFromStore.find(item => item._id === id));
+    const count = (itemsFromStore.find((item: TIngredient) => item._id === id));
     const counter = count ? count.counter : 0;
     const [, dragRef] = useDrag({
         type: 'ingredient',
@@ -33,9 +39,9 @@ const CardOfTheIngredient = ({data, onClick}) => {
         </div>
     )
 }
-CardOfTheIngredient.propTypes = {
-    data: ingredientType.isRequired,
-    onClick: PropTypes.func.isRequired,
-}
+// CardOfTheIngredient.propTypes = {
+//     data: ingredientType.isRequired,
+//     onClick: PropTypes.func.isRequired,
+// }
 
 export default CardOfTheIngredient;

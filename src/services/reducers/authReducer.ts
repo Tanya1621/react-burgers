@@ -6,8 +6,32 @@ import {
     LOGOUT_SUCCESS,
     REGISTRATION_SUCCESS, REGISTRATION_FAILED, REGISTRATION_REQUEST, UPDATE_USER_INFO, UPDATE_AUTH
 } from "../actions";
+import {
+    IAuthorisationFailed,
+    IAuthorisationRequest, IAuthorizationSuccessAction, ILogoutFailed, ILogoutRequest, ILogoutSuccess,
+    IRegistrationFailedAction,
+    IRegistrationRequestAction,
+    IRegistrationSuccessAction,
+    IUpdateAuthAction,
+    IUpdateUserInfoAction
+} from "../../pages/types";
 
-const initialState = {
+type TAuthInitialState = {
+    id: null | string,
+    name: string,
+    email: string,
+    isAuth: boolean,
+    token: string,
+    authRequest: boolean,
+    logoutRequest: boolean,
+    logoutFailed: boolean,
+    authFailed: boolean,
+    regRequest: boolean,
+    refreshToken: string,
+    regFailed: boolean
+}
+
+const initialState: TAuthInitialState = {
     id: null,
     name: '',
     email: '',
@@ -22,14 +46,26 @@ const initialState = {
     regFailed: false
 }
 
+type TAuthActions =
+    IUpdateUserInfoAction
+    | IUpdateAuthAction
+    | IRegistrationRequestAction
+    | IRegistrationSuccessAction
+    | IRegistrationFailedAction
+    | IAuthorisationRequest
+    | IAuthorizationSuccessAction
+    | IAuthorisationFailed
+    | ILogoutRequest
+    | ILogoutSuccess
+    | ILogoutFailed
 
-export const authReducer = (state = initialState, action) => {
+export const authReducer = (state = initialState, action: TAuthActions) => {
     switch (action.type) {
         case UPDATE_USER_INFO: {
             return {...state, name: action.user.name, email: action.user.email}
         }
         case UPDATE_AUTH: {
-            return {...state, isAuth: true, name: action.user.name, email: action.user.emai }
+            return {...state, isAuth: true, name: action.user.name, email: action.user.email}
         }
         case REGISTRATION_REQUEST:
             return {...state, regRequest: true};
@@ -44,7 +80,7 @@ export const authReducer = (state = initialState, action) => {
                 refreshToken: action.refreshToken,
             };
         case REGISTRATION_FAILED:
-            return {...state,regRequest: false, regFailed: true }
+            return {...state, regRequest: false, regFailed: true}
         case AUTHORIZATION_REQUEST:
             return {...state, authRequest: true}
         case AUTHORIZATION_SUCCESS:

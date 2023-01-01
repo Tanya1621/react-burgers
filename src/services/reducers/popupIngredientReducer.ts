@@ -1,14 +1,22 @@
 import {
     CLOSE_POPUP, GET_ORDER_FAILED, GET_ORDER_REQUEST, GET_ORDER_SUCCESS, OPEN_POPUP_INGREDIENT, OPEN_POPUP_ORDER
 } from "../actions";
+import {IClosePopup, IOpenPopupIngredient, TIngredient} from "../../pages/types";
 
-
-const initialState = {
-    isOpened: false, ingredient: {},
+type TPopupIngredientInitialState = {
+    isOpened: boolean,
+    ingredient: TIngredient | {}
 }
 
 
-export const popupIngredientReducer = (state = initialState, action) => {
+const initialState: TPopupIngredientInitialState = {
+    isOpened: false, ingredient: {},
+}
+
+type TPopupIngredientReducer = IOpenPopupIngredient | IClosePopup
+
+
+export const popupIngredientReducer = (state = initialState, action: TPopupIngredientReducer) => {
     switch (action.type) {
         case OPEN_POPUP_INGREDIENT:
             return {

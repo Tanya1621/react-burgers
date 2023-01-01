@@ -16,7 +16,7 @@ export const OrderCard = ({order, isOwner}) => {
     useMemo(() => {
         const today = new Date();
         currentDay = today.toISOString().slice(0, 10);
-    })
+    }, [])
 
     let counter = 0;
 

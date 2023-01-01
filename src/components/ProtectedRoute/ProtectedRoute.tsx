@@ -5,8 +5,9 @@ import {getUserData} from "../../services/api";
 import {UPDATE_AUTH} from "../../services/actions";
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
+import type {TChildren} from "../../pages/types";
 
-export const ProtectedRoute = ({children, ...rest}) => {
+export const ProtectedRoute = ({children, ...rest}: TChildren) => {
     let isLoading = false;
     const dispatch = useDispatch();
     useEffect(() => {

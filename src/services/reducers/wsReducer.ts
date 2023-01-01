@@ -3,9 +3,22 @@ import {
     WS_CONNECTION_ERROR,
     WS_CONNECTION_SUCCESS, WS_GET_ORDERS
 } from "../actions/wsActions";
+import {
+    IWSConnectionClosed,
+    IWSConnectionError,
+    IWSConnectionStart,
+    IWSConnectionSuccess, IWSGetOrders,
+    TOrder
+} from "../../pages/types";
 
-
-const initialState = {
+type TWsInitialState = {
+    isConnected: boolean,
+    orders: [] | Array<TOrder>,
+    isFailed: boolean,
+    total: null | number,
+    today: null | number,
+}
+const initialState: TWsInitialState = {
     isConnected: false,
     orders: [],
     isFailed: false,
@@ -13,7 +26,9 @@ const initialState = {
     today: null
 }
 
-export const wsReducer = (state = initialState, action) => {
+type TWsReducer = IWSConnectionSuccess | IWSConnectionClosed| IWSConnectionError| IWSGetOrders
+
+export const wsReducer = (state = initialState, action: TWsReducer) => {
     switch (action.type) {
         case WS_CONNECTION_SUCCESS:
             return {...state, isConnected: true};

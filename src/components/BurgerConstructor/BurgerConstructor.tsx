@@ -23,7 +23,7 @@ const BurgerConstructor = () => {
     const {items} = useSelector(store => store.ingredientsReducer);
     const {isAuth} = useSelector(store => store.authReducer);
 
-    function onDropHandler(itemId, uuid) {
+    function onDropHandler(itemId) {
         const ingredient = items.find((element) => element._id === itemId.id);
         if (ingredient.type === bun) {
             const prevBun = usedIngredients.find((element) => element.type === bun);
@@ -84,7 +84,7 @@ const BurgerConstructor = () => {
                 }
             </div>
             <div className={style.constructor__list}>
-                {usedIngredients.map((element, index) => {
+                {usedIngredients.map((element, index: number) => {
                     if (element.type !== bun) {
                         return (
 

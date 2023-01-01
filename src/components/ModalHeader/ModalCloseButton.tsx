@@ -1,9 +1,9 @@
 import styles from "./ModalCloseButton.module.css";
 import {CloseIcon} from "@ya.praktikum/react-developer-burger-ui-components";
-import React from "react";
+import React, {FC} from "react";
 import PropTypes from "prop-types";
 
-const ModalHeaderCloseButton = ({closePopup}) => {
+const ModalHeaderCloseButton: FC<{closePopup: () => void}> = ({closePopup}) => {
     return (
         <div className={styles.popupButton}>
             <CloseIcon type={"primary"} onClick={closePopup}/></div>)

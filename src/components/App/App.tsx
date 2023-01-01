@@ -20,10 +20,16 @@ import {ProfileOrdersPage} from "../../pages/ProfileOrders/ProfileOrders";
 import {OrdersPopup} from "../../pages/OrdersPopup/OrdersPopup";
 import OrderPage from "../../pages/OrderPage/OrderPage";
 import {ProfileInfo} from "../../pages/ProfileInfo/ProfileInfo";
+import {Location} from "history";
 
+// interface TLocation extends Location {
+//     state: {
+//         background?: string
+//     }
+// }
 
 const App = () => {
-    let location = useLocation();
+    let location = useLocation() as Location<{background?: string}>;
     const dispatch = useDispatch();
     let background = location.state && location.state.background;
     useEffect(() => {

@@ -1,13 +1,28 @@
 import {
     CLOSE_POPUP, GET_ORDER_FAILED, GET_ORDER_REQUEST, GET_ORDER_SUCCESS, OPEN_POPUP_INGREDIENT, OPEN_POPUP_ORDER
 } from "../actions";
+import {
+    IClosePopup,
+    IGetItemsFailedAction,
+    IGetOrderFailedAction,
+    IGetOrderRequestAction,
+    IGetOrderSuccessAction,
+    IOpenPopupIngredient,
+    IOpenPopupOrder,
+    TIngredient,
+    TOrder
+} from "../../pages/types";
 
-
-const initialState = {
+type TPopupOrderInitialState = {
+    isOpened: boolean, order: null | TOrder, isFailed: boolean, isRequested: boolean,
+}
+const initialState: TPopupOrderInitialState = {
     isOpened: false, order: null, isFailed: false, isRequested: false,
 }
 
-export const popupOrderReducer = (state = initialState, action) => {
+type TPopupOpenReducer = IOpenPopupOrder | IGetOrderRequestAction | IGetOrderSuccessAction | IGetOrderFailedAction | IClosePopup
+
+export const popupOrderReducer = (state = initialState, action: TPopupOpenReducer) => {
     switch (action.type) {
         case OPEN_POPUP_ORDER:
             return {...state, isOpened: true, type: 'order'};

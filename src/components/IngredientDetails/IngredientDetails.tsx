@@ -2,12 +2,12 @@ import styles from './IngredientDetails.module.css'
 import React from "react";
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
-
+import {TIngredient} from "../../pages/types";
 
 const IngredientDetails = () => {
     const ingredients = useSelector(store => store.ingredientsReducer.items);
-    const params = useParams();
-    const ingredientInfo = ingredients.find(element => element._id === params.id);
+    const params: {id: string} = useParams();
+    const ingredientInfo = ingredients.find((element: TIngredient)  => element._id === params.id);
 
     return (
         <>

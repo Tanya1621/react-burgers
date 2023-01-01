@@ -1,11 +1,17 @@
 import {ADD_ITEM, REMOVE_ITEM, SORT_ITEMS} from "../actions";
+import {IAddItem, IRemoveItem, ISortItems, TIngredient} from "../../pages/types";
 
-const initialState = {
+type TCartInitialState = {
+    addedItems: Array<TIngredient>,
+}
+
+const initialState: TCartInitialState = {
     addedItems: [],
 }
 
+type TCartReducer = IAddItem | IRemoveItem | ISortItems
 
-export const cartReducer = (state = initialState, action) => {
+export const cartReducer = (state = initialState, action: TCartReducer) => {
     switch (action.type) {
         case ADD_ITEM:
             if (action.item.type === 'bun') {

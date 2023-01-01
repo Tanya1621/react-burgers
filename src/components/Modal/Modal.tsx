@@ -1,4 +1,4 @@
-import React from "react";
+import {FC, ReactNode} from "react";
 import styles from "./Modal.module.css";
 import {createPortal} from 'react-dom'
 import ModalOverlay from "../ModalOverlay/ModalOverlay";
@@ -6,9 +6,10 @@ import PropTypes from "prop-types";
 import ModalCloseButton from "../ModalHeader/ModalCloseButton";
 import {useDispatch} from "react-redux";
 import {CLOSE_POPUP} from "../../services/actions";
+import React from "react";
 
 
-const Modal = ({children, close}) => {
+const Modal: FC<{ children: ReactNode, close: () => void }> = ({children, close}) => {
     const dispatch = useDispatch();
 
     function closePopup() {
@@ -17,7 +18,7 @@ const Modal = ({children, close}) => {
     }
 
     React.useEffect(() => {
-        function closeByEscape(evt) {
+        function closeByEscape(evt: KeyboardEvent) {
             if (evt.key === 'Escape') {
                 closePopup();
             }
@@ -30,6 +31,8 @@ const Modal = ({children, close}) => {
         }
     }, [])
 
+    const element = document.getElementById("react-modals") as HTMLElement;
+
     return createPortal((<ModalOverlay closePopup={closePopup}>
             <div className={styles.popup} onClick={(e) => {
                 e.stopPropagation()
@@ -37,7 +40,7 @@ const Modal = ({children, close}) => {
                 <ModalCloseButton closePopup={closePopup}></ModalCloseButton>
                 {children}
             </div>
-        </ModalOverlay>), document.getElementById("react-modals"))
+        </ModalOverlay>), element)
 }
 
 Modal.propTypes = {
