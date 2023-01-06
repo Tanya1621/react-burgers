@@ -46,7 +46,7 @@ const initialState: TAuthInitialState = {
     regFailed: false
 }
 
-type TAuthActions =
+export type TAuthActions =
     IUpdateUserInfoAction
     | IUpdateAuthAction
     | IRegistrationRequestAction

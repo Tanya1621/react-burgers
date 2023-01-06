@@ -1,7 +1,7 @@
 import styles from './OrderedIngredient.module.css';
 import {CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 import {FC} from "react";
-import {TIngredient} from "../../pages/types";
+import {TIngredient} from "../../services/types/types";
 
 export const OrderedElement: FC<{item: TIngredient}> = ({item}) => {
     return (

@@ -13,7 +13,7 @@ const initialState: TPopupIngredientInitialState = {
     isOpened: false, ingredient: {},
 }
 
-type TPopupIngredientReducer = IOpenPopupIngredient | IClosePopup
+export type TPopupIngredientReducer = IOpenPopupIngredient | IClosePopup
 
 
 export const popupIngredientReducer = (state = initialState, action: TPopupIngredientReducer) => {

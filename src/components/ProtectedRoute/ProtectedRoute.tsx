@@ -1,11 +1,10 @@
 import {Redirect, Route} from "react-router-dom";
-import {useSelector} from "react-redux";
 import React from "react";
 import {getUserData} from "../../services/api";
 import {UPDATE_AUTH} from "../../services/actions";
 import {useEffect} from "react";
-import {useDispatch} from "react-redux";
-import type {TChildren} from "../../pages/types";
+import {TChildren} from "../../services/types/types";
+import {useDispatch, useSelector} from "../../services/types/hooks";
 
 export const ProtectedRoute = ({children, ...rest}: TChildren) => {
     let isLoading = false;

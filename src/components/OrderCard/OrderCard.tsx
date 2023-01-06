@@ -1,15 +1,15 @@
 import style from "./OrderCard.module.css";
 import {CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
-import {useSelector} from "react-redux";
-import {useMemo} from "react";
+import {FC, ReactNode, useMemo} from "react";
 import {statusOfOrder} from "../../utils/constants";
-import {ingredientType} from "../../utils/ingredientType";
 import PropTypes from "prop-types";
-import CardOfTheIngredient from "../CardOfTheIngredient/CardOfTheIngredient";
+// @ts-ignore
 import {v4 as uuidv4} from 'uuid';
+import {TIngredient, TOrder} from "../../services/types/types";
+import {useSelector} from "../../services/types/hooks";
 
 
-export const OrderCard = ({order, isOwner}) => {
+export const OrderCard: FC<{order: , isOwner?: boolean}> = ({order, isOwner}) => {
 
     const {items} = useSelector(store => store.ingredientsReducer);
     let currentDay;
@@ -31,7 +31,7 @@ export const OrderCard = ({order, isOwner}) => {
             <div className={style.card__bottom}>
                 <div className={style.card__ingredients}>
                     {order.ingredients.map((elem, index) => {
-                        const ingredient = items.find((element) => element._id === elem);
+                        const ingredient = items.find((element: TIngredient) => element._id === elem);
                         counter += ingredient.price;
                         if (index < 9) {
                             return <img className={style.card__icon} src={ingredient.image} key={uuidv4()}/>
@@ -47,7 +47,3 @@ export const OrderCard = ({order, isOwner}) => {
     )
 }
 
-OrderCard.propTypes = {
-    order: PropTypes.object.isRequired,
-    isOwner: PropTypes.bool,
-}

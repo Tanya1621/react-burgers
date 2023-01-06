@@ -11,8 +11,6 @@ const ModalOverlay: FC<{closePopup: () => void, children: ReactNode}> = ({closeP
     </div>)
 };
 
-// ModalOverlay.propTypes = {
-//     closePopup: PropTypes.func.isRequired, children: PropTypes.node.isRequired,
-// }
+
 
 export default ModalOverlay;

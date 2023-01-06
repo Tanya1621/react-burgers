@@ -3,7 +3,6 @@ import {Button, Input} from "@ya.praktikum/react-developer-burger-ui-components"
 import React from "react";
 import {NavLink, Redirect} from "react-router-dom";
 import {restorePassword} from "../../services/api";
-import {useSelector} from "react-redux";
 
 export const ForgotPassword = () => {
     const [emailValue, setEmailValue] = React.useState('');
@@ -11,11 +10,11 @@ export const ForgotPassword = () => {
     const [isRequested, setRequest] = React.useState(false);
     const [error, setError] = React.useState(false);
 
-    const onEmailChange = e => {
+    const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmailValue(e.target.value)
     }
 
-    const restoreHandler = (e) => {
+    const restoreHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setRequest(true);
         restorePassword(emailValue)

@@ -2,18 +2,20 @@ import {
     CurrencyIcon,
     Counter,
 } from '@ya.praktikum/react-developer-burger-ui-components';
-
+import React from "react";
 import style from './CardOfTheIngredient.module.css';
 import {ingredientType} from "../../utils/ingredientType";
 import PropTypes from "prop-types";
 import {useDrag} from "react-dnd";
-import {useSelector} from "react-redux";
-import {TIngredient} from "../../pages/types";
+
+import {TIngredient} from "../../services/types/types";
 import {MouseEventHandler} from "react";
+import {useSelector} from "../../services/types/hooks";
 
 type propTypes = {
     data: TIngredient,
-    onClick: MouseEventHandler<HTMLDivElement>
+    onClick: MouseEventHandler<HTMLDivElement>,
+    onDragHandler: (e: React.DragEvent) => void,
 }
 
 const CardOfTheIngredient = ({data, onClick}: propTypes) => {

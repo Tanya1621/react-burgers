@@ -1,8 +1,8 @@
 import styles from './IngredientDetails.module.css'
 import React from "react";
-import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
-import {TIngredient} from "../../pages/types";
+import {TIngredient} from "../../services/types/types";
+import {useSelector} from "../../services/types/hooks";
 
 const IngredientDetails = () => {
     const ingredients = useSelector(store => store.ingredientsReducer.items);

@@ -2,7 +2,7 @@ import AppHeader from "../AppHeader/appHeader";
 import {useEffect} from 'react';
 import React from 'react';
 import {getItems, UPDATE_AUTH} from "../../services/actions";
-import {useDispatch} from "react-redux";
+import {useDispatch} from "../../services/types/hooks";
 import {Switch, Route, useLocation} from 'react-router-dom';
 import {RegistrationPage} from "../../pages/Registration/RegistartionPage";
 import {ForgotPassword} from "../../pages/ForgotPassword/ForgotPassword";
@@ -22,14 +22,18 @@ import OrderPage from "../../pages/OrderPage/OrderPage";
 import {ProfileInfo} from "../../pages/ProfileInfo/ProfileInfo";
 import {Location} from "history";
 
-// interface TLocation extends Location {
-//     state: {
-//         background?: string
-//     }
-// }
+
+type TState = {
+    background?: string;
+};
+
+type TLocation = Location & {
+    state: TState;
+};
+
 
 const App = () => {
-    let location = useLocation() as Location<{background?: string}>;
+    let location: TLocation = useLocation();
     const dispatch = useDispatch();
     let background = location.state && location.state.background;
     useEffect(() => {
@@ -44,7 +48,7 @@ const App = () => {
 
     return (<>
             <AppHeader/>
-            <Switch location={background || location}>
+            <Switch location={location || background}>
                 <Route exact path='/' component={MainPage}/>
                 <Route exact path='/feed' component={AllOrdersPage}/>
                 <AuthProtectedRoute path='/register'>

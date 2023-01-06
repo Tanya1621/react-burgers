@@ -20,7 +20,7 @@ const initialState: TPopupOrderInitialState = {
     isOpened: false, order: null, isFailed: false, isRequested: false,
 }
 
-type TPopupOpenReducer = IOpenPopupOrder | IGetOrderRequestAction | IGetOrderSuccessAction | IGetOrderFailedAction | IClosePopup
+export type TPopupOpenReducer = IOpenPopupOrder | IGetOrderRequestAction | IGetOrderSuccessAction | IGetOrderFailedAction | IClosePopup
 
 export const popupOrderReducer = (state = initialState, action: TPopupOpenReducer) => {
     switch (action.type) {

@@ -26,7 +26,7 @@ const initialState: TWsInitialState = {
     today: null
 }
 
-type TWsReducer = IWSConnectionSuccess | IWSConnectionClosed| IWSConnectionError| IWSGetOrders
+export type TWsReducer = IWSConnectionSuccess | IWSConnectionClosed| IWSConnectionError| IWSGetOrders
 
 export const wsReducer = (state = initialState, action: TWsReducer) => {
     switch (action.type) {

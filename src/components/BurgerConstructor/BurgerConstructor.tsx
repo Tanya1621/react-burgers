@@ -3,7 +3,7 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components'
 import style from './BurgerConstructor.module.css';
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from '../../services/types/hooks';
 import {DECREASE_COUNTER, INCREASE_COUNTER, makeNewOrder} from "../../services/actions";
 import {useDrop} from "react-dnd";
 import {ADD_ITEM} from "../../services/actions";
@@ -12,7 +12,9 @@ import {bun} from "../../utils/constants";
 import Modal from "../Modal/Modal";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import { useHistory} from "react-router-dom";
+// @ts-ignore
 import {v4 as uuidv4} from 'uuid';
+import {TIngredient} from "../../services/types/types";
 
 
 const BurgerConstructor = () => {
@@ -23,8 +25,8 @@ const BurgerConstructor = () => {
     const {items} = useSelector(store => store.ingredientsReducer);
     const {isAuth} = useSelector(store => store.authReducer);
 
-    function onDropHandler(itemId) {
-        const ingredient = items.find((element) => element._id === itemId.id);
+    function onDropHandler(itemId: TIngredient) {
+        const ingredient = items.find((element: TIngredient) => element._id === itemId.id);
         if (ingredient.type === bun) {
             const prevBun = usedIngredients.find((element) => element.type === bun);
             if (prevBun) {
@@ -37,18 +39,18 @@ const BurgerConstructor = () => {
 
     const [, dropTarget] = useDrop({
         accept: "ingredient",
-        drop(itemId) {
+        drop(itemId: TIngredient ) {
             onDropHandler(itemId);
 
         },
     });
 
     let price = 0;
-    let bunElement;
+    let bunElement: undefined | TIngredient;
 
     const isVisible = useSelector(store => store.popupOrderReducer.isOpened);
 
-    if (usedIngredients.length !== 0) {
+    if (usedIngredients.length) {
         let otherIngredients = [];
         bunElement = usedIngredients.find((element) => element.type === bun);
         otherIngredients = usedIngredients.filter((element) => element.type !== bun)
@@ -57,13 +59,13 @@ const BurgerConstructor = () => {
         }, bunElement ? bunElement.price * 2 : 0)
 
     }
-    const idArray = [];
+    const idArray: string[] = [];
     usedIngredients.map((element) => {
         idArray.push(element._id);
     });
 
     const makeOrder = () => {
-        if (!idArray.isEmpty && bunElement) {
+        if (idArray.length && bunElement) {
             dispatch(makeNewOrder(idArray));
         }
     }
@@ -72,7 +74,7 @@ const BurgerConstructor = () => {
     }
 
     return (<>
-        <section className={style.constructor} area-label='Выбранные ингредиенты' ref={dropTarget}>
+        <section className={style.constructor_} area-label='Выбранные ингредиенты' ref={dropTarget}>
             <div className={style.constructor__element_last}>
 
                 {bunElement ?
@@ -106,7 +108,7 @@ const BurgerConstructor = () => {
                 <p className={`text text_type_digits-medium ${style.constructor__price}`}>{price}</p>
                 <div className={style.constructor__sign}><CurrencyIcon type="primary"></CurrencyIcon></div>
                 <Button
-                    onClick={isAuth ? makeOrder : redirect}>{isRequested ? 'Оформление...' : 'Оформить заказ'}</Button>
+                    onClick={isAuth ? makeOrder : redirect} type="primary">Оформить заказ</Button>
                 {isRequested && <p>Requested</p>}
             </div>
         </section>

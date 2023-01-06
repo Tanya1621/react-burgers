@@ -9,7 +9,7 @@ const initialState: TCartInitialState = {
     addedItems: [],
 }
 
-type TCartReducer = IAddItem | IRemoveItem | ISortItems
+export type TCartReducer = IAddItem | IRemoveItem | ISortItems
 
 export const cartReducer = (state = initialState, action: TCartReducer) => {
     switch (action.type) {

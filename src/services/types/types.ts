@@ -20,21 +20,36 @@ import {
     SORT_ITEMS,
     UPDATE_AUTH,
     UPDATE_USER_INFO
-} from "../services/actions";
+} from "../actions";
 import {
     WS_CONNECTION_CLOSED,
     WS_CONNECTION_ERROR,
     WS_CONNECTION_START,
     WS_CONNECTION_SUCCESS, WS_GET_ORDERS
-} from "../services/actions/wsActions";
-
+} from "../actions/wsActions";
+import {RootState, store} from "../../index";
+import {TAuthActions} from "../reducers/authReducer";
+import {TCartReducer} from "../reducers/cartReducer";
+import {TIngredientsReducer} from "../reducers/ingredientsReducer";
+import {TPopupIngredientReducer} from "../reducers/popupIngredientReducer";
+import {TPopupOpenReducer} from "../reducers/popupOrder";
+import {TWsReducer} from "../reducers/wsReducer";
+import {Action, ActionCreator} from "redux";
+import {ThunkAction} from "redux-thunk";
+import {
+    TypedUseSelectorHook,
+    useDispatch as dispatchHook,
+    useSelector as selectorHook
+} from 'react-redux';
 
 export type TChildren = {
-    children: React.ReactElement | React.ReactElement[]
+    children: React.ReactElement | React.ReactElement[],
+    path: string,
 }
 
 export type TIngredient = {
     _id: string,
+    id?: string,
     name: string,
     type: string,
     proteins: number,
@@ -158,7 +173,7 @@ export interface IRegistrationRequestAction {
 }
 
 export interface IRegistrationSuccessAction {
-    readonly type: typeof  REGISTRATION_SUCCESS;
+    readonly type: typeof REGISTRATION_SUCCESS;
     readonly user: TUser;
     readonly token: string;
     readonly refreshToken: string
@@ -175,7 +190,7 @@ export interface IAuthorisationRequest {
 
 
 export interface IAuthorizationSuccessAction {
-    readonly type: typeof  AUTHORIZATION_SUCCESS;
+    readonly type: typeof AUTHORIZATION_SUCCESS;
     readonly user: TUser;
     readonly token: string;
     readonly refreshToken: string
@@ -186,11 +201,11 @@ export interface IAuthorisationFailed {
 }
 
 
-export interface ILogoutSuccess{
+export interface ILogoutSuccess {
     readonly type: typeof LOGOUT_SUCCESS
 }
 
-export interface ILogoutRequest{
+export interface ILogoutRequest {
     readonly type: typeof LOGOUT_REQUEST
 }
 
@@ -221,9 +236,22 @@ export interface IWSGetOrders {
     total: number,
     today: number,
 }
+
 // export const WS_CONNECTION_CLOSED: 'WS_CONNECTION_CLOSED' = 'WS_CONNECTION_CLOSED';
 // export const WS_CONNECTION_ERROR: 'WS_CONNECTION_ERROR' = 'WS_CONNECTION_ERROR';
 // export const WS_CONNECTION_START: 'WS_CONNECTION_START' = 'WS_CONNECTION_START';
 // export const WS_CONNECTION_SUCCESS: 'WS_CONNECTION_SUCCESS' = 'WS_CONNECTION_SUCCESS';
 // export const WS_GET_ORDERS: 'WS_GET_ORDERS' = 'WS_GET_ORDERS';
+
+export type AppDispatch = typeof store.dispatch;
+
+export type TActions =
+    TAuthActions
+    | TCartReducer
+    | TIngredientsReducer
+    | TPopupIngredientReducer
+    | TPopupOpenReducer
+    | TWsReducer;
+
+export type AppThunk<TReturn = void> = ActionCreator<ThunkAction<TReturn, Action, RootState, TActions>>;
 

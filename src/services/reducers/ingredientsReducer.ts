@@ -20,7 +20,7 @@ const initialState: TIngredientsInitialState = {
     items: [], currentItem: {}, itemsRequest: false, itemsFailed: false,
 }
 
-type TIngredientsReducer =
+export type TIngredientsReducer =
     IGetItemsRequestAction
     | IGetItemsSuccessAction
     | IGetItemsFailedAction

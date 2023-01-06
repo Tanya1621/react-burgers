@@ -4,12 +4,12 @@ import {createPortal} from 'react-dom'
 import ModalOverlay from "../ModalOverlay/ModalOverlay";
 import PropTypes from "prop-types";
 import ModalCloseButton from "../ModalHeader/ModalCloseButton";
-import {useDispatch} from "react-redux";
 import {CLOSE_POPUP} from "../../services/actions";
 import React from "react";
+import {useDispatch} from "../../services/types/hooks";
 
 
-const Modal: FC<{ children: ReactNode, close: () => void }> = ({children, close}) => {
+const Modal: FC<{ children: ReactNode, close?: () => void }> = ({children, close}) => {
     const dispatch = useDispatch();
 
     function closePopup() {
