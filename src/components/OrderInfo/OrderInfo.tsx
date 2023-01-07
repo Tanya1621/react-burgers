@@ -19,7 +19,7 @@ export const OrderInfo: FC<{isPopup: boolean}> = ({isPopup}) => {
     const orders = useSelector(store => store.wsReducer.orders);
     const order = orders.find((el: TOrder) => el._id === params.id);
     const ingredients = useSelector(store => store.ingredientsReducer.items);
-    let ordered = [];
+    let ordered:any = [];
     if (order) {
         ordered = order.ingredients.map((el: string) => ingredients.find((element: TIngredient) => element._id === el))
     }

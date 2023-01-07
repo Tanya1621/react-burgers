@@ -8,4 +8,4 @@ import {RootState} from "../../index";
 
 export const useSelector: TypedUseSelectorHook<RootState> = selectorHook;
 
-export const useDispatch = () => dispatchHook<AppDispatch | AppThunk>();
+export const useDispatch: () => AppDispatch | AppThunk = dispatchHook;

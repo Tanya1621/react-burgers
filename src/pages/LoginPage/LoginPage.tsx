@@ -3,23 +3,24 @@ import React from "react";
 import {Button} from "@ya.praktikum/react-developer-burger-ui-components";
 import {NavLink, Redirect} from "react-router-dom";
 import style from './LoginPage.module.css'
-import {useDispatch, useSelector} from "react-redux";
+
 import {authorization} from "../../services/actions";
+import {useDispatch} from "../../services/types/hooks";
 
 
 export const LoginPage = () => {
     const [emailValue, setEmailValue] = React.useState('');
     const [passwordValue, setPasswordValue] = React.useState('');
     const dispatch = useDispatch();
-    const onEmailChange = e => {
+    const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmailValue(e.target.value)
     }
 
-    const onPasswordChange = e => {
+    const onPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPasswordValue(e.target.value)
     }
 
-    const loginHandler = (e) => {
+    const loginHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         dispatch(authorization(emailValue, passwordValue));
     }
@@ -30,8 +31,8 @@ export const LoginPage = () => {
                     <h2 className='text text_type_main-medium'>Войти</h2>
                     <Input type='email' placeholder='E-mail' value={emailValue} name={'email'}
                            onChange={onEmailChange}/>
-                    <PasswordInput value={passwordValue} name={'password'} onChange={onPasswordChange}
-                                   extraClass={style.input}/>
+                    <PasswordInput value={passwordValue} name={'password'} onChange={onPasswordChange}/>
+                                   {/*;?extraClass={style.inputt}*/}
                     <Button type='primary' size='medium' htmlType={'submit'}>Войти</Button></form>
                 <div>
                     <p className={`text text_type_main-small mb-4 ${style.paragraph}`}>Вы новый пользователь? <NavLink

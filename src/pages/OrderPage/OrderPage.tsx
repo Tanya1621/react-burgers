@@ -3,8 +3,8 @@ import {OrderInfo} from "../../components/OrderInfo/OrderInfo";
 import style from './OrderPage.module.css'
 import {WS_CONNECTION_CLOSED, WS_CONNECTION_START} from "../../services/actions/wsActions";
 import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
+import {useDispatch} from "../../services/types/hooks";
 
 function OrderPage() {
     const location = useLocation();

@@ -1,10 +1,10 @@
 import {NavLink} from "react-router-dom";
 import style from './ProfilePage.module.css';
-import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../services/actions";
-import React, {useEffect} from "react";
+import React, {FC, useEffect} from "react";
+import {useDispatch, useSelector} from "../../services/types/hooks";
 
-export const ProfilePage = ({children}) => {
+export const ProfilePage: FC<{children: React.ReactNode}> = ({children}) => {
     const dispatch = useDispatch();
     const token = useSelector(store => store.authReducer.refreshToken);
     const logoutHandler = () => {

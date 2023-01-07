@@ -27,7 +27,7 @@ const BurgerConstructor = () => {
 
     function onDropHandler(itemId: TIngredient) {
         const ingredient = items.find((element: TIngredient) => element._id === itemId.id);
-        if (ingredient.type === bun) {
+        if (ingredient && ingredient.type === bun) {
             const prevBun = usedIngredients.find((element) => element.type === bun);
             if (prevBun) {
                 dispatch({type: DECREASE_COUNTER, ingredient: prevBun});

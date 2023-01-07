@@ -24,14 +24,14 @@ const BurgerIngredients = () => {
 
     //create refs
 
-    const refBun = useRef(null);
-    const refSauce = useRef(null);
-    const refMain = useRef(null);
+    const refBun = useRef<HTMLLIElement>(null);
+    const refSauce = useRef<HTMLLIElement>(null);
+    const refMain = useRef<HTMLLIElement>(null);
 
     let location = useLocation();
 
 //scroll
-    function onClickTab(tab) {
+    function onClickTab(tab: any) {
         setCurrent(tab.current);
         const scrolled = document.getElementById('scrolled');
         if (scrolled) {
@@ -45,13 +45,13 @@ const BurgerIngredients = () => {
         let sauceList = refSauce.current? refSauce.current.getBoundingClientRect().top : undefined;
         let mainList = refMain.current? refMain.current.getBoundingClientRect().top : undefined;
 
-        if (bunList <= 300) {
+        if (bunList && bunList <= 300) {
             setCurrent(bun)
         }
-        if (sauceList <= 300) {
+        if (sauceList && sauceList <= 300) {
             setCurrent(sauce)
         }
-        if (mainList <= 300) {
+        if (mainList && mainList <= 300) {
             setCurrent(main)
         }
 

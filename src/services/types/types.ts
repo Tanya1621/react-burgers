@@ -34,7 +34,7 @@ import {TIngredientsReducer} from "../reducers/ingredientsReducer";
 import {TPopupIngredientReducer} from "../reducers/popupIngredientReducer";
 import {TPopupOpenReducer} from "../reducers/popupOrder";
 import {TWsReducer} from "../reducers/wsReducer";
-import {Action, ActionCreator} from "redux";
+import {Action, ActionCreator, Dispatch} from "redux";
 import {ThunkAction} from "redux-thunk";
 import {
     TypedUseSelectorHook,
@@ -75,7 +75,9 @@ export type TOrder = {
     _id: string,
     status: string,
     createdAt: string,
-    updatedAt: string
+    updatedAt: string,
+    number: number,
+    name: string
 }
 
 
@@ -243,7 +245,7 @@ export interface IWSGetOrders {
 // export const WS_CONNECTION_SUCCESS: 'WS_CONNECTION_SUCCESS' = 'WS_CONNECTION_SUCCESS';
 // export const WS_GET_ORDERS: 'WS_GET_ORDERS' = 'WS_GET_ORDERS';
 
-export type AppDispatch = typeof store.dispatch;
+//export type AppDispatch = typeof store.dispatch;
 
 export type TActions =
     TAuthActions
@@ -254,4 +256,5 @@ export type TActions =
     | TWsReducer;
 
 export type AppThunk<TReturn = void> = ActionCreator<ThunkAction<TReturn, Action, RootState, TActions>>;
+export type AppDispatch = Dispatch<TActions>;
 

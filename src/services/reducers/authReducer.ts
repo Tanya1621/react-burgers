@@ -14,7 +14,7 @@ import {
     IRegistrationSuccessAction,
     IUpdateAuthAction,
     IUpdateUserInfoAction
-} from "../../pages/types";
+} from "../types/types";
 
 type TAuthInitialState = {
     id: null | string,

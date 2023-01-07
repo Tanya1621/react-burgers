@@ -1,5 +1,5 @@
 import {ADD_ITEM, REMOVE_ITEM, SORT_ITEMS} from "../actions";
-import {IAddItem, IRemoveItem, ISortItems, TIngredient} from "../../pages/types";
+import {IAddItem, IRemoveItem, ISortItems, TIngredient} from "../types/types";
 
 type TCartInitialState = {
     addedItems: Array<TIngredient>,

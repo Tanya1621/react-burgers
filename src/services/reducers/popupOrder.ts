@@ -11,7 +11,7 @@ import {
     IOpenPopupOrder,
     TIngredient,
     TOrder
-} from "../../pages/types";
+} from "../../services/types/types";
 
 type TPopupOrderInitialState = {
     isOpened: boolean, order: null | TOrder, isFailed: boolean, isRequested: boolean,

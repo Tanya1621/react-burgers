@@ -3,10 +3,14 @@ const sauce = 'sauce';
 const main = 'main';
 const ingredient = 'ingredient';
 
-const statusOfOrder = {
+
+type TStatuses = {
+    [key: string]: any;
+}
+const statusOfOrder: TStatuses = {
     done: 'Готов',
     pending: 'Приготовление',
-    сreated: 'Создан'
+    created: 'Создан'
 }
 
 export {bun, sauce,main, ingredient, statusOfOrder}

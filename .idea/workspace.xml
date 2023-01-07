@@ -1,38 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="added types to some components and reducers">
-      <change afterPath="$PROJECT_DIR$/src/services/types/hooks.ts" afterDir="false" />
+    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="added types to some components and pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthProtectedRoute/AuthProtectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthProtectedRoute/AuthProtectedRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BurgerIngredients/BurgerIngredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerIngredients/BurgerIngredients.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BurgerIngredients/BurgerIngredients.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerIngredients/BurgerIngredients.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CardOfTheIngredient/CardOfTheIngredient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardOfTheIngredient/CardOfTheIngredient.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IngredientDetails/IngredientDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IngredientDetails/IngredientDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModalHeader/ModalCloseButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalHeader/ModalCloseButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModalOverlay/ModalOverlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalOverlay/ModalOverlay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderCard/OrderCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderCard/OrderCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderDetails/OrderDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderDetails/OrderDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderedIngredient/OrderedElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderedIngredient/OrderedElement.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProtectedRoute/ProtectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProtectedRoute/ProtectedRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AllOrdersPage/AllOrdersPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AllOrdersPage/AllOrdersPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ForgotPassword/ForgotPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ForgotPassword/ForgotPassword.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/IngredientPage/IngredientPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/IngredientPage/IngredientPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/IngredientPopup/IngredientPopup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/IngredientPopup/IngredientPopup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderCard/OrderCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderCard/OrderCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderDetails/OrderDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderDetails/OrderDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MainPage/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/OrderPage/OrderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/OrderPage/OrderPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/OrdersPopup/OrdersPopup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/OrdersPopup/OrdersPopup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ProfileInfo/ProfileInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfileInfo/ProfileInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ProfileOrders/ProfileOrders.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfileOrders/ProfileOrders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfilePage/ProfilePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Registration/RegistartionPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/RegistartionPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ResetPasswordPage/ResetPasswordPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResetPasswordPage/ResetPasswordPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/reducers/authReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/authReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/reducers/cartReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/cartReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/reducers/ingredientsReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/ingredientsReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/reducers/popupIngredientReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/popupIngredientReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/reducers/popupOrder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/popupOrder.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/reducers/wsReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/reducers/wsReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/cookie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/cookie.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/types/hooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/hooks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +142,7 @@
       <workItem from="1671888256564" duration="5738000" />
       <workItem from="1672573661244" duration="10858000" />
       <workItem from="1672929698511" duration="10628000" />
-      <workItem from="1673036732575" duration="3442000" />
+      <workItem from="1673036732575" duration="11520000" />
     </task>
     <task id="LOCAL-00001" summary="First step">
       <created>1660661133491</created>
@@ -290,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672606933222</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added types to some components and pages">
+      <created>1673040299261</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1673040299262</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +328,7 @@
     <MESSAGE value="added websocket middleware and wsReducer" />
     <MESSAGE value="added redux persist" />
     <MESSAGE value="added types to some components and reducers" />
-    <option name="LAST_COMMIT_MESSAGE" value="added types to some components and reducers" />
+    <MESSAGE value="added types to some components and pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="added types to some components and pages" />
   </component>
 </project>

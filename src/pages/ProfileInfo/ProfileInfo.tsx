@@ -1,9 +1,9 @@
 import style from "../ProfilePage/ProfilePage.module.css";
 import {Button, EmailInput, Input} from "@ya.praktikum/react-developer-burger-ui-components";
 import React, {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
 import {getUserData} from "../../services/api";
 import {logout, UPDATE_USER_INFO, updateUserInfo} from "../../services/actions";
+import {useDispatch, useSelector } from "../../services/types/hooks";
 
 
 export const ProfileInfo = () => {
@@ -23,17 +23,17 @@ export const ProfileInfo = () => {
             }
         })
     }, []);
-    const onNameChange = e => {
+    const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setChanged(true);
         setNameValue(e.target.value)
     }
 
-    const onPasswordChange = e => {
+    const onPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setChanged(true);
         setPasswordValue(e.target.value)
     }
 
-    const onEmailChange = e => {
+    const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setChanged(true);
         setEmailValue(e.target.value)
     }
@@ -48,7 +48,7 @@ export const ProfileInfo = () => {
         setChanged(false);
     }
 
-    const updateHandler = (e) => {
+    const updateHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         dispatch(updateUserInfo(emailValue, passwordValue, nameValue));
     }

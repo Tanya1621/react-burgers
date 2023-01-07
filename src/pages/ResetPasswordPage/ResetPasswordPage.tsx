@@ -3,7 +3,8 @@ import {Button, Input, PasswordInput} from "@ya.praktikum/react-developer-burger
 import {NavLink, Redirect} from "react-router-dom";
 import React from "react";
 import {resetPassword} from "../../services/api";
-import {useSelector} from "react-redux";
+import { useSelector } from "../../services/types/hooks";
+
 
 
 export const ResetPasswordPage = () => {
@@ -14,11 +15,11 @@ export const ResetPasswordPage = () => {
     const [isSuccessful, setSuccess] = React.useState(false);
     const [error, setError] = React.useState(false);
 
-    const onNameChange = e => {
+    const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setCodeValue(e.target.value)
     }
 
-    const onPasswordChange = e => {
+    const onPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPasswordValue(e.target.value)
     }
 

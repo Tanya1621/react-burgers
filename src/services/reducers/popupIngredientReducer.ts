@@ -1,7 +1,7 @@
 import {
     CLOSE_POPUP, GET_ORDER_FAILED, GET_ORDER_REQUEST, GET_ORDER_SUCCESS, OPEN_POPUP_INGREDIENT, OPEN_POPUP_ORDER
 } from "../actions";
-import {IClosePopup, IOpenPopupIngredient, TIngredient} from "../../pages/types";
+import {IClosePopup, IOpenPopupIngredient, TIngredient} from "../../services/types/types";
 
 type TPopupIngredientInitialState = {
     isOpened: boolean,

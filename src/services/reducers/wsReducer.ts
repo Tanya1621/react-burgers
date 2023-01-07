@@ -9,7 +9,7 @@ import {
     IWSConnectionStart,
     IWSConnectionSuccess, IWSGetOrders,
     TOrder
-} from "../../pages/types";
+} from "../../services/types/types";
 
 type TWsInitialState = {
     isConnected: boolean,

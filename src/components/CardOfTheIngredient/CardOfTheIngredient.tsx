@@ -15,7 +15,7 @@ import {useSelector} from "../../services/types/hooks";
 type propTypes = {
     data: TIngredient,
     onClick: MouseEventHandler<HTMLDivElement>,
-    onDragHandler: (e: React.DragEvent) => void,
+    onDragHandler?: (e: React.DragEvent) => void,
 }
 
 const CardOfTheIngredient = ({data, onClick}: propTypes) => {

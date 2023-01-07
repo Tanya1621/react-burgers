@@ -7,7 +7,7 @@ import {
     IGetItemsSuccessAction,
     IIncreaseCounter,
     TIngredient
-} from "../../pages/types";
+} from "../types/types";
 
 
 type TIngredientsInitialState = {
@@ -33,7 +33,7 @@ export const ingredientsReducer = (state = initialState, action: TIngredientsRed
             return {...state, itemsRequest: true};
         case GET_ITEMS_SUCCESS:
             return {
-                ...state, itemsRequest: false, items: action.items.map(el => {
+                ...state, itemsRequest: false, items: action.items.map((el: TIngredient) => {
                     return {...el, counter: 0}
                 })
             };

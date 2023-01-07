@@ -9,7 +9,7 @@ import {TIngredient, TOrder} from "../../services/types/types";
 import {useSelector} from "../../services/types/hooks";
 
 
-export const OrderCard: FC<{order: , isOwner?: boolean}> = ({order, isOwner}) => {
+export const OrderCard: FC<{ order: TOrder, isOwner?: boolean }> = ({order, isOwner}) => {
 
     const {items} = useSelector(store => store.ingredientsReducer);
     let currentDay;
@@ -21,10 +21,10 @@ export const OrderCard: FC<{order: , isOwner?: boolean}> = ({order, isOwner}) =>
     let counter = 0;
 
     return (
-        <div className={isOwner? style.card__my : style.card}>
+        <div className={isOwner ? style.card__my : style.card}>
             <div className={style.card__top}>
                 <p className='text text_type_digits-default'>{order.number}</p>
-                <p className='text text_color_inactive text_type_main-default'>{`${currentDay === order.createdAt.slice(0, 10)? 'Today' : order.createdAt.slice(0, 10)} at ${order.createdAt.slice(12, 16)}`}</p>
+                <p className='text text_color_inactive text_type_main-default'>{`${currentDay === order.createdAt.slice(0, 10) ? 'Today' : order.createdAt.slice(0, 10)} at ${order.createdAt.slice(12, 16)}`}</p>
             </div>
             <h3 className={`text text_type_main-medium ${style.card__name}`}>{order.name}</h3>
             {isOwner && <p className='text text_type_main-default'>{statusOfOrder[order.status]}</p>}
@@ -32,8 +32,10 @@ export const OrderCard: FC<{order: , isOwner?: boolean}> = ({order, isOwner}) =>
                 <div className={style.card__ingredients}>
                     {order.ingredients.map((elem, index) => {
                         const ingredient = items.find((element: TIngredient) => element._id === elem);
-                        counter += ingredient.price;
-                        if (index < 9) {
+                        if (ingredient) {
+                            counter += ingredient.price;
+                        }
+                        if (ingredient && index < 9) {
                             return <img className={style.card__icon} src={ingredient.image} key={uuidv4()}/>
                         }
                     })}
