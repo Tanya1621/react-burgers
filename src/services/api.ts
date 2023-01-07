@@ -9,7 +9,7 @@ import {
 } from "../utils/api";
 import {getCookie, setCookie} from "../utils/cookie";
 
-const checkResponse = (res) => {
+const checkResponse = (res: Response) => {
     if (res.ok) {
         return res.json();
     }
@@ -21,20 +21,20 @@ export const getItemsRequest = async () => {
         .then((res) => checkResponse(res));
 }
 
-export const getOrderRequest = async (addedIngredients) => {
+export const getOrderRequest = async (addedIngredients: string[]) => {
     return await fetch(ORDER_URL, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            Authorization: getCookie('accessToken')
+            Authorization: '' + getCookie('accessToken')
         },
         body: JSON.stringify({'ingredients': addedIngredients})
     })
         .then((res) => checkResponse(res));
 }
 
-export const restorePassword = async (email) => {
+export const restorePassword = async (email: string) => {
     return await fetch(RESTORE_PASSWORD_URL, {
         method: 'POST',
         headers: {
@@ -47,7 +47,7 @@ export const restorePassword = async (email) => {
 
 }
 
-export const resetPassword = async (password, token) => {
+export const resetPassword = async (password: string, token: string) => {
     return await fetch(PASSWORD_RESET_URL, {
         method: 'POST',
         headers: {
@@ -62,7 +62,7 @@ export const resetPassword = async (password, token) => {
        .then((res) => checkResponse(res))
 }
 
-export const registerRequest = async (email, password, name) => {
+export const registerRequest = async (email: string, password: string, name: string) => {
     return await fetch(REGISTRATION_URL, {
         method: 'POST',
         headers: {
@@ -93,7 +93,7 @@ export const logoutRequest = async () => {
 }
 
 
-export const authRequest = async (email, password) => {
+export const authRequest = async (email: string, password: string) => {
     return await fetch(AUTHORIZATION_URL, {
         method: 'POST',
         headers: {
@@ -109,13 +109,13 @@ export const authRequest = async (email, password) => {
 }
 
 
-export const updateInfoRequest = async (email, password, name) => {
+export const updateInfoRequest = async (email: string, password: string, name: string) => {
     return await fetch(USER_INFO_URL, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            Authorization: getCookie('accessToken')
+            'Authorization': '' + getCookie('accessToken')
         },
         body: JSON.stringify( {
             "email": email,
@@ -125,6 +125,7 @@ export const updateInfoRequest = async (email, password, name) => {
     })
         .then((res) => checkResponse(res))
         .catch(err => {
+            console.log('Error' + err.message);
             refreshTokenRequest(updateInfoRequest);
         })
 }
@@ -135,7 +136,7 @@ export const getUserData = async () => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            Authorization: getCookie('accessToken')
+            'Authorization': '' + getCookie('accessToken')
         }})
         .then((res) => checkResponse(res))
         .catch(err => {
@@ -143,13 +144,13 @@ export const getUserData = async () => {
         })
 }
 
-export const refreshTokenRequest = async (func) => {
+export const refreshTokenRequest = async (func?: any) => {
     return await fetch (TOKEN_URL, {
         method: 'POST',
         headers: {
         'Accept': 'application/json',
             'Content-Type': 'application/json',
-            Authorization: getCookie('accessToken')
+            'Authorization': '' + getCookie('accessToken')
     },
     body: JSON.stringify( {
         'token': getCookie('refreshToken'),

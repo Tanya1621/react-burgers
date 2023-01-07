@@ -28,7 +28,7 @@ const BurgerConstructor = () => {
     function onDropHandler(itemId: TIngredient) {
         const ingredient = items.find((element: TIngredient) => element._id === itemId.id);
         if (ingredient && ingredient.type === bun) {
-            const prevBun = usedIngredients.find((element) => element.type === bun);
+            const prevBun = usedIngredients.find((element: TIngredient) => element.type === bun);
             if (prevBun) {
                 dispatch({type: DECREASE_COUNTER, ingredient: prevBun});
             }
@@ -52,15 +52,15 @@ const BurgerConstructor = () => {
 
     if (usedIngredients.length) {
         let otherIngredients = [];
-        bunElement = usedIngredients.find((element) => element.type === bun);
-        otherIngredients = usedIngredients.filter((element) => element.type !== bun)
-        price = otherIngredients.reduce((prevValue, current) => {
+        bunElement = usedIngredients.find((element: TIngredient) => element.type === bun);
+        otherIngredients = usedIngredients.filter((element: TIngredient) => element.type !== bun)
+        price = otherIngredients.reduce((prevValue: number, current: TIngredient) => {
             return prevValue + current.price;
         }, bunElement ? bunElement.price * 2 : 0)
 
     }
     const idArray: string[] = [];
-    usedIngredients.map((element) => {
+    usedIngredients.map((element: TIngredient) => {
         idArray.push(element._id);
     });
 
@@ -86,7 +86,7 @@ const BurgerConstructor = () => {
                 }
             </div>
             <div className={style.constructor__list}>
-                {usedIngredients.map((element, index: number) => {
+                {usedIngredients.map((element: TIngredient, index: number) => {
                     if (element.type !== bun) {
                         return (
 
@@ -108,7 +108,7 @@ const BurgerConstructor = () => {
                 <p className={`text text_type_digits-medium ${style.constructor__price}`}>{price}</p>
                 <div className={style.constructor__sign}><CurrencyIcon type="primary"></CurrencyIcon></div>
                 <Button
-                    onClick={isAuth ? makeOrder : redirect} type="primary">Оформить заказ</Button>
+                    onClick={isAuth ? makeOrder : redirect} type="primary" htmlType='button'>Оформить заказ</Button>
                 {isRequested && <p>Requested</p>}
             </div>
         </section>

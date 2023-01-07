@@ -49,7 +49,7 @@ export const ResetPasswordPage = () => {
             {error &&
                 <p className={`text text_type_main-small ${style.paragraph}`}>Произошла ошибка, попробуйте снова</p>}
             <Button type='primary' size='medium'
-                    onClick={resetHandler}>{isRequested ? 'Сохранение...' : "Сохранить"}</Button></div>
+                    onClick={resetHandler} htmlType='button'>{isRequested ? 'Сохранение...' : "Сохранить"}</Button></div>
         <div>
             <p className={`text text_type_main-small mb-4 ${style.paragraph}`}>Вспомнили пароль? <NavLink to='/login'
                                                                                                           className={style.link}>Войти</NavLink>

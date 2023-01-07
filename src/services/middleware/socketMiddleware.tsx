@@ -6,10 +6,16 @@ import {
     WS_CONNECTION_SUCCESS,
     WS_GET_ORDERS
 } from "../actions/wsActions";
+import {Middleware} from "redux";
+import { RootState } from "../..";
 
-export const socketMiddleware = (wsUrl) => {
+
+
+export const socketMiddleware:any = (wsUrl: string, payload: string, wsActions: {
+    start: string, success: string, error: string, getInfromation: string, close: string, closed: string
+}):Middleware<{}, RootState> => {
     return store => {
-        let socket = null;
+        let socket: WebSocket | null = null;
         const isCommon = wsUrl.includes('/all');
         const currentToken = getCookie('accessToken');
         const token = !isCommon ? currentToken ? currentToken.substr(7) : false : false;

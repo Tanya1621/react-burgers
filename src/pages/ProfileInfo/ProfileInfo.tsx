@@ -61,7 +61,7 @@ export const ProfileInfo = () => {
                    icon="EditIcon"/>
             <div className={style.profile__button_area}>
                 {changed && <><Button onClick={cancelHandler}
-                                      type={'secondary'}>Отмена</Button>
+                                      type={'secondary'} htmlType='button'>Отмена</Button>
                     <Button htmlType={'submit'}>Сохранить</Button></>}
             </div>
         </form>

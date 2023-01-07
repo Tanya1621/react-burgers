@@ -27,7 +27,6 @@ import {
     WS_CONNECTION_START,
     WS_CONNECTION_SUCCESS, WS_GET_ORDERS
 } from "../actions/wsActions";
-import {RootState, store} from "../../index";
 import {TAuthActions} from "../reducers/authReducer";
 import {TCartReducer} from "../reducers/cartReducer";
 import {TIngredientsReducer} from "../reducers/ingredientsReducer";
@@ -41,6 +40,8 @@ import {
     useDispatch as dispatchHook,
     useSelector as selectorHook
 } from 'react-redux';
+import {RootState, store} from "../../index";
+
 
 export type TChildren = {
     children: React.ReactElement | React.ReactElement[],

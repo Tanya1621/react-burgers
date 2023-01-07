@@ -41,7 +41,7 @@ export const ForgotPassword = () => {
                                onChange={onEmailChange}/>
                         {error && <p className='text text_type_main-small'>Произошла ошибка, попробуйте снова</p>}
                         <Button type='primary' size='medium'
-                                htmlType={"submit"}>{isRequested ? 'Восстановление...' : "Восстановить"}</Button>
+                                htmlType="submit">{isRequested ? 'Восстановление...' : "Восстановить"}</Button>
                     </form>
                 </div>
                 <p className={`text text_type_main-small mb-4 ${style.paragraph}`}>Уже зарегистрированы? <NavLink

@@ -71,21 +71,13 @@ const BurgerIngredients = () => {
                 <h1 className={`text text_type_main-large ${style.ingredients__heading}`}>Соберите бургер</h1>
                 <div className={style.switcher}>
                     <Tab value={bun} active={current === 'bun'} onClick={() => {
-                        onClickTab(refBun)
-                    }}
-                         className="text text_type_main-default">
-                        Булки
-                    </Tab>
+                        onClickTab(refBun)}}>Булки</Tab>
                     <Tab value="sauce" active={current === sauce} onClick={() => {
                         onClickTab(refSauce)
-                    }}
-                         className="text text_type_main-default">
-                        Соусы
-                    </Tab>
+                    }}>Соусы</Tab>
                     <Tab value="main" active={current === main} onClick={() => {
                         onClickTab(refMain)
-                    }}
-                         className="text text_type_main-default">Начинки</Tab>
+                    }}>Начинки</Tab>
                 </div>
                 <ul className={style.ingredients__list} onScroll={scroll} id='scrolled'>
                     <li ref={refBun} id={bun}>
