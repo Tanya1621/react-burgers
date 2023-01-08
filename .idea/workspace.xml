@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="added websocket middleware and wsReducer">
+    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="fixed types">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderCard/OrderCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderCard/OrderCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderInfo/OrderInfo.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProtectedRoute/ProtectedRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProtectedRoute/ProtectedRoute.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AllOrdersPage/AllOrdersPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AllOrdersPage/AllOrdersPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/OrderPage/OrderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/OrderPage/OrderPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/OrdersPopup/OrdersPopup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/OrdersPopup/OrdersPopup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/middleware/socketMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middleware/socketMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddedIngredient/AddedIngredient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddedIngredient/AddedIngredient.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderDetails/OrderDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderDetails/OrderDetails.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,13 +17,14 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="month-9/step-1" />
+        <entry key="$PROJECT_DIR$" value="month-9/step-2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,11 +62,11 @@
       <recent name="$PROJECT_DIR$/src/components/AuthProtectedRoute" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/services/types" />
       <recent name="$PROJECT_DIR$/src/pages" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/pages/" />
       <recent name="$PROJECT_DIR$/src/components/" />
-      <recent name="$PROJECT_DIR$/src/" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -123,7 +115,14 @@
       <workItem from="1669287648334" duration="1489000" />
       <workItem from="1669315286952" duration="4546000" />
       <workItem from="1669372900206" duration="3442000" />
-      <workItem from="1669465812999" duration="12923000" />
+      <workItem from="1669465812999" duration="13744000" />
+      <workItem from="1671209302382" duration="772000" />
+      <workItem from="1671807817796" duration="3609000" />
+      <workItem from="1671888256564" duration="5738000" />
+      <workItem from="1672573661244" duration="10858000" />
+      <workItem from="1672929698511" duration="10628000" />
+      <workItem from="1673036732575" duration="15190000" />
+      <workItem from="1673110046578" duration="14800000" />
     </task>
     <task id="LOCAL-00001" summary="First step">
       <created>1660661133491</created>
@@ -251,7 +250,42 @@
       <option name="project" value="LOCAL" />
       <updated>1669377956718</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added redux persist">
+      <created>1669555549831</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1669555549834</updated>
+    </task>
+    <task id="LOCAL-00020" summary="added types to some components and reducers">
+      <created>1672606933217</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1672606933222</updated>
+    </task>
+    <task id="LOCAL-00021" summary="added types to some components and pages">
+      <created>1673040299261</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1673040299262</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fixed types of variables and hooks">
+      <created>1673101698289</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1673101698290</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fixed types">
+      <created>1673131977206</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1673131977207</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +320,11 @@
     <MESSAGE value="fixed authorization, buttons, protected routes" />
     <MESSAGE value="prepared environment for websocket connection" />
     <MESSAGE value="added websocket middleware and wsReducer" />
-    <option name="LAST_COMMIT_MESSAGE" value="added websocket middleware and wsReducer" />
+    <MESSAGE value="added redux persist" />
+    <MESSAGE value="added types to some components and reducers" />
+    <MESSAGE value="added types to some components and pages" />
+    <MESSAGE value="fixed types of variables and hooks" />
+    <MESSAGE value="fixed types" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed types" />
   </component>
 </project>
