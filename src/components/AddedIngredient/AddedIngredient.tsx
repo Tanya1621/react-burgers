@@ -1,13 +1,18 @@
 import style from "../BurgerConstructor/BurgerConstructor.module.css";
 import {ConstructorElement, DragIcon} from "@ya.praktikum/react-developer-burger-ui-components";
-import React from "react";
+import React, {FC, ReactNode} from "react";
 import {DECREASE_COUNTER, REMOVE_ITEM, SORT_ITEMS} from "../../services/actions";
-import {useDispatch} from "react-redux";
 import {useDrag, useDrop} from "react-dnd";
 import {useRef} from "react";
 import PropTypes from "prop-types";
+import {useDispatch} from "../../services/types/hooks";
+import {TIngredient} from "../../services/types/types";
 
-export const AddedIngredient = ({ingredient, index}) => {
+type Twithindex = TIngredient & {
+    index?: number
+}
+
+export const AddedIngredient: FC<{ingredient: Twithindex, index: number}> = ({ingredient, index}) => {
     ingredient.index = index;
     const dispatch = useDispatch();
 
@@ -18,7 +23,7 @@ export const AddedIngredient = ({ingredient, index}) => {
     })
     const [, dropIngredient] = useDrop({
         accept: 'item',
-        drop(item) {
+        drop(item: Twithindex) {
             const dragged = item.index;
             const dropped = index;
             dispatch({type: SORT_ITEMS, dragged, dropped, item})
@@ -27,8 +32,8 @@ export const AddedIngredient = ({ingredient, index}) => {
 
     })
 
-    const ref = useRef(null);
-    const dragNDropIngredient = dropIngredient(dragIngredient(ref));
+    const ref = useRef<HTMLDivElement>(null);
+    const dragNDropIngredient: any = dropIngredient(dragIngredient(ref));
 
     const onHandleClose = () => {
         dispatch({type: REMOVE_ITEM, index, ingredient});
@@ -44,9 +49,4 @@ export const AddedIngredient = ({ingredient, index}) => {
                 thumbnail={ingredient.image}
                 price={ingredient.price} handleClose={() => onHandleClose()}/>
         </div>)
-}
-
-AddedIngredient.propTypes = {
-    index: PropTypes.number.isRequired,
-    ingredient: PropTypes.object.isRequired,
 }

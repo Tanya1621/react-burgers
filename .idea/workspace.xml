@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="fixed types of variables and hooks">
+    <list default="true" id="d7a11e07-045f-4901-bbac-4f2e3ac0ac6a" name="Changes" comment="fixed types">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerConstructor/BurgerConstructor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BurgerIngredients/BurgerIngredients.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BurgerIngredients/BurgerIngredients.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ForgotPassword/ForgotPassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ForgotPassword/ForgotPassword.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ProfileInfo/ProfileInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfileInfo/ProfileInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ResetPasswordPage/ResetPasswordPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ResetPasswordPage/ResetPasswordPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/middleware/socketMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/middleware/socketMiddleware.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/types/hooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/hooks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/types/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddedIngredient/AddedIngredient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddedIngredient/AddedIngredient.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderDetails/OrderDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderDetails/OrderDetails.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +122,7 @@
       <workItem from="1672573661244" duration="10858000" />
       <workItem from="1672929698511" duration="10628000" />
       <workItem from="1673036732575" duration="15190000" />
-      <workItem from="1673110046578" duration="9137000" />
+      <workItem from="1673110046578" duration="14800000" />
     </task>
     <task id="LOCAL-00001" summary="First step">
       <created>1660661133491</created>
@@ -287,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673101698290</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fixed types">
+      <created>1673131977206</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1673131977207</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +324,7 @@
     <MESSAGE value="added types to some components and reducers" />
     <MESSAGE value="added types to some components and pages" />
     <MESSAGE value="fixed types of variables and hooks" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed types of variables and hooks" />
+    <MESSAGE value="fixed types" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed types" />
   </component>
 </project>

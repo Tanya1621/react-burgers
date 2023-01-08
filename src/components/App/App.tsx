@@ -24,12 +24,13 @@ import {Location} from "history";
 
 
 type TState = {
-    background?: string;
+    background?: any;
 };
 
 type TLocation = Location & {
-    state: TState;
+    state?: TState;
 };
+
 
 
 const App = () => {
@@ -48,7 +49,7 @@ const App = () => {
 
     return (<>
             <AppHeader/>
-            <Switch location={location || background}>
+            <Switch location={background || location}>
                 <Route exact path='/' component={MainPage}/>
                 <Route exact path='/feed' component={AllOrdersPage}/>
                 <AuthProtectedRoute path='/register'>

@@ -4,8 +4,6 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import React from "react";
 import style from './CardOfTheIngredient.module.css';
-import {ingredientType} from "../../utils/ingredientType";
-import PropTypes from "prop-types";
 import {useDrag} from "react-dnd";
 
 import {TIngredient} from "../../services/types/types";
@@ -41,9 +39,6 @@ const CardOfTheIngredient = ({data, onClick}: propTypes) => {
         </div>
     )
 }
-// CardOfTheIngredient.propTypes = {
-//     data: ingredientType.isRequired,
-//     onClick: PropTypes.func.isRequired,
-// }
+
 
 export default CardOfTheIngredient;
